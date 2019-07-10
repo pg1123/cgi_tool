@@ -1,0 +1,828 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="{dede:global.cfg_keywords/}">
+<meta name="description" content="{dede:global.cfg_description/}">
+<title>{dede:global.cfg_webname/}</title>
+<link href="{dede:global.cfg_templets_skin/}/css/style.css" type="text/css" rel="stylesheet" />
+<script src="{dede:global.cfg_templets_skin/}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/layui/layui.js"></script>
+</head>
+
+<body>
+<div id="container">
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.js"></script>
+
+<div class="header clearfix ctnt">
+    <div class="logo"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></div>
+
+    <ul class="layui-nav">
+      <li class="layui-nav-item layui-this"> <a href="/">首页</a> </li>
+
+
+      
+            <li class="layui-nav-item"> <a href="#">教程</a>
+              <dl class="layui-nav-child snav">
+                    <dd>
+                      <a href="/jiaocheng/3djiaocheng/" class="btit">3D教程</a>
+                       <div class="snavfl clearfix">
+                         
+                        <a href="/jiaocheng/3djiaocheng/3d1/">3d-1</a>
+                        <a href="/jiaocheng/3djiaocheng/3d2/">3d-1</a>
+                        
+
+                       </div>
+                    </dd>
+                    <dd>
+                      <a href="/jiaocheng/2djiaocheng/" class="btit">2D教程</a>
+                       <div class="snavfl clearfix">
+                       </div>
+                    </dd>
+              </dl>
+            </li>
+            
+
+    
+            <li class="layui-nav-item"> <a href="#">软件/插件</a>
+              <dl class="layui-nav-child snav">
+                                    <dd>
+                      <a href="/ruanjianchajian/ruanjianyi/" class="btit">软件一</a>
+                       <div class="snavfl clearfix">
+                         
+                                                        <a href="/ruanjianchajian/ruanjianyi/ruanjian1/">软件1</a>
+                        
+
+                       </div>
+                    </dd>
+                                </dl>
+            </li>
+            
+
+    
+            <li class="layui-nav-item"> <a href="#">素材</a>
+              <dl class="layui-nav-child snav">
+                              </dl>
+            </li>
+            
+
+          
+  
+                 <!-- <script src="/e/member/login/logined.php"></script> -->
+
+    </ul>
+
+       <!--  <script src="/e/member/login/noLogined.php"></script> -->
+
+
+  </div>
+
+<!--登录弹窗-->
+  <div class="logina"  id="logintc" style="display:none;">
+ <form id="login_form" class="layui-form" method="post" action="/e/member/doaction.php">
+    <input type="hidden" name="ecmsfrom" value="9">
+    <input name="tobind" type="hidden" id="tobind" value="0">
+    <input type="hidden" name="enews" value="login">
+    <input type="hidden" name="lifetime" value="3600">
+  <div class="layui-form-item">
+    <label class="layui-form-label">用户名</label>
+    <div class="layui-input-block">
+      <input type="text" name="username" id="login_name" lay-verify="title" autocomplete>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">密码</label>
+    <div class="layui-input-block">
+      <input type="password" name="password" id="login_password" lay-verify="required" autocomplete>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">&nbsp;</label>
+    <div class="layui-input-block">
+      <p><a href="/e/member/GetPassword/">忘记密码？</a></p>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button  class="login_button layui-btn layui-btn1" lay-submit="" lay-filter="demo1">立即登录
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+  </div>
+
+  <!--注册弹窗-->
+  <div class="logina"  id="design" style="display:none;">
+     <form class="layui-form" method="post" name="userinfoform" action="/e/member/doaction.php">
+        <input name="tobind" type="hidden" id="tobind" value="0">
+        <input type="hidden" name="enews" value="register">
+       <input type="hidden" name="ecmsfrom" value="9">
+
+        <div class="layui-form-item">
+          <label class="layui-form-label">用户名</label>
+          <div class="layui-input-block">
+            <input type="text" name="username" id="reg_name" lay-verify="title" autocomplete>
+          </div>
+        </div>
+
+        <div class="layui-form-item">
+          <label class="layui-form-label">密码</label>
+          <div class="layui-input-block">
+            <input type="password" name="password" id="reg_password" lay-verify="required" autocomplete>
+          </div>
+        </div>
+
+        <div class="layui-form-item">
+          <label class="layui-form-label">重复密码</label>
+          <div class="layui-input-block">
+            <input type="password" name="repassword" id='reg_repassword' lay-verify="required">
+          </div>
+        </div>
+
+        <div class="layui-form-item">
+          <label class="layui-form-label">邮箱</label>
+          <div class="layui-input-block">
+            <input type="text" name="email" id='reg_email' type="text" lay-verify="required"> 
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button  class="reg_button layui-btn layui-btn1" lay-submit="" lay-filter="demo1">立即注册
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+          </div>
+        </div>
+</form>
+  </div>
+
+  <div id="main">
+    <div class="cgi cgia">
+      <div class="tit clearfix">
+        <h2>CGI最新推荐</h2>
+        <a href="/"><i class="fa fa-refresh" aria-hidden="true"></i>显示更多</a></div>
+      <div class="layui-row">
+                         <div class="layui-col-xs3">
+                    <div class="grid-demo"><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/44.html"><img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a></div>
+                </div>
+                        <div class="layui-col-xs3">
+                    <div class="grid-demo"><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/113.html"><img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a></div>
+                </div>
+                        <div class="layui-col-xs3">
+                    <div class="grid-demo"><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/57.html"><img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a></div>
+                </div>
+                        <div class="layui-col-xs3">
+                    <div class="grid-demo"><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/49.html"><img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a></div>
+                </div>
+                        <div class="layui-col-xs3">
+                    <div class="grid-demo"><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/55.html"><img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a></div>
+                </div>
+                        <div class="layui-col-xs3">
+                    <div class="grid-demo"><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/99.html"><img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a></div>
+                </div>
+              </div>
+    </div>
+
+      <div class="cginew">
+
+        <div class="tit clearfix">
+        <h2    >CGI</h2>
+        <a href="">查看更多</a></div>
+        
+              <div class="layui-tab-item layui-show">
+                  <div class="layui-row" id="con">
+                     
+              <div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-02/2.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-02/2.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>361</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>1</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>38</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/3.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/3.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>128</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>2</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/4.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/4.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>135</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>1</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/5.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/5.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>129</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>1</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>1</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/6.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/6.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>118</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/7.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/7.html">测试文章6</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>123</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>1</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/8.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/8.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>117</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/9.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/9.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>122</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/10.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/10.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>118</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/11.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/11.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>119</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/12.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/12.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>118</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>3</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/13.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/jiaocheng/3djiaocheng/3d1/2019-05-09/13.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>120</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>                </div>
+            </div>
+        
+              <div class="layui-tab-item ">
+                  <div class="layui-row" id="con">
+                     
+              <div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/87.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/87.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/88.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/88.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>2</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>1</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>1</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/90.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/90.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/91.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/91.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/92.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/92.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/93.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/93.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/94.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/94.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>1</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/95.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/95.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>1</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/96.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/96.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/97.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/97.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/98.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/98.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div><div class="border">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/99.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/99.html">测试文章２</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>                </div>
+            </div>
+        
+              <div class="layui-tab-item ">
+                  <div class="layui-row" id="con">
+                     
+                              </div>
+            </div>
+        
+
+
+      
+
+
+      </div>
+
+
+
+
+      
+    <div class="cgi cgiall">
+      <div class="tit clearfix">
+        <h2>CGI全部资源</h2>
+</div>
+      <div class="layui-row flow-default clearfix" id="LAY_demo1">
+
+            <!-- <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="#" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="#" title="渲云渲染，让渲染更高效">渲云渲染，让渲染更高效</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>66</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>12</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>24</span></div>
+                </div>
+              </div>
+            </div> -->
+
+                        <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/116.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/116.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>1</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/115.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/115.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>1</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/114.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/114.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/113.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/113.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/112.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/112.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/111.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/111.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/110.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/110.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>1</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/109.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/109.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/108.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/108.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/107.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/107.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/106.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/106.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/105.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/105.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/104.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/104.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/103.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/103.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/102.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/102.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/101.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/101.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/100.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/100.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/99.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/99.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/98.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/98.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/97.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/97.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/96.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/96.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/95.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/95.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>1</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/94.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/94.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>1</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+
+
+                    <div class="layui-col-xs3">
+              <div class="grid-demo"> <a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/93.html" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img1.jpg" /></a>
+                <div class="cgiarc">
+                  <div class="cgiarc1">
+                  <h3><a href="/ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/93.html" title="测试文章２">测试文章２</a></h3>
+                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>
+                  </div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>0</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>0</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+    </div>
+      <p class="nodata"></p>
+  </div>
+
+ 
+
+<!-- 页脚 -->
+<!-- 页脚 -->
+<div class="footer">
+Copyright ©2019 CGITool right reserved.京ICP备11081390号-1
+</div>
+</div>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
