@@ -2,6 +2,7 @@
 /* CSS Document */
 @import url("font-awesome.min.css");
 @import url("../layui/css/layui.css");
+@import url("../layui/css/modules/layer/default/layer.css");
 * {padding: 0;margin: 0;}
 .clearfix {*zoom: 1;}
 .clearfix:before, .clearfix:after {display: table;line-height: 0;content: "";}
