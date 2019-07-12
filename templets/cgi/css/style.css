@@ -14,8 +14,7 @@ button, input {font-family: "微软雅黑";outline: none;}
 #container{ font-size:14px;font-family: "微软雅黑"; color:#333;}
 body{ background-color:#f7f7f7;}
 .ctnt{ min-width:1080px; }
-
-/*头部导航111*/
+/*头部导航*/
 .header { position:relative; background-color:#393d49; width:100%; }
 .header .logo{ float:left; margin-left:20px; margin-right:50px; }
 .header .logo{ height:20px; margin-top:20px;}
@@ -38,7 +37,7 @@ body{ background-color:#f7f7f7;}
 .header .login{ position:absolute ; right:20px; top:20px;color:#c4c5c9;}
 .header .login a{ color:#c4c5c9; margin:0 8px;}
 .header .login a:hover{ color:#fff;}
-.layui-nav .usera{ position: absolute; right: 200px; }
+.layui-nav .usera{ position: absolute; right: 20px; }
 /*主要内容*/
 #main{ width:90%; padding:0 5%; margin:0 auto; min-width:1080px;}
 .cgi ,.cgijc{ padding-top:20px;}
@@ -63,7 +62,7 @@ body{ background-color:#f7f7f7;}
 .cginew{ padding:10px 0; padding-top:0;}
 .cginew .layui-row{margin:0 -8px;}
 .cginew .layui-row .border{ width:20%; float:left;}
-.cginew .layui-row .grid-demo{ border:1px solid #ddd;  background-color:#fff; float:left; margin:0 8px;margin-bottom:16px;}
+.cginew .layui-row .grid-demo{ border:1px solid #ddd;  background-color:#fff;margin:0 8px;margin-bottom:16px;}
 .cginew .layui-row a.show{overflow:hidden;position:relative;  display:block;}
 .layui-tab-item{ display:block;}
 .shadow{ position:absolute; top:0; left:0; right:0; bottom:0; background-color:rgba(0,0,0,0.5); color:#fff; text-align:left; border-radius:3px; padding:10px; overflow:hidden;} 
@@ -166,7 +165,7 @@ body{ background-color:#f7f7f7;}
 .app-content-body img{ height:30px; margin-top:4px;}
 .app-content-body span a{ color:#3596dd; margin-left:10px;}
 .app-content-body span a:hover{ text-decoration:underline;}
-@media(min-width:1600px){
+@media(min-width:1500px){
     .cgiall .layui-col-xs3{ width:16.666%;}
     }
 
