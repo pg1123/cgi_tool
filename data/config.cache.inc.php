@@ -1,13 +1,13 @@
 <?php
 $cfg_disable_funs = 'phpinfo,eval,exec,passthru,shell_exec,system,proc_open,popen,curl_exec,curl_multi_exec,parse_ini_file,show_source,file_put_contents';
 $cfg_disable_tags = 'php';
-$cfg_basehost = 'http://seofan.local';
+$cfg_basehost = 'http://cgitool.local';
 $cfg_cmspath = '';
 $cfg_cookie_encode = 'gwvGk3GnHVM0wVpN2mBV8WYedBEdbh';
 $cfg_indexurl = '/';
 $cfg_backup_dir = 'backupdata';
 $cfg_indexname = '主页';
-$cfg_webname = '饭宝赚-苹果手机赚钱软件-兼职赚钱网站';
+$cfg_webname = 'CGItool';
 $cfg_adminemail = '446383602@qq.com';
 $cfg_html_editor = 'ckeditor';
 $cfg_arcdir = '/a';
@@ -101,9 +101,9 @@ $cfg_upload_switch = 'Y';
 $cfg_allsearch_limit = '1';
 $cfg_rewrite = 'N';
 $cfg_delete = 'Y';
-$cfg_keywords = 'app试玩平台，苹果手机赚钱，苹果赚钱软件，iphone赚钱软件，ios赚钱app，苹果手机赚钱软件无限刷，苹果赚钱app，苹果手机赚钱软件方法，苹果手机赚钱软件日入百元，ipad赚钱软件';
-$cfg_description = '饭宝赚-分享手机APP试玩平台哪个好,教你用苹果手机赚钱软件兼职,ios和iphone手机赚钱软件任务多平台推荐。';
-$cfg_beian = '';
+$cfg_keywords = 'ghostxx.com 是一个针对于CG、设计、技术、建筑、艺术、软件等行业公益性的网站收藏、资源分享网站，是专业的行业网址站点大全、资源分享平台';
+$cfg_description = 'ghostxx.com|CG网站|设计网站|网站收藏|设计网站|建筑网站导航|艺术设计网站|网站导航|资源下载|教程下载';
+$cfg_beian = 'Copyright &copy;2017 GhostXX all right reserved.                     <br /><a href="http://www.miitbeian.gov.cn" target="_blank">苏ICP备11081390号-1</a> ';
 $cfg_need_typeid2 = 'Y';
 $cfg_cache_type = 'id';
 $cfg_max_face = 50;
