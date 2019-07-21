@@ -15,12 +15,40 @@
   <div class="header clearfix ctnt">
     <div class="logo"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></div>
 
-    {dede:channelartlist typeid='1'}
-{dede:field.typename/}
-{dede:channel type='son'}
-<a href='[field:typelink/]'>[field:typename/]</a>
-{/dede:channel}
-{/dede:channelartlist}
+
+<ul class="layui-nav">
+  <li class="layui-nav-item layui-this"> <a href="index.html">首页</a> </li>
+  {dede:channelartlist typeid='top' row='10' currentstyle="<li class='nactive'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
+  <li class="layui-nav-item">
+    <a href="{dede:field name='typeurl'/}" >{dede:field name='typename' /}</a>
+    <dl class="layui-nav-child snav">
+    <dd>
+    {dede:sql sql='select * from dede_arctype where reid =~id~ '}
+        <a href="[field:typelink/]" class="btit">[field:typename/]</a>
+        <div class="snavfl clearfix">
+        [field:id runphp='yes']
+                global $dsql;
+                $id=@me;
+                $sql='Select * from dede_arctype where reid='.$id.' ORDER BY id limit 0,20';
+                $dsql->SetQuery($sql);
+                $dsql->Execute();
+                while($row = $dsql->GetArray()){
+                    $url = str_replace("{cmspath}","",$row['typedir']);
+                    $str .='<a href="'.$url.'">'.$row['typename'].'</a>';
+                    @me = $str;
+                }                      
+                if(@me == $id){
+                  @me ='';
+                }
+         [/field:id]
+         </div>
+      {/dede:sql}
+    </dd>
+    </dl>
+  </li>
+  {/dede:channelartlist}
+</ul>
+
 
     <!-- <ul class="layui-nav">
       <li class="layui-nav-item layui-this"> <a href="index.html">首页</a> </li>

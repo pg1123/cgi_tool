@@ -208,3 +208,31 @@ Error: Table 'cgi_tool.ywcm_arctype' doesn't exist <br />Error sql: <font color=
 Time2019-07-16 17:49:50
 */
 ?>
+<?php  exit();
+/*
+Page: /
+Error: Table 'cgi_tool.ywcm_arctype' doesn't exist <br />Error sql: <font color='red'>select * from ywcm_arctype where reid ='1'</font>
+Time2019-07-21 22:49:03
+*/
+?>
+<?php  exit();
+/*
+Page: /
+Error: Table 'cgi_tool.ywcm_arctype' doesn't exist <br />Error sql: <font color='red'>select * from ywcm_arctype where reid ='2'</font>
+Time2019-07-21 22:49:03
+*/
+?>
+<?php  exit();
+/*
+Page: /
+Error: Table 'cgi_tool.ywcm_arctype' doesn't exist <br />Error sql: <font color='red'>select * from ywcm_arctype where reid ='1'</font>
+Time2019-07-21 22:49:36
+*/
+?>
+<?php  exit();
+/*
+Page: /
+Error: Table 'cgi_tool.ywcm_arctype' doesn't exist <br />Error sql: <font color='red'>select * from ywcm_arctype where reid ='2'</font>
+Time2019-07-21 22:49:36
+*/
+?>
