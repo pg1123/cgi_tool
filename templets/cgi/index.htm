@@ -20,7 +20,8 @@
   <li class="layui-nav-item layui-this"> <a href="index.html">首页</a> </li>
   {dede:channelartlist typeid='top' row='10' currentstyle="<li class='nactive'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
   <li class="layui-nav-item">
-    <a href="{dede:field name='typeurl'/}" >{dede:field name='typename' /}</a>
+    <!-- <a href="{dede:field name='typeurl'/}" >{dede:field name='typename' /}</a> -->
+    <a href="javascript:;" >{dede:field name='typename' /}</a>
     <dl class="layui-nav-child snav">
     <dd>
     {dede:sql sql='select * from dede_arctype where reid =~id~ '}
@@ -77,10 +78,16 @@
     <div class="cgi cgia">
       <div class="tit clearfix">
         <h2>CGI最新推荐</h2>
-        <a href="#"><i class="fa fa-refresh" aria-hidden="true"></i>显示更多</a></div>
+        <a href="/"><i class="fa fa-refresh" aria-hidden="true"></i>显示更多</a></div>
       <div class="layui-row">
 
-        <div class="layui-col-xs3">
+        {dede:arclist row='500' pagesize='4' titlelen='50' orderby='rand'}
+          <li><a href="[field:arcurl/]" title="[field:title /]">[field:title /]</a></li>
+          <div class="layui-col-xs3">
+            <div class="grid-demo"><a href="[field:arcurl/]"><img src="[field:litpic /]"/></a></div>
+          </div>
+        {/dede:arclist}
+        <!-- <div class="layui-col-xs3">
           <div class="grid-demo"><a href="#"><img src="{dede:global.cfg_templets_skin/}/images/img2.jpg" /></a></div>
         </div>
         <div class="layui-col-xs3">
@@ -92,7 +99,9 @@
         <div class="layui-col-xs3">
           <div class="grid-demo"><a href="#"><img src="{dede:global.cfg_templets_skin/}/images/img4.jpg" /></a></div>
         </div>
-      </div>
+      </div> -->
+
+
     </div>
       
     <div class="cginew">
