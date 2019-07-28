@@ -11,9 +11,17 @@ $z[3][4]['row']="10";
 $z[3][4]['currentstyle']="<li class='nactive'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>";
 $z[4]=Array("field","",2593,2612);
 $z[4][4]['name']="title";
-$z[5]=Array("field","",3351,3369);
-$z[5][4]['name']="body";
-$z[6]=Array("global","",3568,3600);
-$z[6][4]['name']="cfg_templets_skin";
+$z[5]=Array("field","",3130,3157);
+$z[5][4]['name']="phpurl";
+$z[6]=Array("field","",3181,3204);
+$z[6][4]['name']="id";
+$z[7]=Array("field","",3209,3233);
+$z[7][4]['name']="mid";
+$z[8]=Array("field","",3238,3266);
+$z[8][4]['name']="channel";
+$z[9]=Array("field","",3557,3575);
+$z[9][4]['name']="body";
+$z[10]=Array("global","",3774,3806);
+$z[10][4]['name']="cfg_templets_skin";
 
 ?>

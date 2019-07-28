@@ -19,3 +19,13 @@ function litimgurls($imgid=0)
     //返回结果
     return $lit_imglist;
 }
+
+
+function cnum($id)
+{
+global $dsql;
+$row = $dsql->GetOne("Select count(id) as c from dede_feedback where aid='$id'");
+$num=$row['c'];
+if($num==0)$num=' 0';
+return $num;
+}

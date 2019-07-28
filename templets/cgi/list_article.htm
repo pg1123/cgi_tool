@@ -4,78 +4,58 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>素材网|软件1</title>
-<link href="/just/css/style.css" type="text/css" rel="stylesheet" />
-<script src="/just/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="/just/layui/layui.js"></script>
+<title>CGItool</title>
+<link href="{dede:global.cfg_templets_skin/}/css/style.css" type="text/css" rel="stylesheet" />
+<script src="{dede:global.cfg_templets_skin/}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/layui/layui.js"></script>
+<style type="text/css">
+  /*pages*/ .pagination-wrapper{ margin: 20px 0; } .pagination{ height: 34px; text-align: center; } .pagination li { display: inline-block; height: 34px; margin-right: 5px; } .pagination li a{ float: left; display: block; height: 32px; line-height: 32px; padding: 0 12px; font-size: 16px; border: 1px solid #dddddd; color: #555555; text-decoration: none; } .pagination li a:hover{ background:#f5f5f5; color:#0099ff; } .pagination li.thisclass { background: #09f; color: #fff; } .pagination li.thisclass a,.pagination li.thisclass a:hover{ background: transparent; border-color: #09f; color: #fff; cursor: default; }
+</style>
 </head>
 
 <body>
 <div id="container">
-<script type="text/javascript" src="/just/js/main.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.js"></script>
 
 <div class="header clearfix ctnt">
-    <div class="logo"><img src="/just/images/logo.png" /></div>
+    <div class="logo"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></div>
 
     <ul class="layui-nav">
       <li class="layui-nav-item layui-this"> <a href="/">首页</a> </li>
-
-
-      
-            <li class="layui-nav-item"> <a href="#">教程</a>
-              <dl class="layui-nav-child snav">
-                                    <dd>
-                      <a href="/jiaocheng/3djiaocheng/" class="btit">3D教程</a>
-                       <div class="snavfl clearfix">
-                         
-                                                        <a href="/jiaocheng/3djiaocheng/3d1/">3d-1</a>
-                                                        <a href="/jiaocheng/3djiaocheng/3d2/">3d-1</a>
-                        
-
-                       </div>
-                    </dd>
-                                      <dd>
-                      <a href="/jiaocheng/2djiaocheng/" class="btit">2D教程</a>
-                       <div class="snavfl clearfix">
-                         
-                        
-
-                       </div>
-                    </dd>
-                                </dl>
-            </li>
-            
-
-    
-            <li class="layui-nav-item"> <a href="#">软件/插件</a>
-              <dl class="layui-nav-child snav">
-                                    <dd>
-                      <a href="/ruanjianchajian/ruanjianyi/" class="btit">软件一</a>
-                       <div class="snavfl clearfix">
-                         
-                                                        <a href="/ruanjianchajian/ruanjianyi/ruanjian1/">软件1</a>
-                        
-
-                       </div>
-                    </dd>
-                                </dl>
-            </li>
-            
-
-    
-            <li class="layui-nav-item"> <a href="#">素材</a>
-              <dl class="layui-nav-child snav">
-                              </dl>
-            </li>
-            
-
-          
-  
-                 <script src="/e/member/login/logined.php"></script>
-
+      {dede:channelartlist typeid='top' row='10' currentstyle="<li class='nactive'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
+      <li class="layui-nav-item">
+        <!-- <a href="{dede:field name='typeurl'/}" >{dede:field name='typename' /}</a> -->
+        <a href="javascript:;" >{dede:field name='typename' /}</a>
+        <dl class="layui-nav-child snav">
+        <dd>
+        {dede:sql sql='select * from dede_arctype where reid =~id~ '}
+            <a href="[field:typelink/]" class="btit">[field:typename/]</a>
+            <div class="snavfl clearfix">
+            [field:id runphp='yes']
+                    global $dsql;
+                    $id=@me;
+                    $sql='Select * from dede_arctype where reid='.$id.' ORDER BY id limit 0,20';
+                    $dsql->SetQuery($sql);
+                    $dsql->Execute();
+                    while($row = $dsql->GetArray()){
+                        $url = str_replace("{cmspath}","",$row['typedir']);
+                        $str .='<a href="/plus/list.php?tid='.$id.'">'.$row['typename'].'</a>';
+                        @me = $str;
+                    }                      
+                    if(@me == $id){
+                      @me ='';
+                    }
+             [/field:id]
+             </div>
+          {/dede:sql}
+        </dd>
+        </dl>
+      </li>
+      {/dede:channelartlist}
     </ul>
 
-        <script src="/e/member/login/noLogined.php"></script>
+    <div class="login"><a href="#" onclick="logintc()">登录</a>|<a href="#" onclick="design()">注册</a></div>
+  </div>
 
 
   </div>
@@ -168,312 +148,22 @@
     </div>
     <div class="cginew">
     <div class="layui-row">
+      {dede:list pagesize="50"}
              <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/88.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
+              <div class="grid-demo"> <a href="[field:arcurl/]" class="show"> <img src="[field:picname/]" />
+                <div class="shadow" style="display:none;"> [field:title/] </div>
                 </a>
                 <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/88.html ">测试文章２</a></h3>
+                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/88.html ">[field:title/]</a></h3>
                   <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=88></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>1</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=88&down=5></script></span></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>[field:click /]</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i> [field:id function='cnum(@me)'/]</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>[field:goodpost /]</span></div>
                 </div>
               </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/87.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/87.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=87></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=87&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/94.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/94.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=94></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=94&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/95.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/95.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=95></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=95&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/104.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/104.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=104></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=104&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/110.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/110.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=110></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=110&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/115.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/115.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=115></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=115&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/116.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/116.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=116></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=116&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/89.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - SOLIDWORKS - Tools Suite<br />
-<br />
-Lynda - SolidWorks工具套件教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/89.html "> Lynda - SOLIDWORKS - Tools Suite</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=89></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=89&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/90.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/90.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=90></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=90&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/91.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/91.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=91></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=91&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/92.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/92.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=92></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=92&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/93.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/93.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=93></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=93&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/96.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/96.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=96></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=96&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/97.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/97.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=97></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=97&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/98.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/98.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=98></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=98&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/99.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/99.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=99></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=99&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/100.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/100.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=100></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=100&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/101.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/101.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=101></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=101&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/102.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/102.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=102></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=102&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/103.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/103.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=103></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=103&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/105.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/105.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=105></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=105&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/106.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/106.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=106></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=106&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/107.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/107.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=107></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=107&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/108.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/108.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=108></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=108&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/109.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/109.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=109></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=109&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/111.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/111.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=111></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=111&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/112.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/112.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=112></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=112&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/113.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/113.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=113></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=113&down=5></script></span></div>
-                </div>
-              </div>
-            </div> <div class="border">
-              <div class="grid-demo"> <a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/114.html" class="show"> <img src="/just/images/img.jpg" />
-                <div class="shadow" style="display:none;"> Lynda - Learning Algorithmic Design with GrasshopperLynda - 学习犀牛里的Grasshopper算法教程 </div>
-                </a>
-                <div class="cgiarc">
-                  <h3><a href=" /ruanjianchajian/ruanjianyi/ruanjian1/2019-05-15/114.html ">测试文章２</a></h3>
-                  <div class="tag"><strong><a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li></strong></div>
-                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=114></script></span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>0</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><script src=/e/public/ViewClick/?classid=9&id=114&down=5></script></span></div>
-                </div>
-              </div>
-            </div>
+        </div>
+      {/dede:list}
     </div>
   </div>
-　<div class="pageBox pTB20"></div>
+  <div class="pagination-wrapper"> <div class="pagination">{dede:pagelist listsize='5' listitem='info,index,end,pre,next,pageno'/}</div> </div>
 
 </div>
 </div>
@@ -483,7 +173,66 @@ Lynda - SolidWorks工具套件教程 </div>
 Copyright ©2019 CGITool right reserved.京ICP备11081390号-1
 </div>
 <script type="text/javascript">
+
+$(function(){
         
+$(".show").hover(function() {
+  $(this).children(".shadow").show();
+}, function() {
+  $(this).children(".shadow").hide();
+});
+
+    })
+    
+    
+    layui.use('element', function(){
+  var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+  
+  //监听导航点击
+  element.on('nav(demo)', function(elem){
+    //console.log(elem)
+    layer.msg(elem.text());
+  });
+});
+
+
+  layui.use(['form','upload', 'laydate','laypage', 'layer'], function(){
+    var form = layui.form,
+    layer = layui.layer,
+    laydate = layui.laydate;
+  });
+
+
+
+
+
+
+//登录弹窗
+  function logintc(){
+      layer.open({
+        type: 1,
+        title: '用户登录',
+        shadeClose: true,
+        shade: 0.8,
+        area: ['400px', 'auto'],
+        content: $('#logintc') //iframe的url
+      });
+  }
+
+
+  //注册弹窗
+function design(){
+layer.open({
+        type: 1,
+  title: '用户注册',
+  shadeClose: true,
+  shade: 0.8,
+  area: ['400px', 'auto'],
+  content: $('#design') //iframe的url
+        
+});
+}
+
 
 </script>
 </body>
