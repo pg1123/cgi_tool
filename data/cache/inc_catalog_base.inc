@@ -9,4 +9,5 @@ $cfg_Cs[5]=array(2,1,1,'M0TmlZnnqIs=');
 $cfg_Cs[10]=array(3,1,1,'M2QtMQ==');
 $cfg_Cs[11]=array(3,1,1,'M2QtMg==');
 $cfg_Cs[9]=array(2,1,1,'MkTmlZnnqIs=');
+$cfg_Cs[12]=array(5,1,1,'amMtMQ==');
 ?>
