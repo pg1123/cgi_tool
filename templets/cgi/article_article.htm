@@ -81,50 +81,43 @@
     </div>
 
   </div>
+
+
   <!--登录弹窗-->
-  <div class="logina"  id="design" style="display:none;">
-     <form class="layui-form">
-        <input name="tobind" type="hidden" id="tobind" value="0">
-        <input type="hidden" name="enews" value="register">
-
-        <div class="layui-form-item">
-          <label class="layui-form-label">用户名</label>
-          <div class="layui-input-block">
-            <input type="text" name="username" id="username" lay-verify="title" autocomplete>
-          </div>
-        </div>
-
-        <div class="layui-form-item">
-          <label class="layui-form-label">密码</label>
-          <div class="layui-input-block">
-            <input type="password" name="password" id="password" lay-verify="required" autocomplete>
-          </div>
-        </div>
-
-        <div class="layui-form-item">
-          <label class="layui-form-label">重复密码</label>
-          <div class="layui-input-block">
-            <input type="password" name="repassword" id='repassword' lay-verify="required">
-          </div>
-        </div>
-
-        <div class="layui-form-item">
-          <label class="layui-form-label">邮箱</label>
-          <div class="layui-input-block">
-            <input type="text" name="email" id='email' type="text" lay-verify="required"> 
-          </div>
-        </div>
-        <div class="layui-form-item">
-          <div class="layui-input-block">
-            <button class="layui-btn layui-btn1" lay-submit="" lay-filter="demo1">立即注册
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-          </div>
-        </div>
-    </form>
+  <div class="logina"  id="logintc" style="display:none;">
+ <form class="layui-form" >
+    <input type="hidden" name="ecmsfrom" value="">
+    <input name="tobind" type="hidden" id="tobind" value="0">
+    <input type="hidden" name="enews" value="login">
+    <input type="hidden" name="lifetime" value="3600">
+  <div class="layui-form-item">
+    <label class="layui-form-label">用户名</label>
+    <div class="layui-input-block">
+      <input type="text" name="username" id="username" lay-verify="title" autocomplete>
+    </div>
   </div>
-</div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">密码</label>
+    <div class="layui-input-block">
+      <input type="password" name="password" id="password" lay-verify="required" autocomplete>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">&nbsp;</label>
+    <div class="layui-input-block">
+      <p><a href="/e/member/GetPassword/">忘记密码？</a></p>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn layui-btn1" lay-submit="" lay-filter="demo1">立即登录
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+  </div>
 
-<!--注册弹窗-->
+  <!--注册弹窗-->
   <div class="logina"  id="design" style="display:none;">
      <form class="layui-form">
         <input name="tobind" type="hidden" id="tobind" value="0">
@@ -169,6 +162,15 @@
 
 </div>
 <script type="text/javascript">
+$(function(){
+        
+$(".show").hover(function() {
+  $(this).children(".shadow").show();
+}, function() {
+  $(this).children(".shadow").hide();
+});
+
+    })
     
     
     layui.use('element', function(){
@@ -207,17 +209,17 @@
 
 
   //注册弹窗
-    function design(){
-        layer.open({
-                type: 1,
-          title: '用户注册',
-          shadeClose: true,
-          shade: 0.8,
-          area: ['400px', 'auto'],
-          content: $('#design') //iframe的url
-                
-        });
-    }
+function design(){
+layer.open({
+        type: 1,
+  title: '用户注册',
+  shadeClose: true,
+  shade: 0.8,
+  area: ['400px', 'auto'],
+  content: $('#design') //iframe的url
+        
+});
+}
 
 
  
