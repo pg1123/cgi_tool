@@ -68,7 +68,11 @@
         </div>
         <div class="conn"> <span class="view"> <i class="fa fa-eye" aria-hidden="true"></i>
     <script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}&cid={dede:field name='channel'/}" type='text/javascript' language="javascript"></script>
- </span><span class="talk"> <i class="fa fa-commenting-o" aria-hidden="true"></i>42 </span><span class="up" > <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>2474 </span> </div>
+ </span><span class="talk"> <i class="fa fa-commenting-o" aria-hidden="true"></i>{dede:field.id runphp=’yes’} @me = $id = @me; 
+$dsql = new dedesql(); 
+$row = $dsql->GetOne("Select count(id) as c from dede_feedback where aid='$id'"); 
+@me = $row['c'] ? $row['c'] : 0; 
+{/dede:field.id} </span><span class="up" > <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {dede:field.goodpost/} </span> </div>
       </div>
       <div class="dmain-m">
         <p>{dede:field.body/}</p>

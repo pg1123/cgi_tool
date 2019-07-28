@@ -19,9 +19,14 @@ $z[7]=Array("field","",3209,3233);
 $z[7][4]['name']="mid";
 $z[8]=Array("field","",3238,3266);
 $z[8][4]['name']="channel";
-$z[9]=Array("field","",3557,3575);
-$z[9][4]['name']="body";
-$z[10]=Array("global","",3774,3806);
-$z[10][4]['name']="cfg_templets_skin";
+$z[9]=Array("field"," @me = \$id = @me; \n\$dsql = new dedesql(); \n\$row = \$dsql->GetOne(\"Select count(id) as c from dede_feedback where aid='\$id'\"); \n@me = \$row['c'] ? \$row['c'] : 0; \n",3404,3612);
+$z[9][4]['name']="id";
+$z[9][4]['runphp']="’yes’";
+$z[10]=Array("field","",3692,3714);
+$z[10][4]['name']="goodpost";
+$z[11]=Array("field","",3782,3800);
+$z[11][4]['name']="body";
+$z[12]=Array("global","",3999,4031);
+$z[12][4]['name']="cfg_templets_skin";
 
 ?>
