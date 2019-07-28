@@ -102,7 +102,118 @@
 
 
     </div>
+<br>
+    {dede:channelartlist}
+          <div class="cginew">
+            <div class="tit clearfix">
+            <h2>{dede:field name='typename'/}</h2>
+            <a href="#">查看更多</a>
+          </div>
+
+        <div class="layui-tab-item">
+          <div class="layui-row">
+
+        {dede:arclist titlelen='60' row='5'}
+              <div class="border">
+              <div class="grid-demo"> <a href="[field:arcurl/]" class="show"> <img src="[field:litpic/]" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> [field:description /] </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="[field:arcurl/]">[field:title /]</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>66</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>12</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>24</span></div>
+                </div>
+              </div>
+              </div>
+        {/dede:arclist}
+
+          </div>
+        </div>
       
+    {/dede:channelartlist}
+
+    <br>
+     <!--  {dede:sql sql='select * from dede_arctype where reid = 0 '}
+          <div class="cginew">
+            <div class="tit clearfix">
+            <h2>[field:typename/]</h2>
+            <a href="#">查看更多</a>
+          </div>
+
+          
+
+
+          <div class="layui-tab-item">
+          <div class="layui-row">
+              <div class="border">
+              <div class="grid-demo"> <a href="#" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> 犀牛的V-Ray 提供了可视化的最先进的解渲云渲染，让渲染更高效。犀牛是当今最流行的基于Windows的NURBS建模工具之一。犀牛的V-Ray 提供了可视化的最先进的解渲云渲染，让渲染更高效。犀牛是当今最流行的基于Windows的NURBS建模工具 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="#">渲云渲染，让渲染更高效</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>66</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>12</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>24</span></div>
+                </div>
+              </div>
+              </div>
+              <div class="border">
+              <div class="grid-demo"> <a href="#" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img2.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> 犀牛的V-Ray 提供了可视化的最先进的解渲云渲染，让渲染更高效。犀牛是当今最流行的基于Windows的NURBS建模工具之一。犀牛的V-Ray 提供了可视化的最先进的解渲云渲染，让渲染更高效。犀牛是当今最流行的基于Windows的NURBS建模工具 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="#">渲云渲染，让渲染更高效</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>66</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>12</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>24</span></div>
+                </div>
+              </div>
+              </div>
+              <div class="border">
+              <div class="grid-demo"> <a href="#" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img3.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> 犀牛的V-Ray 提供了可视化的最先进的解渲云渲染，让渲染更高效。犀牛是当今最流行的基于Windows的NURBS建模工具之一。犀牛的V-Ray 提供了可视化的最先进的解渲云渲染，让渲染更高效。犀牛是当今最流行的基于Windows的NURBS建模工具 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="#">渲云渲染，让渲染更高效</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>66</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>12</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>24</span></div>
+                </div>
+              </div>
+              </div>
+              <div class="border">
+              <div class="grid-demo"> <a href="#" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img4.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> 犀牛的V-Ray 提供了可视化的最先进的解渲云渲染，让渲染更高效。犀牛是当今最流行的基于Windows的NURBS建模工具之一。犀牛的V-Ray 提供了可视化的最先进的解渲云渲染，让渲染更高效。犀牛是当今最流行的基于Windows的NURBS建模工具 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="#">渲云渲染，让渲染更高效</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>66</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>12</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>24</span></div>
+                </div>
+              </div>
+              </div>
+              <div class="border">
+              <div class="grid-demo"> <a href="#" class="show"> <img src="{dede:global.cfg_templets_skin/}/images/img5.jpg" /><span class="new">最新</span>
+                <div class="shadow" style="display:none;"> 犀牛的V-Ray 提供了可视化的最先进的解渲云渲染，让渲染更高效。犀牛是当今最流行的基于Windows的NURBS建模工具之一。犀牛的V-Ray 提供了可视化的最先进的解渲云渲染，让渲染更高效。犀牛是当今最流行的基于Windows的NURBS建模工具 </div>
+                </a>
+                <div class="cgiarc">
+                  <h3><a href="#">渲云渲染，让渲染更高效</a></h3>
+                  <div class="tag"><strong><a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
+                  <div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>66</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>12</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>24</span></div>
+                </div>
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      {/dede:sql}
+ -->
+
+
+<br>
+<br>
+<br>
+<br>
     <div class="cginew">
         <div class="tit clearfix">
         <h2>CGI教程</h2>
@@ -541,17 +652,17 @@ Copyright ©2019 CGITool right reserved.京ICP备11081390号-1
 </div>
 <script type="text/javascript">
 $(function(){
-		
+        
 $(".show").hover(function() {
   $(this).children(".shadow").show();
 }, function() {
   $(this).children(".shadow").hide();
 });
 
-	})
-	
-	
-	layui.use('element', function(){
+    })
+    
+    
+    layui.use('element', function(){
   var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
   
   //监听导航点击
@@ -612,7 +723,7 @@ layui.use('flow', function(){
   //注册弹窗
 function design(){
 layer.open({
-		type: 1,
+        type: 1,
   title: '用户注册',
   shadeClose: true,
   shade: 0.8,
