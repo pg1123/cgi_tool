@@ -1,3 +1,27 @@
 <?php
+$z[0]=Array("global","",457,489);
+$z[0][4]['name']="cfg_templets_skin";
+$z[1]=Array("global","",627,659);
+$z[1][4]['name']="cfg_templets_skin";
+$z[2]=Array("global","",754,786);
+$z[2][4]['name']="cfg_templets_skin";
+$z[3]=Array("global","",919,951);
+$z[3][4]['name']="cfg_templets_skin";
+$z[4]=Array("global","",8768,8800);
+$z[4][4]['name']="cfg_templets_skin";
+$z[5]=Array("global","",10676,10708);
+$z[5][4]['name']="cfg_templets_skin";
+$z[6]=Array("global","",10922,10954);
+$z[6][4]['name']="cfg_templets_skin";
+$z[7]=Array("global","",11305,11337);
+$z[7][4]['name']="cfg_templets_skin";
+$z[8]=Array("global","",12161,12193);
+$z[8][4]['name']="cfg_templets_skin";
+$z[9]=Array("global","",12896,12928);
+$z[9][4]['name']="cfg_templets_skin";
+$z[10]=Array("global","",13609,13641);
+$z[10][4]['name']="cfg_templets_skin";
+$z[11]=Array("global","",15220,15252);
+$z[11][4]['name']="cfg_templets_skin";
 
 ?>
