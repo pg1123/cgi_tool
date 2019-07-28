@@ -1,27 +1,19 @@
 <?php
 $z[0]=Array("global","",457,489);
 $z[0][4]['name']="cfg_templets_skin";
-$z[1]=Array("global","",627,659);
+$z[1]=Array("global","",554,586);
 $z[1][4]['name']="cfg_templets_skin";
-$z[2]=Array("global","",754,786);
+$z[2]=Array("global","",833,865);
 $z[2][4]['name']="cfg_templets_skin";
-$z[3]=Array("global","",919,951);
-$z[3][4]['name']="cfg_templets_skin";
-$z[4]=Array("global","",8768,8800);
-$z[4][4]['name']="cfg_templets_skin";
-$z[5]=Array("global","",10676,10708);
-$z[5][4]['name']="cfg_templets_skin";
-$z[6]=Array("global","",10922,10954);
+$z[3]=Array("channelartlist","\n      <li class=\"layui-nav-item\">\n        <!-- <a href=\"{dede:field name='typeurl'/}\" >{dede:field name='typename' /}</a> -->\n        <a href=\"javascript:;\" >{dede:field name='typename' /}</a>\n        <dl class=\"layui-nav-child snav\">\n        <dd>\n        {dede:sql sql='select * from dede_arctype where reid =~id~ '}\n            <a href=\"[field:typelink/]\" class=\"btit\">[field:typename/]</a>\n            <div class=\"snavfl clearfix\">\n            [field:id runphp='yes']\n                    global \$dsql;\n                    \$id=@me;\n                    \$sql='Select * from dede_arctype where reid='.\$id.' ORDER BY id limit 0,20';\n                    \$dsql->SetQuery(\$sql);\n                    \$dsql->Execute();\n                    while(\$row = \$dsql->GetArray()){\n                        \$url = str_replace(\"{cmspath}\",\"\",\$row['typedir']);\n                        \$str .='<a href=\"'.\$url.'\">'.\$row['typename'].'</a>';\n                        @me = \$str;\n                    }                      \n                    if(@me == \$id){\n                      @me ='';\n                    }\n             [/field:id]\n             </div>\n          {/dede:sql}\n        </dd>\n        </dl>\n      </li>\n      ",1005,2367);
+$z[3][4]['typeid']="top";
+$z[3][4]['row']="10";
+$z[3][4]['currentstyle']="<li class='nactive'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>";
+$z[4]=Array("field","",2593,2612);
+$z[4][4]['name']="title";
+$z[5]=Array("field","",3351,3369);
+$z[5][4]['name']="body";
+$z[6]=Array("global","",3568,3600);
 $z[6][4]['name']="cfg_templets_skin";
-$z[7]=Array("global","",11305,11337);
-$z[7][4]['name']="cfg_templets_skin";
-$z[8]=Array("global","",12161,12193);
-$z[8][4]['name']="cfg_templets_skin";
-$z[9]=Array("global","",12896,12928);
-$z[9][4]['name']="cfg_templets_skin";
-$z[10]=Array("global","",13609,13641);
-$z[10][4]['name']="cfg_templets_skin";
-$z[11]=Array("global","",15220,15252);
-$z[11][4]['name']="cfg_templets_skin";
 
 ?>
