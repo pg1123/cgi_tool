@@ -29,5 +29,6 @@ $z[12]=Array("field","",3988,4006);
 $z[12][4]['name']="body";
 $z[13]=Array("global","",4205,4237);
 $z[13][4]['name']="cfg_templets_skin";
+$z[14]=Array("changyan","",8571,8587);
 
 ?>
