@@ -114,7 +114,7 @@ else if($dopost=='save')
     //保存到主表
     $inQuery = "INSERT INTO `#@__archives`(id,typeid,sortrank,flag,ismake,channel,arcrank,click,money,title,shorttitle,
 color,writer,source,litpic,pubdate,senddate,mid,description,keywords,mtype)
-VALUES ('$arcID','$typeid','$sortrank','$flag','$ismake','$channelid','$arcrank','0','$money','$title','$shorttitle',
+VALUES ('$arcID','$typeid','$sortrank','$flag',-1,'$channelid','$arcrank','0','$money','$title','$shorttitle',
 '$color','$writer','$source','$litpic','$pubdate','$senddate','$mid','$description','$keywords','$mtypesid'); ";
     if(!$dsql->ExecuteNoneQuery($inQuery))
     {
