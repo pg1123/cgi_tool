@@ -206,3 +206,11 @@ function countArchives($channelid)
         return FALSE;
     }
 }
+
+
+function checkLogin()
+{
+    $keeptime = isset($keeptime) && is_numeric($keeptime) ? $keeptime : -1;
+    $cfg_ml = new MemberLogin($keeptime);
+    return $cfg_ml->M_LoginID ? true : false;
+}

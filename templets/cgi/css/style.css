@@ -38,7 +38,7 @@ body{ background-color:#f7f7f7;}
 .header .login{ position:absolute ; right:20px; top:20px;color:#c4c5c9;}
 .header .login a{ color:#c4c5c9; margin:0 8px;}
 .header .login a:hover{ color:#fff;}
-.layui-nav .usera{ position: absolute; right: 20px; }
+.layui-nav .usera{ position: absolute; right: 20px; top:15px;}
 /*主要内容*/
 #main{ width:90%; padding:0 5%; margin:0 auto; min-width:1080px;}
 .cgi ,.cgijc{ padding-top:20px;}

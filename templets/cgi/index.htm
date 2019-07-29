@@ -48,10 +48,33 @@
     </dl>
   </li>
   {/dede:channelartlist}
+  {dede:php}
+  require_once(DEDEMEMBER."/config.php");
+  if(checkLogin()){
+    echo '
+    <li class="layui-nav-item layui-nav-item1 usera" lay-unselect=""> <a href="javascript:;"><img src="/templets/cgi/images/noavatar.gif" class="layui-nav-img">'.$uid.'</a><dl class="layui-nav-child"><dd><a href="/e/member/cp/">个人中心</a></dd><dd><a class="login_out" href="/e/member/doaction.php?enews=exit">退出</a></dd></dl></li>';
+  }
+  {/dede:php}
 </ul>
 
 
-    <div class="login"><a href="#" onclick="logintc()">登录</a>|<a href="#" onclick="design()">注册</a></div>
+
+{dede:php}
+  require_once(DEDEMEMBER."/config.php");
+  if(!checkLogin()){
+    echo '
+    <div class="login"><a href="#" onclick="logintc()">登录</a>|<a href="#" onclick="design()">注册</a></div>';
+  }
+{/dede:php}
+
+
+<!-- <div>
+    欢迎您回来，尊敬的会员<a class="login-button" href="#">'.$uid.'</a>
+    |投稿请进入<a class="login-button" href="/member">会员中心</a>
+    |<a class="join-button" href="/member/index_do.php?fmdo=login&dopost=exit#">登出</a>
+    </div> -->
+
+    <!-- <div class="login"><a href="#" onclick="logintc()">登录</a>|<a href="#" onclick="design()">注册</a></div> -->
   </div>
 
   <div id="main">
