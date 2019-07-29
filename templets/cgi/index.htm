@@ -52,7 +52,7 @@
   require_once(DEDEMEMBER."/config.php");
   if(checkLogin()){
     echo '
-    <li class="layui-nav-item layui-nav-item1 usera" lay-unselect=""> <a href="javascript:;"><img src="/templets/cgi/images/noavatar.gif" class="layui-nav-img">'.$uid.'</a><dl class="layui-nav-child"><dd><a href="/e/member/cp/">个人中心</a></dd><dd><a class="login_out" href="/e/member/doaction.php?enews=exit">退出</a></dd></dl></li>';
+    <li class="layui-nav-item layui-nav-item1 usera" lay-unselect=""> <a href="javascript:;"><img src="/templets/cgi/images/noavatar.gif" class="layui-nav-img">'.$uid.'</a><dl class="layui-nav-child"><dd><a href="/">个人中心</a></dd><dd><a id="login_out" href="/member/index_do.php?fmdo=login&dopost=exit">退出</a></dd></dl></li>';
   }
   {/dede:php}
 </ul>
@@ -202,33 +202,42 @@ Copyright ©2019 CGITool right reserved.京ICP备11081390号-1
         <div class="layui-form-item">
           <label class="layui-form-label">用户名</label>
           <div class="layui-input-block">
-            <input type="text" name="username" id="username" lay-verify="title" autocomplete>
+            <input type="text" name="username" id="reg_name" lay-verify="title" autocomplete>
           </div>
         </div>
 
         <div class="layui-form-item">
           <label class="layui-form-label">密码</label>
           <div class="layui-input-block">
-            <input type="password" name="password" id="password" lay-verify="required" autocomplete>
+            <input type="password" name="password" id="reg_password" lay-verify="required" autocomplete>
           </div>
         </div>
 
         <div class="layui-form-item">
           <label class="layui-form-label">重复密码</label>
           <div class="layui-input-block">
-            <input type="password" name="repassword" id='repassword' lay-verify="required">
+            <input type="password" name="repassword" id='reg_repassword' lay-verify="required">
           </div>
         </div>
 
         <div class="layui-form-item">
           <label class="layui-form-label">邮箱</label>
           <div class="layui-input-block">
-            <input type="text" name="email" id='email' type="text" lay-verify="required"> 
+            <input type="text" name="email" id='reg_email' type="text" lay-verify="required"> 
           </div>
         </div>
+
+        <div class="layui-form-item">
+          <label class="layui-form-label">验证码</label>
+          <div class="layui-input-block">
+                <input type="text" class="intxt w200" style="width: 50px; text-transform: uppercase;" id="vdcode_reg" name="vdcode"/><img id="vdimgck_reg" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="/include/vdimgck.php"/>
+           看不清？ <a href="javascript:void(0)" onclick="changeAuthCode();">点击更换</a>
+          </div>
+        </div>
+
         <div class="layui-form-item">
           <div class="layui-input-block">
-            <button class="layui-btn layui-btn1" lay-submit="" lay-filter="demo1">立即注册
+            <button id="reg_button" class="layui-btn layui-btn1" lay-submit="" lay-filter="demo1">立即注册
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
           </div>
         </div>
@@ -333,11 +342,72 @@ $('#login_button').on('click', function(e){
             });
     });
 
+//cgitool.local/member/reg_new.php?mtype=个人&step=1&fmdo=user&dopost=regbase&userid=test2&uname=test2&userpwd=1&userpwdok=111&email=111
+
+$('#reg_button').on('click', function(e){
+            e.preventDefault();
+            var url = '/member/reg_new.php';
+            var username = $('#reg_name').val();
+            var password = $('#reg_password').val();
+            var repassword = $('#reg_repassword').val();
+            var email = $('#reg_email').val();
+            var vdcode = $('#vdcode_reg').val();
+            var data = {
+                mtype: "个人",
+                step: 1,
+                fmdo: "user",
+                dopost: "regbase",
+                userid: username,
+                uname: username,
+                userpwd: password,
+                userpwdok: repassword,
+                email: email,
+                vdcode: vdcode,
+            };
+            $.post(url, data, function(data,status){
+                if(data.indexOf("注册成功") >= 0){
+                      location.reload();
+                  }else if(data.indexOf("用户名已经存在") >= 0){
+                      alert("用户名已经存在！");
+                  }else if(data.indexOf("验证码错误") >= 0){
+                     alert("验证码错误!");
+                  }else if(data.indexOf("你的用户名或密码过短，不允许注册") >= 0){
+                      alert("你的用户名或密码过短，不允许注册！");
+                  }else if(data.indexOf("你两次输入的密码不一致") >= 0){
+                      alert("你两次输入的密码不一致");
+                  }else if(data.indexOf("Email格式不正确") >= 0){
+                      alert("Email格式不正确！");
+                  }else {
+                      alert("注册失败!");
+                }
+            });
+    });
+
+///member/index_do.php?fmdo=login&dopost=exit
+$('#login_out').on('click', function(e){
+            e.preventDefault();
+            var url = '/member/index_do.php';
+            var data = {
+                fmdo: "login",
+                dopost: "exit",
+            };
+            $.post(url, data, function(data,status){
+                //alert(data);
+                if(data.indexOf("成功") >= 0){
+                      //alert('登陆成功,页面跳转中..请稍后');
+                      location.reload();
+                  }
+            });
+    });
+
   function changeAuthCode() {
     var num =   new Date().getTime();
     var rand = Math.round(Math.random() * 10000);
     num = num + rand;
     $('#ver_code').css('visibility','visible');
+    if ($("#vdimgck_reg")[0]) {
+      $("#vdimgck_reg")[0].src = "/include/vdimgck.php?tag=" + num;
+    }
     if ($("#vdimgck")[0]) {
       $("#vdimgck")[0].src = "/include/vdimgck.php?tag=" + num;
     }
