@@ -111,7 +111,14 @@ body{ background-color:#f7f7f7;}
 .ding .up{    float: right;height: 86px;width: 355px;background: #0158ff;}
 .ding a{display: block;float: left;width: 80px;height: 86px;line-height: 86px;background: #0158ff;background: url(../images/up.png) no-repeat 38px center;padding-left: 90px;color: #fff;font-size: 20px; cursor:pointer;}
 .ding .mun{    float: right;width: auto;margin-right: 20px;font-size: 18px;color: #afb6e0;line-height: 86px;}
-.ding span{    font-size: 18px;color: #afb6e0;line-height: 86px;float: right;width: auto;margin-right: 20px;}
+.ding span{
+    font-size: 18px;
+    color: #fff;
+    line-height: 86px;
+    float: right;
+    width: auto;
+    margin-right: 20px;
+}
 .ding a:hover{ display:block; float:left; width:80px; height:86px; line-height:86px; background:#f60 url(../images/up.png) no-repeat 38px center; padding-left:90px; color:#fff; font-size:20px;}
 .download p{ color:#999; margin-top:10px;}
 .download a{ color:#0158ff;}

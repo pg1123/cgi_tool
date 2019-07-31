@@ -10,7 +10,7 @@
 <script src="{dede:global.cfg_templets_skin/}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="/templets/cgi/layui/layui.js"></script>
 <style type="text/css">
-.zan p{
+/*.zan p{
     background: red; opacity:.8;filter:alpha(opacity=80);
 }
 .zan p a{
@@ -24,7 +24,7 @@
 .zan p a:hover{
   background-position:4px -25px;
   text-decoration:none
-}
+}*/
 </style>
 </head>
 
@@ -91,18 +91,18 @@
 $dsql = new dedesql(); 
 $row = $dsql->GetOne("Select count(id) as c from dede_feedback where aid='$id'"); 
 @me = $row['c'] ? $row['c'] : 0; 
-{/dede:field.id} </span><span class="up" > <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {dede:field.goodpost/} </span> </div>
+{/dede:field.id} </span><span class="up" rel="{dede:field.id/}"> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {dede:field.id function="zan(@me)"/} </span> </div>
       </div>
       <div class="dmain-m">
         <p>{dede:field.body/}</p>
       <div class="ding">
-        <div class="up"> <a href="javascript:;">顶</a>
-          <p class="num"> <span>1</span> </p>
+        <div class="up" rel="{dede:field.id/}"> <a href="javascript:;">顶</a>
+          <p class="num"> <span>{dede:field.id function='zan(@me)'/}</span> </p>
         </div>
       </div>
 
-<div class="zan"><p><a href="#"
-title="赞一个 "class="img_on" rel="{dede:field.id/}">{dede:field.id function="zan(@me)"/}</a></p></div>
+<!-- <div class="zan"><p><a href="#"
+title="赞一个 "class="img_on" rel="{dede:field.id/}">{dede:field.id function="zan(@me)"/}</a></p></div> -->
 
       <div class="download"> <img src="{dede:global.cfg_templets_skin/}/images/downico1_1.gif" />
         <p>注册登录后可下载，点击<a href="#">登录</a>，点击<a href="#">注册</a></p>
@@ -390,6 +390,30 @@ $('#login_out').on('click', function(e){
       cache:false, //不缓存此页面
       success:function(data){
         zan.html(data);
+        zan.fadeIn(300); //渐显效果
+      }
+    });
+    return false;
+  });
+
+  $(".up").on('click', function(e){
+    e.preventDefault();
+    var zan = $(this).find("a");
+    var span = $(this).find("span");
+    var id = $(this).attr("rel"); //对应id
+    zan.fadeOut(300); //渐隐效果
+    $.ajax({
+      type:"GET",
+      url:"/zan.php",
+      data:"id="+id,
+      cache:false, //不缓存此页面
+      success:function(data){
+        alert(data);
+        if (data == '赞过了..') {
+          zan.html(data);
+        } else {
+          span.html(data);
+        }
         zan.fadeIn(300); //渐显效果
       }
     });
