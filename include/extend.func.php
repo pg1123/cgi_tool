@@ -29,3 +29,10 @@ $num=$row['c'];
 if($num==0)$num=' 0';
 return $num;
 }
+
+function zan($aid)
+{
+    global $dsql;
+    $row = $dsql->GetOne("Select id,zan From dede_archives where id='".$aid."'");
+    return $row['zan'];
+}

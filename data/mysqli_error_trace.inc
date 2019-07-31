@@ -236,3 +236,73 @@ Error: Table 'cgi_tool.ywcm_arctype' doesn't exist <br />Error sql: <font color=
 Time2019-07-21 22:49:36
 */
 ?>
+<?php  exit();
+/*
+Page: /zan.php
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='12' and ip='127.0.0.1'' at line 1 <br />Error sql: <font color='red'>SELECT ip FROM dede_zanWHERE aid='12' and ip='127.0.0.1'</font>
+Time2019-07-31 10:19:14
+*/
+?>
+<?php  exit();
+/*
+Page: /zan.php
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='12' LIMIT 0,1' at line 1 <br />Error sql: <font color='red'>Select zan from dede_archiveswhere id='12' LIMIT 0,1;</font>
+Time2019-07-31 10:19:15
+*/
+?>
+<?php  exit();
+/*
+Page: /zan.php
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='12' and ip='127.0.0.1'' at line 1 <br />Error sql: <font color='red'>SELECT ip FROM dede_zanWHERE aid='12' and ip='127.0.0.1'</font>
+Time2019-07-31 10:19:22
+*/
+?>
+<?php  exit();
+/*
+Page: /zan.php
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='12' LIMIT 0,1' at line 1 <br />Error sql: <font color='red'>Select zan from dede_archiveswhere id='12' LIMIT 0,1;</font>
+Time2019-07-31 10:19:22
+*/
+?>
+<?php  exit();
+/*
+Page: /zan.php
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='12' and ip='127.0.0.1'' at line 1 <br />Error sql: <font color='red'>SELECT ip FROM dede_zanWHERE aid='12' and ip='127.0.0.1'</font>
+Time2019-07-31 10:19:24
+*/
+?>
+<?php  exit();
+/*
+Page: /zan.php
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='12' LIMIT 0,1' at line 1 <br />Error sql: <font color='red'>Select zan from dede_archiveswhere id='12' LIMIT 0,1;</font>
+Time2019-07-31 10:19:24
+*/
+?>
+<?php  exit();
+/*
+Page: /zan.php
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='12' and ip='127.0.0.1'' at line 1 <br />Error sql: <font color='red'>SELECT ip FROM dede_zanWHERE aid='12' and ip='127.0.0.1'</font>
+Time2019-07-31 10:19:24
+*/
+?>
+<?php  exit();
+/*
+Page: /zan.php
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='12' LIMIT 0,1' at line 1 <br />Error sql: <font color='red'>Select zan from dede_archiveswhere id='12' LIMIT 0,1;</font>
+Time2019-07-31 10:19:24
+*/
+?>
+<?php  exit();
+/*
+Page: /zan.php
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='12' and ip='127.0.0.1'' at line 1 <br />Error sql: <font color='red'>SELECT ip FROM dede_zanWHERE aid='12' and ip='127.0.0.1'</font>
+Time2019-07-31 10:19:25
+*/
+?>
+<?php  exit();
+/*
+Page: /zan.php
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='12' LIMIT 0,1' at line 1 <br />Error sql: <font color='red'>Select zan from dede_archiveswhere id='12' LIMIT 0,1;</font>
+Time2019-07-31 10:19:25
+*/
+?>
