@@ -1,8 +1,7 @@
 <?php
 require_once (dirname(__FILE__) . "/include/common.inc.php");
 $ip =getip(); //获取用户IP
-//$id = $_POST['id'];
-$id = $_GET['id'];
+$id = $_POST['id'];
 if(!isset($id) || empty($id)) exit;
 
 //查询已赞过的IP

@@ -97,7 +97,7 @@ $row = $dsql->GetOne("Select count(id) as c from dede_feedback where aid='$id'")
         <p>{dede:field.body/}</p>
       <div class="ding">
         <div class="up" rel="{dede:field.id/}"> <a href="javascript:;">顶</a>
-          <p class="num"> <span>{dede:field.id function='zan(@me)'/}</span> </p>
+          <p class="num"> <span>{dede:field.id function="zan(@me)"/}</span> </p>
         </div>
       </div>
 
@@ -403,7 +403,7 @@ $('#login_out').on('click', function(e){
     var id = $(this).attr("rel"); //对应id
     zan.fadeOut(300); //渐隐效果
     $.ajax({
-      type:"GET",
+      type:"POST",
       url:"/zan.php",
       data:"id="+id,
       cache:false, //不缓存此页面

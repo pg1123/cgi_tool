@@ -34,5 +34,5 @@ function zan($aid)
 {
     global $dsql;
     $row = $dsql->GetOne("Select id,zan From dede_archives where id='".$aid."'");
-    return $row['zan'];
+    return !empty($row['zan']) ? $row['zan'] : '0 ';
 }
