@@ -408,7 +408,7 @@ $('#login_out').on('click', function(e){
       data:"id="+id,
       cache:false, //不缓存此页面
       success:function(data){
-        alert(data);
+        //alert(data);
         if (data == '赞过了..') {
           zan.html(data);
         } else {
