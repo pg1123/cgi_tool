@@ -24,7 +24,8 @@
 .ipt:disabled,.ipt[readonly]{background-color:#eceeef;opacity:1}
 .ipt:disabled{cursor:not-allowed}
 
-#comments{padding:0 20px;background-color:#fff;border:1px solid #eaeaea;margin-bottom:15px;font-family:'Microsoft YaHei';}
+#comments{padding:0 20px;background-color:#fff;border:1px solid #eaeaea;margin-bottom:15px;font-family:'Microsoft YaHei';padding: 30px;
+margin: 20px 5%;}
 .comment-reply-title,.comments-title{font-size:18px;margin:30px
 0 20px;font-weight:500}
 .comment-notes{display:none}
