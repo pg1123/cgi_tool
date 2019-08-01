@@ -306,3 +306,73 @@ Error: You have an error in your SQL syntax; check the manual that corresponds t
 Time2019-07-31 10:19:25
 */
 ?>
+<?php  exit();
+/*
+Page: /plus/list.php?tid=14
+Error: Unknown column 'rand' in 'order clause' <br />Error sql: <font color='red'>SELECT ch.issystem FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='14' order by rand LIMIT 0,1;</font>
+Time2019-08-01 18:14:24
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/list.php?tid=14
+Error: Unknown column 'rand' in 'order clause' <br />Error sql: <font color='red'>SELECT ch.issystem FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='14' order by rand LIMIT 0,1;</font>
+Time2019-08-01 18:14:26
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/list.php?tid=14
+Error: Unknown column 'rand' in 'order clause' <br />Error sql: <font color='red'>SELECT ch.issystem FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='14' order by rand LIMIT 0,1;</font>
+Time2019-08-01 18:14:28
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/list.php?tid=14
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECsT ch.issystem FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch' at line 1 <br />Error sql: <font color='red'>SELECsT ch.issystem FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='14' order by rand LIMIT 0,1;</font>
+Time2019-08-01 18:14:35
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/list.php?tid=14
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECsT ch.issystem FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch' at line 1 <br />Error sql: <font color='red'>SELECsT ch.issystem FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='14' order by rand LIMIT 0,1;</font>
+Time2019-08-01 18:14:37
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/list.php?tid=14
+Error: Unknown column 'ch.issystemss' in 'field list' <br />Error sql: <font color='red'>SELECT ch.issystemss FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='14' order by rand LIMIT 0,1;</font>
+Time2019-08-01 18:14:58
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/list.php?tid=14
+Error: Unknown column 'ch.issystemss' in 'field list' <br />Error sql: <font color='red'>SELECT ch.issystemss FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='14' order by rand LIMIT 0,1;</font>
+Time2019-08-01 18:15:01
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/list.php?tid=14
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by rand LIMIT 0,1' at line 1 <br />Error sql: <font color='red'>SELECT ch.issystem FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='14' order by randorder by rand LIMIT 0,1;</font>
+Time2019-08-01 18:15:18
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/list.php?tid=14
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by rand LIMIT 0,1' at line 1 <br />Error sql: <font color='red'>SELECT ch.issystem FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='14' order by randorder by rand LIMIT 0,1;</font>
+Time2019-08-01 18:15:20
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/list.php?tid=5
+Error: Unknown column 'chs.issystem' in 'field list' <br />Error sql: <font color='red'>SELECT chs.issystem FROM `dede_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='5' LIMIT 0,1;</font>
+Time2019-08-01 18:22:28
+*/
+?>

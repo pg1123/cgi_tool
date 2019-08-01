@@ -1,0 +1,1 @@
+127.0.0.1||/plus/list.php?tid=5||SELECT ch.issystem FROM `#@_dd_arctype` tp LEFT JOIN `dede_channeltype` ch ON ch.id=tp.channeltype WHERE tp.id='5' LIMIT 0,1;||comment detect

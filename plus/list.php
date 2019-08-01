@@ -20,6 +20,24 @@ $channelid = (isset($channelid) && is_numeric($channelid) ? $channelid : 0);
 if($tid==0 && $channelid==0) die(" Request Error! ");
 if(isset($TotalResult)) $TotalResult = intval(preg_replace("/[^\d]/", '', $TotalResult));
 
+$orderBy = isset($_GET['order']) ? $_GET['order'] : '';
+switch ($orderBy) {
+    case 'pubdate':
+        $order = 'order by pubdate desc';
+        break;
+    case 'zan':
+        $order = 'order by zan desc';
+        break;
+    case 'click':
+        $order = 'order by click desc';
+        break;
+    case 'scores':
+        $order = 'order by scores desc';
+        break;
+    default:
+        $order = 'order by rand';
+        break;
+}
 
 //如果指定了内容模型ID但没有指定栏目ID，那么自动获得为这个内容模型的第一个顶级栏目作为频道默认栏目
 if(!empty($channelid) && empty($tid))
@@ -37,7 +55,6 @@ else
 
 if($tinfos['issystem']==-1)
 {
-    
     $nativeplace = ( (empty($nativeplace) || !is_numeric($nativeplace)) ? 0 : $nativeplace );
     $infotype = ( (empty($infotype) || !is_numeric($infotype)) ? 0 : $infotype );
     if(!empty($keyword)) $keyword = FilterSearch($keyword);
