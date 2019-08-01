@@ -9,6 +9,7 @@
 <link href="{dede:global.cfg_templets_skin/}/css/style.css" type="text/css" rel="stylesheet" />
 <script src="{dede:global.cfg_templets_skin/}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="/templets/cgi/layui/layui.js"></script>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_cmsurl/}/include/dedeajax2.js"></script>
 <style type="text/css">
 /*.zan p{
     background: red; opacity:.8;filter:alpha(opacity=80);
@@ -113,7 +114,16 @@ $row = $dsql->GetOne("Select count(id) as c from dede_feedback where aid='$id'")
 title="赞一个 "class="img_on" rel="{dede:field.id/}">{dede:field.id function="zan(@me)"/}</a></p></div> -->
 
       <div class="download"> <img src="{dede:global.cfg_templets_skin/}/images/downico1_1.gif" />
-        <p>注册登录后可下载，点击<a href="#" onclick="logintc()">登录</a>，点击<a href="#"  onclick="design()">注册</a></p>
+        {dede:php}
+          require_once(DEDEMEMBER."/config.php");
+          if(!checkLogin()){
+            echo '
+            <p>注册登录后可下载，点击<a href="#" onclick="logintc()">登录</a>，点击<a href="#"  onclick="design()">注册</a></p>';
+          } else {
+            echo '<p>已登录，看下这里要显示哪些东西？</p>';
+          }
+        {/dede:php}
+        
       </div>
     </div>
 
@@ -216,8 +226,7 @@ title="赞一个 "class="img_on" rel="{dede:field.id/}">{dede:field.id function=
   </div>
 
 <!-- //AJAX评论区 开始 -->
-<script type='text/javascript' src='/comments/jquery.min.js?ver=3.0'></script>
-<!-- //如果你页面中已经加载过jquery库，请删除这一行，防止冲突 -->
+
 <link href="/comments/comments.css" rel="stylesheet" type="text/css" />
 <div id="comments" class="entry-comments">
     <h3 id="reply-title" class="comment-reply-title">发表评论</h3>
@@ -229,7 +238,10 @@ title="赞一个 "class="img_on" rel="{dede:field.id/}">{dede:field.id function=
     };
 </script>
 <script type='text/javascript' src='/comments/loader.js?ver=3.0'></script>
+
 <!-- //AJAX评论区 结束 -->
+
+
 
 </div>
 <script type="text/javascript">
