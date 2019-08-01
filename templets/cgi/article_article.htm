@@ -207,7 +207,21 @@ title="赞一个 "class="img_on" rel="{dede:field.id/}">{dede:field.id function=
 </form>
   </div>
 
-{dede:changyan/}
+<!-- //AJAX评论区 开始 -->
+<script type='text/javascript' src='/comments/jquery.min.js?ver=3.0'></script>
+<!-- //如果你页面中已经加载过jquery库，请删除这一行，防止冲突 -->
+<link href="/comments/comments.css" rel="stylesheet" type="text/css" />
+<div id="comments" class="entry-comments">
+    <h3 id="reply-title" class="comment-reply-title">发表评论</h3>
+    {dede:include file='ajaxcomments.htm' /}
+</div>
+<script>
+    window.jsui = {
+        uri: '{dede:global.cfg_basehost/}'
+    };
+</script>
+<script type='text/javascript' src='/comments/loader.js?ver=3.0'></script>
+<!-- //AJAX评论区 结束 -->
 
 </div>
 <script type="text/javascript">

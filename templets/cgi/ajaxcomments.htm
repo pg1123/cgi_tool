@@ -1,0 +1,47 @@
+<div id="respond" class="comment-respond">
+	<form id="commentform" action="" method="post">
+	<input type="hidden" name="dopost" value="send" />
+	<input type="hidden" name="aid" value="{dede:field.id/}" />
+	<div class="comt-ctrl"><div class="comt-tips">
+		<input type='hidden' name='comment_post_ID' value='{dede:field.id/}' id='comment_post_ID' />
+		<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+		<input type="hidden" id="_wp_unfiltered_html_comment_disabled" name="_wp_unfiltered_html_comment_disabled" value="caa5eb0098" /><script>(function(){if(window===window.parent){document.getElementById('_wp_unfiltered_html_comment_disabled').name='_wp_unfiltered_html_comment';}})();</script>
+	</div></div>
+	<div class="comment-form" id="_ajax_feedback">
+		<div class="comment-form-comment">
+			<textarea disabled="disabled" placeholder="需要登录才能发表评论" id="comment" name="msg" class="ipt" rows="4"></textarea>
+		</div>
+		<div class="form-submit">
+			<div class="form-submit-text pull-left"><a title="注册" href="/member/index_do.php?fmdo=user&dopost=regnew">注册</a>&nbsp;&nbsp;<a title="登录" href="../member/login.php">登录</a></div>
+			<input name="submit" type="submit" id="must-submit" class="submit" value="发表">
+			<input type="button" id="cancel-comment-reply-link" class="submit" value="取消" style="display:none;">
+		</div>
+	</div>
+	</form>
+</div>
+<script language='javascript'>
+function CheckCommentsLogin(){
+	var taget_obj = document.getElementById('_ajax_feedback');
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("{dede:global.cfg_basehost/}/comments/checkcommentslogin.php?aid={dede:field.id/}");
+	DedeXHTTP = null;
+}
+CheckCommentsLogin();
+</script>
+<h3 class="comments-title"> 评论列表（<script type="text/javascript" src="{dede:global.cfg_basehost/}/comments/count.php?aid={dede:field.id/}"></script>条）</h3>
+<div id="postcomments">
+<ul class="comments-list" id="commetcontent"></ul>
+<div class="pagination clearfix">
+</div>
+</div>
+<script language='javascript'>
+function LoadCommets(page)
+{
+	var taget_obj = document.getElementById('commetcontent');
+	var waithtml = "<div style='line-height:50px'><img src='{dede:global.cfg_basehost/}/comments/loadinglit.gif' />评论加载中...</div>";
+	var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+	myajax.SendGet2("{dede:global.cfg_basehost/}/comments/comments.php?dopost=getlist&aid={dede:field.id/}&page="+page);
+	DedeXHTTP = null;
+}
+LoadCommets(1);
+</script>
