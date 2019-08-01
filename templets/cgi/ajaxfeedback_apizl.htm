@@ -1,0 +1,279 @@
+<link rel="stylesheet" href="/static/comment/css/index.css">
+<div class="comment-wrap">
+    <div class="like">
+        <h3>评论专区</h3>
+    </div>
+    <div class="commentpost" id="frmSumbit">
+        <p><label for="name">名 称</label> <input type="text" name="inpName" id="inpName" class="text" value="爱资料网友"
+                                                size="28" tabindex="1">
+            <font color="#ff6f3d">必填</font>
+        </p>
+        <p><label for="email">邮 箱</label> <input type="text" name="inpEmail" id="inpEmail" class="text" size="28"
+                                                 tabindex="2">选填</p>
+        <p><label for="homepage">网 址</label> <input type="text" name="inpHomePage" id="inpHomePage" class="text"
+                                                    size="28" tabindex="3">选填</p>
+        <p><textarea name="txaArticle" id="txaArticle" class="pinglungonggao text" cols="50" rows="4"
+                     tabindex="5"></textarea></p>
+        <p><input name="button" type="submit" tabindex="6" value="提交评论" id="j-post" class="button">◎已有<span
+                class="commentViewNums" id="comment_count">0</span>人评论</p>
+        <div class="comment-list" id="comment_result">
+            {dede:comment }
+            <div class="msg">
+                <div class="msgtxt">
+                    <div class="msgtxtbogy">
+                        <div class="msgname" id="comment_[field:id/]"><span class="dot">[field:number/]楼</span>
+                            <a href="#comment_[field:id/]" rel="nofollow">
+                                <font color="#CC0000">[field:username/]</font>
+                            </a>&nbsp;&nbsp;[field:add_time/]
+                        </div>
+                        <div class="msgarticle">[field:content/]
+                            <br>
+                            <span class="digg"><ins class="kandyDiggCmt">
+                                <span class="diggUp" onclick="clickPd([field:id/])">顶:<ins>[field:up_click/]</ins></span>
+                                <span class="diggDn" onclick="clickPd([field:id/],'down')">踩: <ins>[field:down_click/]</ins></span></ins>
+                                </span><span class="digg"><a href="#comment" class="reply">回复</a></span><br>
+                            <!-- 回复框 -->
+                            <div class="huif">
+                                <textarea id="textarea[field:id/]" style="height: 150px; width: 100%;"
+                                          placeholder="期待您的回复！"
+                                          spellcheck="false"></textarea>
+                                <button onclick="hf([field:id/])" type="button" class="btn lyhfbt btn-primary top10">
+                                    回复
+                                </button>
+                                <a class="qxhf">取消回复</a>
+                            </div>
+                            [field:pid_html /]
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="clear"></div>
+
+            </div>
+
+            {/dede:comment}
+        </div>
+    </div>
+</div>
+<script>
+    var viewid = '{dede:field.id/}';
+    $(function () {
+        $.ajax({
+            type: "POST",
+            url: "/comment.php",
+            data: {type: 'get_count', view: viewid},
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 1) {
+                    $('#comment_count').text(data.result);
+                }
+            },
+            error: function (message) {
+            }
+        });
+        load();
+    });
+
+    function load() {
+        $.ajax({
+            type: "POST",
+            url: "/comment.php",
+            data: {type: 'list', view: viewid},
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 1) {
+                    var html = "";
+                    var list = data.result;
+                    for (var i = 0; i < list.length; i++) {
+                        var pidhtml = "", pidResult = list[i]['pid'];
+                        for (var g = 0; g < pidResult.length; g++) {
+                            pidhtml += '<div class="msg" id="cmt1106559">\n' +
+                                '\n' +
+                                '                                <div class="msgtxt">\n' +
+                                '\n' +
+                                '                                    <div class="msgtxtbogy">\n' +
+                                '                                        <div class="msgname"><span class="dot"></span>\n' +
+                                '                                            <a href="#" rel="nofollow">\n' +
+                                '                                                <font color="#CC0000">' + pidResult[g]['username'] + '</font>\n' +
+                                '                                            </a>&nbsp;&nbsp;' + pidResult[g]['add_time'] + '\n' +
+                                '                                        </div>\n' +
+                                '\n' +
+                                '\n' +
+                                '                                        <div class="msgarticle">' + pidResult[g]['content'] + '<br><span\n' +
+                                '                                                class="digg"> </span><span class="digg"></span><br>\n' +
+                                '                                        </div>\n' +
+                                '\n' +
+                                '                                    </div>\n' +
+                                '\n' +
+                                '                                </div>\n' +
+                                '\n' +
+                                '                                <div class="clear"></div>\n' +
+                                '\n' +
+                                '                            </div>';
+                        }
+                        html += '<div class="msg">\n' +
+                            '                <div class="msgtxt">\n' +
+                            '                    <div class="msgtxtbogy">\n' +
+                            '                        <div class="msgname" id="comment_' + list[i]['id'] + '"><span class="dot">' + list[i]['number'] + '楼</span>\n' +
+                            '                            <a href="#comment_' + list[i]['id'] + '" rel="nofollow">\n' +
+                            '                                <font color="#CC0000">' + list[i]['username'] + '</font>\n' +
+                            '                            </a>&nbsp;&nbsp;' + list[i]['add_time'] + '\n' +
+                            '                        </div>\n' +
+                            '                        <div class="msgarticle">' + list[i]['content'] + '\n' +
+                            '                            <br>\n' +
+                            '                            <span class="digg"><ins class="kandyDiggCmt">\n' +
+                            '                                <span class="diggUp" onclick="clickPd(' + list[i]['id'] + ')">顶:<ins>' + list[i]['up_click'] + '</ins></span>\n' +
+                            '                                <span class="diggDn" onclick="clickPd(' + list[i]['id'] + ',\'down\')">踩: <ins>' + list[i]['down_click'] + '</ins></span></ins>\n' +
+                            '                                </span><span class="digg"><a href="#comment" class="reply">回复</a></span><br>\n' +
+                            '                            <!-- 回复框 -->\n' +
+                            '                            <div class="huif">\n' +
+                            '                                <textarea id="textarea' + list[i]['id'] + '" style="height: 150px; width: 100%;"\n' +
+                            '                                          placeholder="期待您的回复！"\n' +
+                            '                                          spellcheck="false"></textarea>\n' +
+                            '                                <button onclick="hf(' + list[i]['id'] + ')" type="button" class="btn lyhfbt btn-primary top10">\n' +
+                            '                                    回复\n' +
+                            '                                </button>\n' +
+                            '                                <a class="qxhf">取消回复</a>\n' +
+                            '                            </div>\n' +
+                            '                            ' + pidhtml + '\n' +
+                            '                        </div>\n' +
+                            '\n' +
+                            '                    </div>\n' +
+                            '\n' +
+                            '                </div>\n' +
+                            '\n' +
+                            '                <div class="clear"></div>\n' +
+                            '\n' +
+                            '            </div>';
+                    }
+                    $('#comment_result').html(html);
+                    $('.reply').on('click', function () {
+                        $(this).parents('.msgarticle').find('.huif').show();
+                    });
+
+                    $('.qxhf').on('click', function () {
+                        $(this).parents('.msgarticle').find('.huif').hide();
+                    });
+                }
+            },
+            error: function (message) {
+            }
+        });
+    }
+
+    function clickPd(id, pd = 'up') {
+        $.ajax({
+            type: "POST",
+            url: "/comment.php",
+            data: {type: 'pd', id: id, click: pd},
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 1) {
+                } else {
+                    alert(data.msg);
+                }
+                load();
+            },
+            error: function (message) {
+            }
+        });
+    }
+
+    var validateExe = {
+        email: /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/,
+        url: '^(?=^.{3,255}$)[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+$'
+    };
+
+    function validate(name, email, url, commen) {
+        if (name == '') {
+            alert('名称不能为空');
+            return false;
+        } else if (email != '' && !validateExe.email.test(email)) {
+            alert('邮箱错误');
+            return false
+        } else if (commen == '') {
+            alert('评论内容不能为空');
+            return false
+        }
+        return true;
+
+    }
+
+    // 提交评论
+    $('#j-post').on('click', function () {
+        var name = $('#inpName').val(),
+            email = $('#inpEmail').val(),
+            inpHomePage = $('#inpHomePage').val(),
+            txaArticle = $('#txaArticle').val();
+        if (validate(name, email, inpHomePage, txaArticle)) {
+            // alert('评论成功');
+            $.ajax({
+                type: "POST",
+                url: "/comment.php",
+                data: {username: name, email: email, content: txaArticle, url: inpHomePage, type: 'send', view: viewid},
+                dataType: "json",
+                success: function (data) {
+                    if (data.code == 1) {
+                        alert('评论成功，审核完成后显示');
+                        load();
+                    } else {
+                        alert(data.msg);
+                    }
+                },
+                error: function (message) {
+                }
+            });
+        }
+        return false;
+
+    })
+
+    function hf(toid) {
+        var name = $('#inpName').val(),
+            email = $('#inpEmail').val(),
+            inpHomePage = $('#inpHomePage').val(),
+            txaArticle = $('#textarea' + toid).val();
+        if (validate(name, email, inpHomePage, txaArticle)) {
+            // alert('评论成功');
+            if (txaArticle == '') {
+                alert('回复内容空!');
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/comment.php",
+                data: {
+                    username: name,
+                    email: email,
+                    content: txaArticle,
+                    url: inpHomePage,
+                    type: 'send',
+                    view: viewid,
+                    to_id: toid
+                },
+                dataType: "json",
+                success: function (data) {
+                    if (data.code == 1) {
+                        alert('评论成功，审核完成后显示');
+                        load();
+                    } else {
+                        alert(data.msg);
+                    }
+                },
+                error: function (message) {
+                }
+            });
+        }
+        return false;
+    }
+
+    $('.reply').on('click', function () {
+        $(this).parents('.msgarticle').find('.huif').show();
+    })
+
+    $('.qxhf').on('click', function () {
+        $(this).parents('.msgarticle').find('.huif').hide();
+    })
+</script>
