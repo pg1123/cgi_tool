@@ -52,7 +52,7 @@
                 $dsql->Execute();
                 while($row = $dsql->GetArray()){
                     $url = str_replace("{cmspath}","",$row['typedir']);
-                    $str .='<a href="/plus/list.php?tid='.$id.'">'.$row['typename'].'</a>';
+                    $str .='<a href="/plus/list.php?tid='.$row[id].'">'.$row['typename'].'</a>';
                     @me = $str;
                 }                      
                 if(@me == $id){
