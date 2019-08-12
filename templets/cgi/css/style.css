@@ -40,7 +40,7 @@ body{ background-color:#f7f7f7;}
 .header .login a:hover{ color:#fff;}
 .layui-nav .usera{ position: absolute; right: 20px; top:15px;}
 /*主要内容*/
-#main{ width:90%; padding:0 5%; margin:0 auto; min-width:1080px;}
+#main{ width:80%; padding:0 10%; margin:0 auto; min-width:1080px;}
 .cgi ,.cgijc{ padding-top:20px;}
 .tit{ padding-bottom:10px; line-height:30px;}
 .tit h2{ float:left; display:block; font-size:20px;}
