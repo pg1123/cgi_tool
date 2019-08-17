@@ -4,7 +4,7 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>素材网|测试文章２</title>
+<title>素材网|测试文章</title>
 <meta name="keywords" content="">
 <link href="{dede:global.cfg_templets_skin/}/css/style.css" type="text/css" rel="stylesheet" />
 <script src="{dede:global.cfg_templets_skin/}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
@@ -88,7 +88,7 @@
     <div class="dmain">
       <div class="dmain-t">
         <h1>{dede:field.title/}</h1>
-        <div class="intro">
+        <!-- <div class="intro">
           <ul>
             <li> 分类：合作 - <a href="#" target="_blank">资助&amp;合作</a>- <a href="#" target="_blank">推广教程</a> </li>
             <li> 标签： <a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li>
@@ -100,20 +100,43 @@
 $dsql = new dedesql(); 
 $row = $dsql->GetOne("Select count(id) as c from dede_feedback where aid='$id'"); 
 @me = $row['c'] ? $row['c'] : 0; 
-{/dede:field.id} </span><span class="up" rel="{dede:field.id/}"> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {dede:field.id function="zan(@me)"/} </span> </div>
+{/dede:field.id} </span><span class="up" rel="{dede:field.id/}"> <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {dede:field.id function="zan(@me)"/} </span> </div> -->
       </div>
       <div class="dmain-m">
         <p>{dede:field.body/}</p>
-      <div class="ding">
+      <!-- <div class="ding">
         <div class="up" rel="{dede:field.id/}"> <a href="javascript:;">顶</a>
           <p class="num"> <span>{dede:field.id function="zan(@me)"/}</span> </p>
         </div>
+      </div> -->
+
+      <div class="dup">
+          <div class="dzan up" rel="{dede:field.id/}"><img src="{dede:global.cfg_templets_skin/}/images/up.png" /><span>{dede:field.id function="zan(@me)"/}</span></div>
+          <div class="intro">
+          <ul>
+            <li> 分类：合作 - <a href="#" target="_blank">资助&amp;合作</a>- <a href="#" target="_blank">推广教程</a> </li>
+            <li> 标签： <a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li>
+          </ul>
+        </div>
+          <div class="conn"> <span class="view"> <i class="fa fa-eye" aria-hidden="true"></i>13030 </span><span class="talk"> <i class="fa fa-commenting-o" aria-hidden="true"></i>42 </span><span class="up" > <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>2474 </span> </div>
       </div>
 
 <!-- <div class="zan"><p><a href="#"
 title="赞一个 "class="img_on" rel="{dede:field.id/}">{dede:field.id function="zan(@me)"/}</a></p></div> -->
 
-      <div class="download"> <img src="{dede:global.cfg_templets_skin/}/images/downico1_1.gif" />
+      <div class="download"> 
+
+        <div class="downld"><i class="fa fa-download" aria-hidden="true"></i><span>下载链接</span></div>
+
+        {dede:php}
+          require_once(DEDEMEMBER."/config.php");
+          if(!checkLogin()){
+            echo '
+            <p>免费资源，注册登录后可下载，点击<a href="#" onclick="logintc()">登录</a>，点击<a href="#" onclick="design()">注册</a></p>';
+          }
+        {/dede:php}
+
+        <!-- <img src="{dede:global.cfg_templets_skin/}/images/downico1_1.gif" />
         {dede:php}
           require_once(DEDEMEMBER."/config.php");
           if(!checkLogin()){
@@ -122,7 +145,7 @@ title="赞一个 "class="img_on" rel="{dede:field.id/}">{dede:field.id function=
           } else {
             echo '<p>已登录，看下这里要显示哪些东西？</p>';
           }
-        {/dede:php}
+        {/dede:php} -->
         
       </div>
     </div>
@@ -432,6 +455,7 @@ $('#login_out').on('click', function(e){
 
   $(".up").on('click', function(e){
     e.preventDefault();
+    //alert(111);
     var zan = $(this).find("a");
     var span = $(this).find("span");
     var id = $(this).attr("rel"); //对应id

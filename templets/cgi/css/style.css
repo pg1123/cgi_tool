@@ -93,10 +93,11 @@ body{ background-color:#f7f7f7;}
 .dmain{border:1px solid #ddd; background-color:#fff; padding:30px; margin:20px 5%;margin-bottom:0;}
 .dmain-t{    line-height: 28px;text-align: left;color: #666;}
 .dmain-t h1{ line-height: 48px;font-size: 30px;color: #000;padding: 20px 0px;}
-.dmain-t a{margin-right: 10px;color:#0158ff;}
-.dmain-t .conn { height: 50px;border-bottom: 1px solid #ddd;}
-.dmain-t .conn span{height: 16px;padding-right: 20px;line-height: 50px;color: #999;font-size: 14px;}
-.dmain-t .conn span i{ margin-right:5px;}
+.intro{ line-height:28px;}
+.intro a{margin-right: 10px;color:#0158ff;}
+.conn { height: 50px;border-bottom: 1px solid #ddd;}
+.conn span{height: 16px;padding-right: 20px;line-height: 50px;color: #999;font-size: 14px;}
+.conn span i{ margin-right:5px;}
 .layui-nav .snav{ width:700px; font-size:14px; padding:10px;}
 .snavfl{ padding:0 15px;}
 .layui-nav .snav .snavfl a{ display:block; float:left; margin-right:20px; padding:4px 0; line-height:20px;}
@@ -111,18 +112,22 @@ body{ background-color:#f7f7f7;}
 .ding .up{    float: right;height: 86px;width: 355px;background: #0158ff;}
 .ding a{display: block;float: left;width: 80px;height: 86px;line-height: 86px;background: #0158ff;background: url(../images/up.png) no-repeat 38px center;padding-left: 90px;color: #fff;font-size: 20px; cursor:pointer;}
 .ding .mun{    float: right;width: auto;margin-right: 20px;font-size: 18px;color: #afb6e0;line-height: 86px;}
-.ding span{
-    font-size: 18px;
-    color: #fff;
-    line-height: 86px;
-    float: right;
-    width: auto;
-    margin-right: 20px;
-}
+.ding span{font-size: 18px;color: #fff;line-height: 86px;float: right;width: auto;margin-right: 20px;}
 .ding a:hover{ display:block; float:left; width:80px; height:86px; line-height:86px; background:#f60 url(../images/up.png) no-repeat 38px center; padding-left:90px; color:#fff; font-size:20px;}
+.dup{ background-color:#333; margin:0 -30px; text-align:center; padding:20px 0; padding-top:30px; margin-top:40px;}
+.dup li{ color:#999;}
+.dup li a{ color:#ddd;}
+.dup .conn{ border-bottom:none;}
+.dup .conn span{ color:#999;}
+.dzan{height: 86px;background: #0158ff;display: block;width: 86px;color: #fff;font-size: 20px; cursor:pointer; border-radius:90px; text-align:center; margin:auto; margin-bottom:20px;}
+.dzan img{ margin-top:20px; width:30px;}
+.dzan span{ display:block; padding-top:5px; font-size:16px;}
+.download{ text-align:center; padding-top:80px; padding-bottom:60px;}
 .download p{ color:#999; margin-top:10px;}
 .download a{ color:#0158ff;}
-.pingl{ background-color:#fff; border:1px solid #ddd; margin-top:10px; padding:20px 30px;}
+.downld{ background-color:#ff8721; height:56px; line-height:56px; text-align:center; color:#fff; border-radius:4px; padding:0 40px; font-size:18px; display:inline-block; margin-bottom:10px;}
+.downld span{ padding-left:5px; cursor:pointer;}
+.pingl{ background-color:#fff; border:1px solid #ddd; margin-top:10px; padding:20px 30px;    margin: 20px 5%;}
 .title{height: 50px; line-height: 50px; font-size: 20px; border-bottom:1px solid #ddd; padding-bottom:10px;}
 .title span{font-size: 14px; color: #666;}
 .new_message{ padding:20px 0;}
