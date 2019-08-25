@@ -1,3 +1,4 @@
+@charset "utf-8";
 /* The main calendar widget.  DIV containing a table. */
 
 div.calendar { position: relative; }

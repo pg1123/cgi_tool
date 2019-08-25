@@ -73,20 +73,60 @@
 			}); 
         });
    })
-   //我的动态
-  $(function(){
-            $.ajax({
+var html = '';
+var page = 1;
+var feedtype = "myfeed";
+function gdt(){
+	//全部动态
+	$(function(){
+			$.ajax({
 			  type: "GET",
-			  url: "feed.php?type=myfeed",
+			  url: "feed.php?type="+feedtype+"&page="+page,
 			  dataType: "json",
 			  success : function(data){
-			         $('#FeedText').empty();
-					  var html = '';
-					  $.each( data  , function(commentIndex, comment) {
-						 html += '<div class="feeds_title ico' + comment['type'] + '"><span><a href="index.php?uid='+ comment['uname'] +'&action=feeddel&fid=' + comment['fid'] + '" onclick="return FeedDel()" class="act">删除</a><a href="/member/index.php?uid='+ comment['uname'] +'">'+ comment['uname'] +'</a>' + comment['title'] + ' <em>' + comment['dtime'] + '</em></span><p>' + comment['note'] + '</p></div>';
-					  })
-					 $('#FeedText').html(html);
+					 //$('#ucmsg').empty();
+					 if(data.length>0){
+						  var html = '';
+						  $.each( data  , function(commentIndex, comment) {
+							 
+								html += '<dd>';
+								html += '<cite><a href="/member/index.php?uid='+comment['userid']+'" target="_blank">';
+								
+								if(comment['face'] || comment['face']){
+ 								html += '<img width="80" height="80" src="'+comment['face']+'" alt="'+comment['uname']+'" /></a>';
+ 								}else{
+ 								html += '<img src="/member/templets/images/dfboy.png" alt="'+comment['uname']+'" />';
+ 								}
+								html += '</cite>';
+ 
+								html += '<div class="umsg">';
+								html += '<p><a href="/member/index.php?uid='+comment['userid']+'">'+comment['uname']+'</a>' + comment['title'] + ' <b>' + comment['dtime'] + ' <a href="index.php?uid='+ comment['uname'] +'&action=feeddel&fid=' + comment['fid'] + '" onclick="return FeedDel()" class="act">删除</a></b></p>';
+								html += '<div class="umsgnr">';
+								html +=  comment['note']+'...';
+								html += '</div>';
+								html += '</div>';
+								html += '</dd>';
+	
+							 //html += '<div class="feeds_title ico' + comment['type'] + '"><span><a href="index.php?uid='+ comment['uname'] +'&action=feeddel&fid=' + comment['fid'] + '" onclick="return FeedDel()" class="act">删除</a><a href="/member/index.php?uid='+ comment['uname'] +'">'+ comment['uname'] +'</a>' + comment['title'] + ' <em>' + comment['dtime'] + '</em></span><p>' + comment['note'] + '</p></div>';
+						  })
+						 //$('#ucmsg').html(html);
+						 var spa=document.createElement("span");
+						 spa.innerHTML = html;
+						 document.getElementById("ucmsg").appendChild(spa);
+					 }else{
+						 if(feedtype=='myfeed'){
+							 page = 1;
+							 feedtype = 'allfeed';
+							 gdt();
+						 }else{
+						 	document.getElementById("stxt").innerHTML = '木有了';
+						 }
+					 }
+					 page++;
 			  }
 			}); 
-   })
-  
+	})
+	
+}
+gdt();
+ 

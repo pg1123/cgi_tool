@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>更改详细资料 - 会员中心 -<?php echo $cfg_webname; ?></title>
+<script language="JavaScript" src="templets/images/jquery.js"></script>
+<script language="JavaScript" src="templets/images/jquery.lazyload.js"></script>
+<script language="JavaScript" src="templets/images/common.js"></script>
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" language='javascript'src='templets/js/main.js'></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/calendar/calendar.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+</head>
+<body>
+<?php include(DEDEMEMBER."/templets/head.htm"); ?>
+<div class="main">
+  <div class="navbar"> <span class="notice"><a href="/member">位置</a></span>
+    <ul class="position">
+      <li><a href="/">首页</a></li>
+       <li><a href="/member">会员中心</a></li>
+  <li style="background-image: none; background-position: initial initial; background-repeat: initial initial;">更改详细资料</li>
+    </ul>
+  </div>
+  <!--navbar end-->
+  <div class="ucbox">
+    <?php include(DEDEMEMBER."/templets/left.htm"); ?>
+     <div class="ucright">
+      <div class="listnav">
+        <ul class="navclass">
+          <li><a href="zl.php" class="selected">个人资料</a></li>
+        </ul>
+      </div>
+      <!--listnav end-->
+      <ul class="classnav">
+        <li><a href="zh.php">基本资料</a></li>
+        <li ><a href="zl.php"  class="selected">个人资料</a></li>
+        <li><a href="tx.php">头像设置</a></li>
+      </ul>
+      <div class="extend">
+        <div class="uccontact"> <span class="ltitle1">个人资料</span> <span class="ltbg"></span>
+          <form method="post" action="zl.php" name="form1">
+            <input type="hidden" value="save" name="dopost"/>
+            <input type="hidden" value="<?php echo $membermodel->modid;?>" name="modid"/>
+            <ul class="ucform">
+              <?php
+            echo $postform;
+        ?>
+ 
+        	
+              <li><span>&nbsp;</span>
+                <input type="submit" value="确认修改" class="zfgo" />
+              </li>
+            </ul>
+          </form>
+        </div>
+        <!--uccontact end--> 
+        
+      </div>
+      <!--extend end--> 
+      
+    </div>
+    <!--urright end--> 
+    
+  </div>
+  <!--ucbox end--> 
+  
+</div> 
+<!--main end-->
+ 
+<?php include(DEDEMEMBER."/templets/foot.htm"); ?>
+</body>
+</html>
+

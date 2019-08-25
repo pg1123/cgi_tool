@@ -1,3 +1,4 @@
+@charset "utf-8";
 /**************************************
           踩踩样式部分(CaicaiStyle)
            Update:09-11-19
@@ -187,4 +188,5 @@
 #content #sidebar .s_member li a:hover img{
 	border:1px solid #AAA;
 }
+
 

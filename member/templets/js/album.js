@@ -59,22 +59,17 @@ function MakeUpload(mnum)
 			dsel = " ";
 			dplay = "display:none";
 		}
-		fhtml = '';
-		fhtml += "<table width='100%'><tr><td><input type='checkbox' name='isokcheck"+startNum+"' id='isokcheck"+startNum+"' value='1' class='np' "+dsel+" onClick='CheckSelTable("+startNum+")' />显示图片 "+startNum+" 的上传框</td></tr></table>";
-		fhtml += "<table width='610' border=\"0\" id=\"seltb"+startNum+"\" cellpadding=\"1\" cellspacing=\"1\" bgcolor=\"#E8F5D6\" style=\"margin-bottom:6px;margin-left:10px;"+dplay+"\"><tobdy>";
-		fhtml += "<tr bgcolor=\"#F7F7F7\">\r\n";
-		fhtml += "<td height=\"25\" colspan=\"2\">　<strong>图片"+startNum+"：</strong></td>";
-		fhtml += "</tr>";
-		fhtml += "<tr bgcolor=\"#FFFFFF\"> ";
-		fhtml += "<td width=\"510\" height=\"25\"> 　本地上传： ";
-		fhtml += "<input type=\"file\" name='imgfile"+startNum+"' style=\"width:200px\" class=\"intxt\" onChange=\"SeePicNew('divpicview"+startNum+"',this);\" /> <nobr>可填远程网址</nobr></td>";
-		fhtml += "<td width=\"100\" rowspan=\"2\" align=\"center\"><div id='divpicview"+startNum+"' class='divpre'></div></td>";
-		fhtml += "</tr>";
-		fhtml += "<tr bgcolor=\"#FFFFFF\"> ";
-		fhtml += "<td height=\"56\" valign=\"top\">　图片简介： ";
-		fhtml += "<textarea name='imgmsg"+startNum+"' style=\"height:46px;width:330px\"></textarea></td>";
-		fhtml += "</tr></tobdy></table>\r\n";
-		upfield.innerHTML += fhtml;
+		fhtml = ' <dd><span class=\"dlleft\"></span> ';
+		fhtml = ' <span class=\"dlright\"><ul class=\"uploadlist\" id=\"uploadlist\"> ';
+ 		fhtml += "<li>";
+ 		fhtml += "<div class=\"upimg\"> 图片"+startNum+"</div>";
+		fhtml += "<div class=\"upimginfo\"> ";
+ 		fhtml += "<textarea name='imgmsg"+startNum+"' cols=\"\" rows=\"\"> </textarea>";
+		fhtml += "</div>";
+		fhtml += "<div class=\"upimgclose\">";
+		fhtml += "<input type=\"file\" name='imgfile"+startNum+"' style=\"width:150px\" class=\"ufile\" onChange=\"SeePicNew('divpicview"+startNum+"',this);\" /> ";
+ 		fhtml += "</div></li> </ul></span></dd>\r\n";
+ 		upfield.innerHTML += fhtml;
 	}
 }
 

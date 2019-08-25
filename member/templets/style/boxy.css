@@ -1,3 +1,4 @@
+@charset "utf-8";
 .boxy-wrapper { position: absolute; }
 .boxy-wrapper.fixed { position: fixed; }
 
@@ -41,3 +42,4 @@
 
     .boxy-wrapper .question { width: 350px; min-height: 80px; }
     .boxy-wrapper .answers { text-align: right; }
+
