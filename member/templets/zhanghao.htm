@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>更改帐号基本资料 - 会员中心 - <?php echo $cfg_webname; ?></title>
+<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="templets/js/j.js"></script>
+<script type="text/javascript" language='javascript'src='templets/js/main.js'></script>
+<script type="text/javascript" src="templets/js/load.js"></script>
+<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<script type="text/javascript">  
+  function checkSubmit()
+{
+	if(document.form2.oldpwd.value=='')
+	{
+		document.form2.oldpwd.focus();
+		alert("旧密码必须填写！");
+		return false;
+	}
+	if(document.form2.userpwdok.value!=document.form2.userpwd.value)
+	{
+		document.form2.userpwdok.focus();
+		alert("两次密码不一致！");
+		return false;
+	}
+	if(document.form2.email.value=="")
+	{
+		document.form2.email.focus();
+		alert("Email不能为空！");
+		return false;
+	}
+	if(document.form2.uname.value=="")
+	{
+		document.form2.uname.focus();
+		alert("用户昵称不能为空！");
+		return false;
+	}
+	if(document.form2.vdcode.value=="")
+	{
+		document.form2.vdcode.focus();
+		alert("验证码不能为空！");
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<?php include(DEDEMEMBER."/templets/head.htm"); ?>
+<div class="main">
+  <div class="navbar"> <span class="notice"><a href="">位置</a></span>
+    <ul class="position">
+      <li><a href="/">首页</a></li>
+            <li><a href="">会员中心</a></li>
+ <li style="background-image: none; background-position: initial initial; background-repeat: initial initial;">更改帐号基本资料</li>
+    </ul>
+  </div>
+  <!--navbar end-->
+  <div class="ucbox">
+    <?php include(DEDEMEMBER."/templets/left.htm"); ?>
+     <div class="ucright">
+     <div class="listnav">
+<ul class="navclass">
+<li style="background-image: none; background-position: initial initial; background-repeat: initial initial;"><a href="zh.php" class="selected">基本资料</a></li>
+</ul>    
+</div><!--listnav end-->
+    <ul class="classnav">
+        <li><a href="zh.php"  class="selected">基本资料</a></li>
+        <!-- <li ><a href="zl.php">个人资料</a></li> -->
+        <li><a href="tx.php">头像设置</a></li>
+    </ul>
+        
+    <div class="extend">
+    
+    <div class="uccontact">
+    
+    <span class="ltitle1">基本资料</span>
+    <span class="ltbg"></span>
+   <form action="zh.php" method="post" enctype="multipart/form-data" name="form2" onsubmit="return checkSubmit();">
+     <input type="hidden" name="dopost" value="save" />
+    <ul class="ucform">
+    
+ 
+          <li><span>帐号类型</span><b>
+            <?php echo $row['mtype']; ?></b></li>
+            
+          <li><span>用户名</span><b><?php echo $cfg_ml->M_LoginID; ?></b></li>
+           <li><span>昵称</span><input name="uname" type="text" id="uname" value="<?php echo $row['uname']; ?>" class="intxt" style="width:100px"/>(个人会员该项为昵称，企业会员填写公司名称)</li>
+           <li><span>原登陆密码</span><input name="oldpwd" type="password" id="oldpwd" class="intxt" /></li>
+         <li><span>新密码</span><input name="userpwd" type="password" id="userpwd" class="intxt" />不修改密码请保留此项为空</li>
+         <li><span>确认新密码</span><input name="userpwdok" type="password" id="userpwdok" value="" class="intxt" />不修改密码请保留此项为空</li>
+          <li><span>原安全问题</span>
+         <?php
+      			require(DEDEDATA.'/safequestions.php');
+      			echo GetSafequestion($row['safequestion'],'safequestion');
+     		 ?>
+            忘记密码时重设密码用
+          </li>
+         <li><span>原问题答案</span><input name="safeanswer" type="text" id="safeanswer" value="" class="intxt" />
+          </li>
+
+      <li><span>新安全问题</span>
+            <?php
+      			echo GetSafequestion(0,'newsafequestion');
+      		?>
+              不修改不用填写 
+          </li>
+          <li><span>新问题答案</span>
+            <input name="newsafeanswer" type="text" id="newsafeanswer" class="intxt"/>
+          </li>
+          <li><span>电子邮箱</span>
+            <input name="email" type="text" id="email" value="<?php echo $row['email']; ?>" class="intxt"/> 
+           (每个邮箱只能注册一个帐号，要修改邮箱必须填写正确安全问题的答案) 
+          </li>
+           <li><span>性别</span>
+			<input type="radio" name="sex" value="男" <?php if($row['sex']=='男') echo " checked='checked' "; ?>/>
+             男 &nbsp;
+            <input type="radio" name="sex" value="女" <?php if($row['sex']=='女') echo " checked='checked' "; ?>/>
+             女 &nbsp;
+            <input type="radio" name="sex" value="保密'" <?php if($row['sex']=='保密') echo " checked='checked' "; ?>/>
+             保密 
+          </li>
+          <li><span>验证码</span>
+			<input name="vdcode" type="text" id="vdcode" style='width:50px;text-transform:uppercase;' class="intxt" />
+           <img src="../include/vdimgck.php" align="absmiddle" alt="看不清？点击更换" style="cursor:pointer" onclick="this.src=this.src+'?'" />
+          </li>
+       
+      
+    <li><span>&nbsp;</span><input type="submit" value="确认修改" class="zfgo"></li>
+    </ul>
+    </form>
+   
+</div></div></div></div></div>
+
+
+<?php include(DEDEMEMBER."/templets/foot.htm"); ?>
+</div>
+</body>
+</html>

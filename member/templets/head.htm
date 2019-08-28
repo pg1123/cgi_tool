@@ -30,26 +30,27 @@ else {
 <h2></h2>
 <div class="headertop"> <a href="/" title="<?php echo $cfg_webname; ?>首页"><span class="logo"></span></a>
   <ul class="nav" id="nav">
-    <li><a href="/member" id="index" data-rel="首页">首页</a></li>
-     <li><a href="../member/zl.php"><?php echo $cfg_ml->M_MbType; ?>资料</a></li>
+    <!-- <li><a href="/member" id="index" data-rel="首页">首页</a></li> -->
+<!--      <li><a href="../member/zl.php"><?php echo $cfg_ml->M_MbType; ?>资料</a></li>
+ -->     <li><a href="../member/zh.php"><?php echo $cfg_ml->M_MbType; ?>资料</a></li>
     <li><a href="../member/tx.php">头像设置</a></li>
-    <li><a href="../member/fl.php">分类管理</a></li>
+    <!-- <li><a href="../member/fl.php">分类管理</a></li>
     <li><a href="../member/kj.php">空间设置</a></li>
-    <li><a href="../member/fg.php">风格选择</a></li>
+    <li><a href="../member/fg.php">风格选择</a></li> -->
   </ul>
   <div class="search">
-    <form name="formsearch" action="/plus/search.php" target="_blank">
+    <!-- <form name="formsearch" action="/plus/search.php" target="_blank">
       <input name="q" type="text" class="searchinput" value="在这里搜索..." onfocus="if(this.value==&#39;在这里搜索...&#39;){this.value=&#39;&#39;;}" onblur="if(this.value==&#39;&#39;){this.value=&#39;在这里搜索...&#39;;}">
       <span class="searchbtn">
       <input name="" type="image" src="templets/images/searchbtn.png">
       </span>
-    </form>
+    </form> -->
   </div>
   <div class="loginin"><a href="/member"><span class="loginuser" id="islogin" data-rel="<?php echo $cfg_ml->M_UserName?>"><?php echo $cfg_ml->M_UserName?></span></a></div>
   <div class="usercenter" style="left: 939.5px; top: 53px;">
     <ul class="ucenterlist">
-      <li><a href="../member/">用户中心</a></li>
-      <?php
+      <li><a href="../member/zh.php">个人中心</a></li>
+      <!-- <?php
        $pms = $dsql->GetOne("SELECT COUNT(*) AS nums FROM #@__member_pms WHERE toid='{$cfg_ml->M_ID}' AND `hasview`=0 AND folder = 'inbox'");
     if($pms['nums'] > 0)
     {
@@ -59,10 +60,10 @@ else {
     {
       echo "<li><a href='pm.php?TB_iframe=true&height=600&width=700' target='_blank'>我的消息 <b>0</b></a><li>";
     }
-       ?>
-      <li><a href="article_add.php">发布作品</a></li>
+       ?> -->
+      <!-- <li><a href="article_add.php">发布作品</a></li> -->
       <li><a href="zh.php">账户设置</a></li>
-      <li><a href="myfriend.php">关注我的</a></li>
+      <!-- <li><a href="myfriend.php">关注我的</a></li> -->
       <li><a href="../member/index_do.php?fmdo=login&dopost=exit#">退出</a></li>
     </ul>
   </div>

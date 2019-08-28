@@ -15,7 +15,7 @@
 <body>
 <div id="container">
   <div class="header clearfix ctnt">
-    <div class="logo"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></div>
+    <div class="logo"><a href="/"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></a></div>
 
 
 <ul class="layui-nav">
@@ -54,7 +54,7 @@
   require_once(DEDEMEMBER."/config.php");
   if(checkLogin()){
     echo '
-    <li class="layui-nav-item layui-nav-item1 usera" lay-unselect=""> <a href="javascript:;"><img src="/templets/cgi/images/noavatar.gif" class="layui-nav-img">'.$uid.'</a><dl class="layui-nav-child"><dd><a href="/member">个人中心</a></dd><dd><a id="login_out" href="/member/index_do.php?fmdo=login&dopost=exit">退出</a></dd></dl></li>';
+    <li class="layui-nav-item layui-nav-item1 usera" lay-unselect=""> <a href="javascript:;"><img src="/templets/cgi/images/noavatar.gif" class="layui-nav-img">'.$uid.'</a><dl class="layui-nav-child"><dd><a href="/member/zh.php">个人中心</a></dd><dd><a id="login_out" href="/member/index_do.php?fmdo=login&dopost=exit">退出</a></dd></dl></li>';
   }
   {/dede:php}
 </ul>
@@ -88,7 +88,11 @@
             <div class="layui-row">
                 {dede:arclist row='500' pagesize='4' titlelen='50' orderby='rand'}
                 <div class="layui-col-xs3">
-                    <div class="grid-demo"><a href="[field:arcurl/]"><img src="[field:litpic /]"/></a></div>
+                    <div class="grid-demo">
+                      <a href="[field:arcurl/]" class="show"> <img src="[field:litpic/]" /><span class="new">最新</span>
+                      <div class="shadow" style="display:none;"> [field:description /] </div>
+                      </a>
+                    </div>
                 </div>
                 {/dede:arclist}
             </div>
