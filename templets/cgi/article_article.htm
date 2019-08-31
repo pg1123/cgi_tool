@@ -118,7 +118,11 @@ $row = $dsql->GetOne("Select count(id) as c from dede_feedback where aid='$id'")
             <li> 标签： <a href="#" target="_blank">超写实</a> <a href="#" target="_blank">模型</a> <a href="#" target="_blank">预售</a> <a href="#" target="_blank">场景</a> </li>
           </ul>
         </div>
-          <div class="conn"> <span class="view"> <i class="fa fa-eye" aria-hidden="true"></i>13030 </span><span class="talk"> <i class="fa fa-commenting-o" aria-hidden="true"></i>42 </span><span class="up" > <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>2474 </span> </div>
+          <div class="conn"> <span class="view"> <i class="fa fa-eye" aria-hidden="true"></i>
+
+<script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}&cid={dede:field name='channel'/}" type='text/javascript' language="javascript"></script>
+
+</span><span class="talk"> <i class="fa fa-commenting-o" aria-hidden="true"></i> <script type="text/javascript" src="{dede:global.cfg_basehost/}/comments/count.php?aid={dede:field.id/}"></script> </span><span class="up" > <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {dede:field.id function="zan(@me)"/} </span> </div>
       </div>
 
 <!-- <div class="zan"><p><a href="#"
