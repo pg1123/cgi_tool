@@ -42,6 +42,7 @@ if($needRank < 0 && $arc->Fields['mid'] != $cfg_ml->M_ID)
     exit();
 }
 
+
 //设置了权限限制的文章
 //arctitle msgtitle moremsg
 if($needMoney>0 || $needRank>1)
@@ -128,5 +129,4 @@ if($needMoney>0 || $needRank>1)
         }
     }//金币处理付处理
 }
-
 $arc->Display();
