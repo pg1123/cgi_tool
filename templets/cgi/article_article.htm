@@ -130,16 +130,29 @@ title="赞一个 "class="img_on" rel="{dede:field.id/}">{dede:field.id function=
 
       <div class="download"> 
 
-        <div class="downld"><i class="fa fa-download" aria-hidden="true"></i><span>下载链接</span></div>
-
         {dede:php}
           require_once(DEDEMEMBER."/config.php");
           if(!checkLogin()){
             echo '
+            <div style="background: #ddd" class="downld"><i class="fa fa-download" aria-hidden="true"></i><span>下载链接</span></div>
             <p>免费资源，注册登录后可下载，点击<a href="#" onclick="logintc()">登录</a>，点击<a href="#" onclick="design()">注册</a></p>';
+          } else {
+            $row = $dsql->GetOne('select baidu_link from dede_addonarticle where aid='.$aid);
+            echo '<a href="http://' . $row['baidu_link'] .'"><div class="downld"><i class="fa fa-download" aria-hidden="true"></i><span>下载链接</span></div></a>';
           }
         {/dede:php}
 
+        <!-- {dede:sql sql="SELECT baidu_link FROM dede_addonarticle where aid = "}
+
+        　　[field:name = "nums"/]
+
+        {/dede:sql} -->
+<!-- {dede:field.id runphp='yes'}
+$id=@me;
+@me='';
+$url=GetOneArchive($id);
+@me=$url['id'];
+{/dede:field.id}  -->
         <!-- <img src="{dede:global.cfg_templets_skin/}/images/downico1_1.gif" />
         {dede:php}
           require_once(DEDEMEMBER."/config.php");

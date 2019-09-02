@@ -376,3 +376,164 @@ Error: Unknown column 'chs.issystem' in 'field list' <br />Error sql: <font colo
 Time2019-08-01 18:22:28
 */
 ?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:04:27
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: Unknown column 'id' in 'field list' <br />Error sql: <font color='red'>select id,typename from dede_addonarticle where id=2 LIMIT 0,1;</font>
+Time2019-09-02 14:05:33
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:05:33
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: Unknown column 'id' in 'field list' <br />Error sql: <font color='red'>select id,typename from dede_addonarticle where id=2 LIMIT 0,1;</font>
+Time2019-09-02 14:05:43
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:05:43
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: Unknown column 'id' in 'field list' <br />Error sql: <font color='red'>select id,typename from dede_addonarticle where aid=2 LIMIT 0,1;</font>
+Time2019-09-02 14:07:43
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:07:43
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: Unknown column 'id' in 'field list' <br />Error sql: <font color='red'>select id,typename from dede_addonarticle where aid=2 LIMIT 0,1;</font>
+Time2019-09-02 14:08:14
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:08:14
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: Unknown column 'id' in 'field list' <br />Error sql: <font color='red'>select id,typename from dede_addonarticle where aid=2 LIMIT 0,1;</font>
+Time2019-09-02 14:08:32
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:08:32
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: Unknown column 'id' in 'field list' <br />Error sql: <font color='red'>select id,typename from dede_addonarticle where aid=2 LIMIT 0,1;</font>
+Time2019-09-02 14:08:38
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:08:38
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: Unknown column 'id' in 'field list' <br />Error sql: <font color='red'>select id,typename from dede_addonarticle where aid=2 LIMIT 0,1;</font>
+Time2019-09-02 14:09:16
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:09:16
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: Unknown column 'id' in 'field list' <br />Error sql: <font color='red'>select id,typename from dede_addonarticle where aid=2 LIMIT 0,1;</font>
+Time2019-09-02 14:09:45
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:09:45
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:20:24
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:21:04
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:21:23
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:21:37
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:23:07
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=21
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-02 14:23:14
+*/
+?>
