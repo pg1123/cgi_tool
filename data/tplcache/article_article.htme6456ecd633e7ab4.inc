@@ -65,7 +65,6 @@ $z[28][4]['name']="id";
 $z[29]=Array("field","",6306,6342);
 $z[29][4]['name']="id";
 $z[29][4]['function']="zan(@me)";
-<<<<<<< HEAD
 $z[30]=Array("php","\n          require_once(DEDEMEMBER.\"/config.php\");\n          if(!checkLogin()){\n            echo '\n            <div style=\"background: #ddd\" class=\"downld\"><i class=\"fa fa-download\" aria-hidden=\"true\"></i><span>下载链接</span></div>\n            <p>免费资源，注册登录后可下载，点击<a href=\"#\" onclick=\"logintc()\">登录</a>，点击<a href=\"#\" onclick=\"design()\">注册</a></p>';\n          } else {\n            \$row = \$dsql->GetOne('select baidu_link from dede_addonarticle where aid='.\$aid);\n            echo '<a href=\"http://' . \$row['baidu_link'] .'\"><div class=\"downld\"><i class=\"fa fa-download\" aria-hidden=\"true\"></i><span>下载链接</span></div></a>';\n          }\n        ",6401,7122);
 $z[31]=Array("sql","\n\n        　　[field:name = \"nums\"/]\n\n        ",7137,7266);
 $z[31][4]['sql']="SELECT baidu_link FROM dede_addonarticle where aid =";
@@ -79,15 +78,5 @@ $z[35]=Array("include","",12300,12340);
 $z[35][4]['file']="ajaxcomments.htm";
 $z[36]=Array("global","",12391,12418);
 $z[36][4]['name']="cfg_basehost";
-=======
-$z[30]=Array("php","\n          require_once(DEDEMEMBER.\"/config.php\");\n          if(!checkLogin()){\n            echo '\n            <p>免费资源，注册登录后可下载，点击<a href=\"#\" onclick=\"logintc()\">登录</a>，点击<a href=\"#\" onclick=\"design()\">注册</a></p>';\n          }\n        ",6511,6813);
-$z[31]=Array("global","",6838,6870);
-$z[31][4]['name']="cfg_templets_skin";
-$z[32]=Array("php","\n          require_once(DEDEMEMBER.\"/config.php\");\n          if(!checkLogin()){\n            echo '\n            <p>注册登录后可下载，点击<a href=\"#\" onclick=\"logintc()\">登录</a>，点击<a href=\"#\"  onclick=\"design()\">注册</a></p>';\n          } else {\n            echo '<p>已登录，看下这里要显示哪些东西？</p>';\n          }\n        ",6905,7288);
-$z[33]=Array("include","",11730,11770);
-$z[33][4]['file']="ajaxcomments.htm";
-$z[34]=Array("global","",11821,11848);
-$z[34][4]['name']="cfg_basehost";
->>>>>>> 65dfca42eb78ceaa2725ecbd312fde8243dac87f
 
 ?>
