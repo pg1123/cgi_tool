@@ -1,7 +1,7 @@
 <?php
 $cfg_disable_funs = 'phpinfo,eval,exec,passthru,shell_exec,system,proc_open,popen,curl_exec,curl_multi_exec,parse_ini_file,show_source,file_put_contents';
 $cfg_disable_tags = '';
-$cfg_basehost = 'http://cgitool.local';
+$cfg_basehost = 'http://www.cg3dd.com';
 $cfg_cmspath = '';
 $cfg_cookie_encode = 'gwvGk3GnHVM0wVpN2mBV8WYedBEdbh';
 $cfg_indexurl = '/';
