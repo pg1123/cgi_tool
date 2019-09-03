@@ -19,6 +19,7 @@ body{ background-color:#f7f7f7;}
 .header { position:relative; background-color:#393d49; width:100%; }
 .header .logo{ float:left; margin-left:20px; margin-right:50px; }
 .header .logo{ height:20px; margin-top:20px;}
+.header .logo img{ height:26px; width: 155px; }
 .header .hicon{ position:absolute ; right:20px; top:15px; }
 .header .icon{ display:block; float:left; width:30px; height:30px; border:1px solid #525659; border-radius:40px;  text-align:center; margin:0 5px; }
 .header .fa{line-height:30px;}
