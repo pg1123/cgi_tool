@@ -852,3 +852,94 @@ Error: You have an error in your SQL syntax; check the manual that corresponds t
 Time2019-09-03 20:59:57
 */
 ?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=14
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-04 12:22:21
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=11
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-04 12:24:20
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'art.zan' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY art.zan desc LIMIT 0,50 </font>
+Time2019-09-04 12:55:41
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'art.zan' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY art.zan desc LIMIT 0,50 </font>
+Time2019-09-04 12:56:42
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'arc.zan' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY arc.zan desc LIMIT 0,50 </font>
+Time2019-09-04 12:57:18
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'arc.zan' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY arc.zan desc LIMIT 0,50 </font>
+Time2019-09-04 12:57:21
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'arc.zan' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY arc.zan desc LIMIT 0,50 </font>
+Time2019-09-04 12:57:41
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'arc.zan' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY arc.zan desc LIMIT 0,50 </font>
+Time2019-09-04 12:57:41
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'arc.zan' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY arc.zan desc LIMIT 0,50 </font>
+Time2019-09-04 12:59:13
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'arc.weight' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY arc.weight desc LIMIT 0,50 </font>
+Time2019-09-04 13:01:23
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'arc.weight' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY arc.weight desc LIMIT 0,50 </font>
+Time2019-09-04 13:02:01
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'arc.click' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY arc.click desc LIMIT 0,50 </font>
+Time2019-09-04 13:02:48
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/listajax.php?tid=12&orderby=zan&orderway=desc
+Error: Unknown column 'arc.click' in 'order clause' <br />Error sql: <font color='red'>SELECT id FROM `dede_arctiny` arc WHERE  arc.arcrank > -1  AND (  arc.typeid = '12'  OR CONCAT(',', arc.typeid2, ',') like  '%,12,%'   )    ORDER BY arc.click desc LIMIT 0,50 </font>
+Time2019-09-04 13:02:59
+*/
+?>
