@@ -42,7 +42,7 @@
     <dl class="layui-nav-child snav">
     <dd>
     {dede:sql sql='select * from dede_arctype where reid =~id~ '}
-        <a href="javascript:;" class="btit">[field:typename/]</a>
+        <a href="[field:id runphp='yes'] $id=@me; @me='/plus/list.php?tid='.$id; [/field:id]" class="btit">[field:typename/]</a>
         <div class="snavfl clearfix">
         [field:id runphp='yes']
                 global $dsql;
