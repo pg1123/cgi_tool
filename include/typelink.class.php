@@ -110,13 +110,6 @@ class TypeLink
     //islink 表示返回的列表是否带连接
     function GetPositionLink($islink=true)
     {
-        if ( defined('DEDEMOB') )
-        {
-            $indexpage = "<a href='index.php'>".$this->indexName."</a>";
-        } else{
-            $indexpage = "<a href='".$this->indexUrl."'>".$this->indexName."</a>";
-        }
-        
         if($this->valuePosition!="" && $islink)
         {
             return $this->valuePosition;
@@ -146,8 +139,8 @@ class TypeLink
                     //调用递归逻辑
                     $this->LogicGetPosition($this->TypeInfos['reid'],true);
                 }
-                $this->valuePosition = $indexpage.$this->SplitSymbol.$this->valuePosition;
-                return $this->valuePosition.$this->SplitSymbol;
+                $this->valuePosition = $this->valuePosition;
+                return $this->valuePosition;
             }
             else
             {
@@ -162,6 +155,60 @@ class TypeLink
         }
     }
 
+    // function GetPositionLink($islink=true)
+    // {
+    //     if ( defined('DEDEMOB') )
+    //     {
+    //         $indexpage = "<a href='index.php'>".$this->indexName."</a>";
+    //     } else{
+    //         $indexpage = "<a href='".$this->indexUrl."'>".$this->indexName."</a>";
+    //     }
+        
+    //     if($this->valuePosition!="" && $islink)
+    //     {
+    //         return $this->valuePosition;
+    //     }
+    //     else if($this->valuePositionName!="" && !$islink)
+    //     {
+    //         return $this->valuePositionName;
+    //     }
+    //     else if($this->TypeID==0)
+    //     {
+    //         if($islink)
+    //         {
+    //             return $indexpage;
+    //         }
+    //         else
+    //         {
+    //             return "没指定分类！";
+    //         }
+    //     }
+    //     else
+    //     {
+    //         if($islink)
+    //         {
+    //             $this->valuePosition = $this->GetOneTypeLink($this->TypeInfos);
+    //             if($this->TypeInfos['reid']!=0)
+    //             {
+    //                 //调用递归逻辑
+    //                 $this->LogicGetPosition($this->TypeInfos['reid'],true);
+    //             }
+    //             $this->valuePosition = $indexpage.$this->SplitSymbol.$this->valuePosition;
+    //             return $this->valuePosition.$this->SplitSymbol;
+    //         }
+    //         else
+    //         {
+    //             $this->valuePositionName = $this->TypeInfos['typename'];
+    //             if($this->TypeInfos['reid']!=0)
+    //             {
+    //                 //调用递归逻辑
+    //                 $this->LogicGetPosition($this->TypeInfos['reid'],false);
+    //             }
+    //             return $this->valuePositionName;
+    //         }
+    //     }
+    // }
+
     //获得名字列表
     function GetPositionName()
     {
@@ -171,6 +218,7 @@ class TypeLink
     //获得某类目的链接列表，递归逻辑部分
     function LogicGetPosition($id,$islink)
     {
+        $this->SplitSymbol = '-';
         $this->dsql->SetQuery("SELECT id,reid,typename,typedir,isdefault,ispart,defaultname,namerule2,moresite,siteurl,sitepath FROM #@__arctype WHERE id='".$id."'");
         $tinfos = $this->dsql->GetOne();
         if($islink)

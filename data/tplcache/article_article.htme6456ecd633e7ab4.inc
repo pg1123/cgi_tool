@@ -1,8 +1,8 @@
 <?php
-$z[0]=Array("field","",377,396);
-$z[0][4]['name']="title";
-$z[1]=Array("global","",397,423);
-$z[1][4]['name']="cfg_webname";
+$z[0]=Array("global","",377,403);
+$z[0][4]['name']="cfg_webname";
+$z[1]=Array("field","",404,423);
+$z[1][4]['name']="title";
 $z[2]=Array("global","",478,510);
 $z[2][4]['name']="cfg_templets_skin";
 $z[3]=Array("global","",575,607);
@@ -49,6 +49,7 @@ $z[21][4]['name']="cfg_templets_skin";
 $z[22]=Array("field","",5202,5238);
 $z[22][4]['name']="id";
 $z[22][4]['function']="zan(@me)";
+<<<<<<< HEAD
 $z[23]=Array("tag","<a href='javascript:;'>[field:tag /]</a>",5639,5722);
 $z[23][4]['sort']="new";
 $z[23][4]['getall']="0";
@@ -85,5 +86,45 @@ $z[38]=Array("include","",12509,12549);
 $z[38][4]['file']="ajaxcomments.htm";
 $z[39]=Array("global","",12600,12627);
 $z[39][4]['name']="cfg_basehost";
+=======
+$z[23]=Array("field","",5467,5496);
+$z[23][4]['name']="position";
+$z[24]=Array("tag","<a href='javascript:;'>[field:tag /]</a>",5720,5803);
+$z[24][4]['sort']="new";
+$z[24][4]['getall']="0";
+$z[25]=Array("field","",5968,5995);
+$z[25][4]['name']="phpurl";
+$z[26]=Array("field","",6019,6042);
+$z[26][4]['name']="id";
+$z[27]=Array("field","",6047,6071);
+$z[27][4]['name']="mid";
+$z[28]=Array("field","",6076,6104);
+$z[28][4]['name']="channel";
+$z[29]=Array("global","",6279,6306);
+$z[29][4]['name']="cfg_basehost";
+$z[30]=Array("field","",6330,6346);
+$z[30][4]['name']="id";
+$z[31]=Array("field","",6437,6473);
+$z[31][4]['name']="id";
+$z[31][4]['function']="zan(@me)";
+$z[32]=Array("field","",6578,6594);
+$z[32][4]['name']="id";
+$z[33]=Array("field","",6596,6632);
+$z[33][4]['name']="id";
+$z[33][4]['function']="zan(@me)";
+$z[34]=Array("php","\n          require_once(DEDEMEMBER.\"/config.php\");\n          if(!checkLogin()){\n            echo '\n            <div style=\"background: #ddd\" class=\"downld\"><i class=\"fa fa-download\" aria-hidden=\"true\"></i><span>下载链接</span></div>\n            <p>免费资源，注册登录后可下载，点击<a href=\"#\" onclick=\"logintc()\">登录</a>，点击<a href=\"#\" onclick=\"design()\">注册</a></p>';\n          } else {\n            \$row = \$dsql->GetOne('select baidu_link from dede_addonarticle where aid='.\$aid);\n            echo '<a href=\"http://' . \$row['baidu_link'] .'\"><div class=\"downld\"><i class=\"fa fa-download\" aria-hidden=\"true\"></i><span>下载链接</span></div></a>';\n          }\n        ",6691,7412);
+$z[35]=Array("sql","\n\n        　　[field:name = \"nums\"/]\n\n        ",7427,7556);
+$z[35][4]['sql']="SELECT baidu_link FROM dede_addonarticle where aid =";
+$z[36]=Array("field","\n\$id=@me;\n@me='';\n\$url=GetOneArchive(\$id);\n@me=\$url['id'];\n",7566,7669);
+$z[36][4]['name']="id";
+$z[36][4]['runphp']="yes";
+$z[37]=Array("global","",7698,7730);
+$z[37][4]['name']="cfg_templets_skin";
+$z[38]=Array("php","\n          require_once(DEDEMEMBER.\"/config.php\");\n          if(!checkLogin()){\n            echo '\n            <p>注册登录后可下载，点击<a href=\"#\" onclick=\"logintc()\">登录</a>，点击<a href=\"#\"  onclick=\"design()\">注册</a></p>';\n          } else {\n            echo '<p>已登录，看下这里要显示哪些东西？</p>';\n          }\n        ",7765,8148);
+$z[39]=Array("include","",12590,12630);
+$z[39][4]['file']="ajaxcomments.htm";
+$z[40]=Array("global","",12681,12708);
+$z[40][4]['name']="cfg_basehost";
+>>>>>>> 35a35e322c76f91541392debeb50b445d897bbbc
 
 ?>

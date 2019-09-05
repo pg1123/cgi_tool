@@ -1,8 +1,8 @@
 <?php
-$z[0]=Array("field","",377,396);
-$z[0][4]['name']="title";
-$z[1]=Array("global","",397,423);
-$z[1][4]['name']="cfg_webname";
+$z[0]=Array("global","",377,403);
+$z[0][4]['name']="cfg_webname";
+$z[1]=Array("field","",404,423);
+$z[1][4]['name']="title";
 $z[2]=Array("global","",444,476);
 $z[2][4]['name']="cfg_templets_skin";
 $z[3]=Array("global","",541,573);
