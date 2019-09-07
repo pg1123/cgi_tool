@@ -145,7 +145,7 @@ title="赞一个 "class="img_on" rel="{dede:field.id/}">{dede:field.id function=
             <p>免费资源，注册登录后可下载，点击<a href="#" onclick="logintc()">登录</a>，点击<a href="#" onclick="design()">注册</a></p>';
           } else {
             $row = $dsql->GetOne('select baidu_link from dede_addonarticle where aid='.$aid);
-            echo '<a href="http://' . $row['baidu_link'] .'"><div class="downld"><i class="fa fa-download" aria-hidden="true"></i><span>下载链接</span></div></a>';
+            echo '<a href="javascript:;"><div class="downld lg_download" onclick="getLink()"><i class="fa fa-download" aria-hidden="true"></i><span>下载链接</span></div></a>';
           }
         {/dede:php}
 
@@ -272,6 +272,46 @@ $url=GetOneArchive($id);
 </form>
   </div>
 
+
+
+    <!--baidu link-->
+<div class="logina"  id="getLink" style="display:none;">
+ <form id="login_form" class="layui-form" method="post" action="/member/login.php">
+    <input type="hidden" name="ecmsfrom" value="9">
+    <input name="tobind" type="hidden" id="tobind" value="0">
+    <input type="hidden" name="enews" value="login">
+    <input type="hidden" name="lifetime" value="3600">
+  <div class="layui-form-item">
+    <label class="layui-form-label">百度云链接</label>
+    <div class="layui-input-block">
+
+      {dede:php}
+          require_once(DEDEMEMBER."/config.php");
+          if(checkLogin()){
+            $row = $dsql->GetOne('select baidu_link from dede_addonarticle where aid='.$aid);
+            echo '<input type="text" value="'. $row['baidu_link'] .'" lay-verify="title" autocomplete>';
+          }
+      {/dede:php}
+
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">分享密码</label>
+    <div class="layui-input-block">
+      {dede:php}
+          require_once(DEDEMEMBER."/config.php");
+          if(checkLogin()){
+            $row = $dsql->GetOne('select bd_password from dede_addonarticle where aid='.$aid);
+            echo '<input type="text" value="'. $row['bd_password'] .'" lay-verify="title" autocomplete>';
+          }
+      {/dede:php}
+    </div>
+  </div>
+
+</form>
+  </div>
+
+
 <!-- //AJAX评论区 开始 -->
 
 <link href="/comments/comments.css" rel="stylesheet" type="text/css" />
@@ -350,6 +390,19 @@ layer.open({
   shade: 0.8,
   area: ['400px', 'auto'],
   content: $('#design') //iframe的url
+        
+});
+}
+
+//baidu link
+function getLink(){
+layer.open({
+        type: 1,
+  title: '下载链接',
+  shadeClose: true,
+  shade: 0.8,
+  area: ['400px', 'auto'],
+  content: $('#getLink') //iframe的url
         
 });
 }
@@ -504,7 +557,8 @@ $('#login_out').on('click', function(e){
     });
     return false;
   });
- 
+
+
 </script>
 </body>
 </html>
