@@ -25,7 +25,7 @@
   {dede:channelartlist typeid='top' row='10' currentstyle="<li class='nactive'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
   <li class="layui-nav-item">
     <!-- <a href="{dede:field name='typeurl'/}" >{dede:field name='typename' /}</a> -->
-    <a href="javascript:;" >{dede:field name='typename' /}</a>
+    <a href="{dede:field name='typeurl'/}" >{dede:field name='typename' /}</a>
     <dl class="layui-nav-child snav">
     <dd>
     {dede:sql sql='select * from dede_arctype where reid =~id~ '}

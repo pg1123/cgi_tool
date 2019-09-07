@@ -20,12 +20,12 @@
 <div class="header clearfix ctnt">
     <div class="logo"><a href="/"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></a></div>
 
-    <ul class="layui-nav">
+<ul class="layui-nav">
   <li class="layui-nav-item layui-this"> <a href="/">首页</a> </li>
   {dede:channelartlist typeid='top' row='10' currentstyle="<li class='nactive'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
   <li class="layui-nav-item">
     <!-- <a href="{dede:field name='typeurl'/}" >{dede:field name='typename' /}</a> -->
-    <a href="javascript:;" >{dede:field name='typename' /}</a>
+    <a href="{dede:field name='typeurl'/}" >{dede:field name='typename' /}</a>
     <dl class="layui-nav-child snav">
     <dd>
     {dede:sql sql='select * from dede_arctype where reid =~id~ '}
