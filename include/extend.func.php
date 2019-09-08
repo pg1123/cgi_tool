@@ -36,3 +36,30 @@ function zan($aid)
     $row = $dsql->GetOne("Select id,zan From dede_archives where id='".$aid."'");
     return !empty($row['zan']) ? $row['zan'] : '0 ';
 }
+
+
+
+function thumb($imgurl, $width, $height, $bg = true)  
+{
+    global $cfg_mainsite,$cfg_multi_site;
+    //$thumb = eregi("http://",$imgurl) ? str_replace($cfg_mainsite,'',$imgurl) : $imgurl;
+    $thumb = $imgurl;
+    //print_r($imgurl);exit;
+    list($thumbname,$extname) = explode('.',$thumb);  
+    $newthumb = $thumbname.'_'.$width.'_'.$height.'.'.$extname;  
+    if(!$thumbname || !$extname || !file_exists(DEDEROOT.$thumb)) return $imgurl;  
+    if(!file_exists(DEDEROOT.$newthumb))  
+    {  
+    include_once DEDEINC.'/image.func.php';  
+    if($bg==true)  
+    {  
+    ImageResizeNew(DEDEROOT.$thumb, $width, $height, DEDEROOT.$newthumb);  
+    }  
+    else 
+    {  
+    ImageResize(DEDEROOT.$thumb, $width, $height, DEDEROOT.$newthumb);  
+    }  
+    }  
+    return $cfg_multi_site=='Y'?$cfg_mainsite.$newthumb:$newthumb;  
+}
+
