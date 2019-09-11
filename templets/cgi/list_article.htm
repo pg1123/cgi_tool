@@ -15,7 +15,6 @@
 
 <body>
 <div id="container">
-<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.js"></script>
 
 <div class="header clearfix ctnt">
     <div class="logo"><a href="/"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></a></div>
@@ -67,7 +66,7 @@
   require_once(DEDEMEMBER."/config.php");
   if(!checkLogin()){
     echo '
-    <div class="login"><a href="#" onclick="logintc()">登录</a>|<a href="#" onclick="design()">注册</a></div>';
+    <div class="login"><a href="#" class="denglu">登录</a>|<a href="#" class="zhuce">注册</a></div>';
   }
 {/dede:php}
 
@@ -106,7 +105,7 @@
     <div class="layui-input-block">
           <input id="vdcode" class="text login_from3" type="text" style="width: 50px; text-transform: uppercase;" name="vdcode"/>
           <img id="vdimgck" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="/include/vdimgck.php"/>
-           看不清？ <a href="#" onclick="changeAuthCode();">点击更换</a>
+           看不清？ <a href="#" class="changeCode">点击更换</a>
     </div>
   </div>
 
@@ -157,7 +156,7 @@
           <label class="layui-form-label">验证码</label>
           <div class="layui-input-block">
                 <input type="text" class="intxt w200" style="width: 50px; text-transform: uppercase;" id="vdcode_reg" name="vdcode"/><img id="vdimgck_reg" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="/include/vdimgck.php"/>
-           看不清？ <a href="javascript:void(0)" onclick="changeAuthCode();">点击更换</a>
+           看不清？ <a href="javascript:void(0)" class="changeCode">点击更换</a>
           </div>
         </div>
 
@@ -225,175 +224,9 @@ foreach($tags as $key => $value){
 <div class="footer">
 Copyright ©2019 CGITool right reserved.京ICP备11081390号-1
 </div>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/main.js"></script>
+
 <script type="text/javascript">
-
-$(function(){
-        
-$(".show").hover(function() {
-  $(this).children(".shadow").show();
-}, function() {
-  $(this).children(".shadow").hide();
-});
-
-    })
-    
-    
-    layui.use('element', function(){
-  var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
-  
-  //监听导航点击
-  element.on('nav(demo)', function(elem){
-    //console.log(elem)
-    layer.msg(elem.text());
-  });
-});
-
-
-  layui.use(['form','upload', 'laydate','laypage', 'layer'], function(){
-    var form = layui.form,
-    layer = layui.layer,
-    laydate = layui.laydate;
-  });
-
-
-
-
-
-
-//登录弹窗
-  function logintc(){
-      layer.open({
-        type: 1,
-        title: '用户登录',
-        shadeClose: true,
-        shade: 0.8,
-        area: ['400px', 'auto'],
-        content: $('#logintc') //iframe的url
-      });
-  }
-
-
-  //注册弹窗
-function design(){
-layer.open({
-        type: 1,
-  title: '用户注册',
-  shadeClose: true,
-  shade: 0.8,
-  area: ['400px', 'auto'],
-  content: $('#design') //iframe的url
-        
-});
-}
-//cgitool.local/member/login.php?fmdo=login&dopost=login&userid=test&password=123456a&keeptime=86400
-$('#login_button').on('click', function(e){
-            e.preventDefault();
-            var url = '/member/index_do.php';
-            var username = $('#login_name').val();
-            var password = $('#login_password').val();
-            var vdcode = $('#vdcode').val();
-            var data = {
-                fmdo: "login",
-                dopost: "login",
-                gourl: "",
-                userid: username,
-                pwd: password,
-                vdcode: vdcode,
-                keeptime: 86400
-            };
-            $.post(url, data, function(data,status){
-                //alert(data);
-                if(data.indexOf("成功登录") >= 0){
-                      //alert('登陆成功,页面跳转中..请稍后');
-                      location.reload();
-                  }else if(data.indexOf("用户名不存在") >= 0){
-                      alert("用户名不存在！");
-                  }else if(data.indexOf("验证码错误") >= 0){
-                     alert("验证码错误!");
-                  }else if(data.indexOf("为空") >= 0){
-                      alert("密码不能为空！");
-                  }else if(data.indexOf("密码错误") >= 0){
-                      alert("密码错误！");
-                  }else if(data.indexOf("admin") >= 0){
-                      alert("你输入的用户名:admin 不合法！");
-                  }else {
-                      alert("登录不成功，请确认您的cookie是否已开启!");
-                }
-
-            });
-    });
-
-//cgitool.local/member/reg_new.php?mtype=个人&step=1&fmdo=user&dopost=regbase&userid=test2&uname=test2&userpwd=1&userpwdok=111&email=111
-
-$('#reg_button').on('click', function(e){
-            e.preventDefault();
-            var url = '/member/reg_new.php';
-            var username = $('#reg_name').val();
-            var password = $('#reg_password').val();
-            var repassword = $('#reg_repassword').val();
-            var email = $('#reg_email').val();
-            var vdcode = $('#vdcode_reg').val();
-            var data = {
-                mtype: "个人",
-                step: 1,
-                fmdo: "user",
-                dopost: "regbase",
-                userid: username,
-                uname: username,
-                userpwd: password,
-                userpwdok: repassword,
-                email: email,
-                vdcode: vdcode,
-            };
-            $.post(url, data, function(data,status){
-                if(data.indexOf("注册成功") >= 0){
-                      location.reload();
-                  }else if(data.indexOf("用户名已经存在") >= 0){
-                      alert("用户名已经存在！");
-                  }else if(data.indexOf("验证码错误") >= 0){
-                     alert("验证码错误!");
-                  }else if(data.indexOf("你的用户名或密码过短，不允许注册") >= 0){
-                      alert("你的用户名或密码过短，不允许注册！");
-                  }else if(data.indexOf("你两次输入的密码不一致") >= 0){
-                      alert("你两次输入的密码不一致");
-                  }else if(data.indexOf("Email格式不正确") >= 0){
-                      alert("Email格式不正确！");
-                  }else {
-                      alert("注册失败!");
-                }
-            });
-    });
-
-///member/index_do.php?fmdo=login&dopost=exit
-$('#login_out').on('click', function(e){
-            e.preventDefault();
-            var url = '/member/index_do.php';
-            var data = {
-                fmdo: "login",
-                dopost: "exit",
-            };
-            $.post(url, data, function(data,status){
-                //alert(data);
-                if(data.indexOf("成功") >= 0){
-                      //alert('登陆成功,页面跳转中..请稍后');
-                      location.reload();
-                  }
-            });
-    });
-
-  function changeAuthCode() {
-    var num =   new Date().getTime();
-    var rand = Math.round(Math.random() * 10000);
-    num = num + rand;
-    $('#ver_code').css('visibility','visible');
-    if ($("#vdimgck_reg")[0]) {
-      $("#vdimgck_reg")[0].src = "/include/vdimgck.php?tag=" + num;
-    }
-    if ($("#vdimgck")[0]) {
-      $("#vdimgck")[0].src = "/include/vdimgck.php?tag=" + num;
-    }
-    return false;
-  }
 
 
 </script>

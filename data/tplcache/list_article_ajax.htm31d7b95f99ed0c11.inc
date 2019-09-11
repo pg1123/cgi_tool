@@ -9,8 +9,38 @@ $z[3]=Array("global","",541,573);
 $z[3][4]['name']="cfg_templets_skin";
 $z[4]=Array("global","",668,700);
 $z[4][4]['name']="cfg_templets_skin";
-$z[5]=Array("global","",1449,1481);
+$z[5]=Array("global","",1493,1525);
 $z[5][4]['name']="cfg_templets_skin";
+<<<<<<< HEAD
+$z[6]=Array("channelartlist","\n  <li class=\"layui-nav-item\">\n    <!-- <a href=\"{dede:field name='typeurl'/}\" >{dede:field name='typename' /}</a> -->\n    <a href=\"{dede:field name='typeurl'/}\" >{dede:field name='typename' /}</a>\n    <dl class=\"layui-nav-child snav\">\n    <dd>\n    {dede:sql sql='select * from dede_arctype where reid =~id~ '}\n        <a href=\"[field:id runphp='yes'] \$id=@me; @me='/plus/list.php?tid='.\$id; [/field:id]\" class=\"btit\">[field:typename/]</a>\n        <div class=\"snavfl clearfix\">\n        [field:id runphp='yes']\n                global \$dsql;\n                \$id=@me;\n                \$sql='Select * from dede_arctype where reid='.\$id.' ORDER BY id limit 0,20';\n                \$dsql->SetQuery(\$sql);\n                \$dsql->Execute();\n                while(\$row = \$dsql->GetArray()){\n                    \$url = str_replace(\"{cmspath}\",\"\",\$row['typedir']);\n                    \$str .='<a href=\"/plus/list.php?tid='.\$row[id].'\">'.\$row['typename'].'</a>';\n                    @me = \$str;\n                }                      \n                if(@me == \$id){\n                  @me ='';\n                }\n         [/field:id]\n         </div>\n      {/dede:sql}\n    </dd>\n    </dl>\n  </li>\n  ",1656,2999);
+$z[6][4]['typeid']="top";
+$z[6][4]['row']="10";
+$z[6][4]['currentstyle']="<li class='nactive'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>";
+$z[7]=Array("php","\n  require_once(DEDEMEMBER.\"/config.php\");\n  if(checkLogin()){\n    echo '\n    <li class=\"layui-nav-item layui-nav-item1 usera\" lay-unselect=\"\"> <a href=\"javascript:;\"><img src=\"'. \$cfg_ml->fields['face'] .'\" class=\"layui-nav-img\">'.\$uid.'</a><dl class=\"layui-nav-child\"><dd><a href=\"/member/zh.php\">个人中心</a></dd><dd><a id=\"login_out\" href=\"/member/index_do.php?fmdo=login&dopost=exit\">退出</a></dd></dl></li>';\n  }\n  ",3002,3450);
+$z[8]=Array("php","\n  require_once(DEDEMEMBER.\"/config.php\");\n  if(!checkLogin()){\n    echo '\n    <div class=\"login\"><a href=\"#\" class=\"denglu\">登录aa</a>|<a href=\"#\" class=\"zhuce\">注册</a></div>';\n  }\n",3460,3668);
+$z[9]=Array("php"," if(!\$_GET['orderby']) { echo 'class=\"this\"'; } ",8023,8092);
+$z[10]=Array("field","",8126,8146);
+$z[10][4]['name']="typeid";
+$z[11]=Array("php"," if(\$_GET['orderby']=='lastpost') { echo 'class=\"this\"'; } ",8179,8259);
+$z[12]=Array("field","",8293,8313);
+$z[12][4]['name']="typeid";
+$z[13]=Array("php"," if(\$_GET['orderby']=='zan') { echo 'class=\"this\"'; } ",8377,8452);
+$z[14]=Array("field","",8486,8506);
+$z[14][4]['name']="typeid";
+$z[15]=Array("php"," if(\$_GET['orderby']=='click') { echo 'class=\"this\"'; } ",8565,8642);
+$z[16]=Array("field","",8676,8696);
+$z[16][4]['name']="typeid";
+$z[17]=Array("php"," if(\$_GET['orderby']=='scores') { echo 'class=\"this\"'; } ",8757,8835);
+$z[18]=Array("field","",8869,8889);
+$z[18][4]['name']="typeid";
+$z[19]=Array("list","\n             <div class=\"border\">\n              <div class=\"grid-demo\"> <a href=\"[field:arcurl/]\" class=\"show\"> <img src=\"[field:picname function='thumb(@me,450,300)'/]\" /><!-- [field:picname/] -->\n                <div class=\"shadow\" style=\"display:none;\"> [field:title/] </div>\n                </a>\n                <div class=\"cgiarc\">\n                  <h3><a href=\"[field:arcurl/]\">[field:title/]</a></h3>\n                  <div class=\"tag\"><strong><!-- <a href=\"#\" target=\"_blank\">超写实</a> <a href=\"#\" target=\"_blank\">模型</a> <a href=\"#\" target=\"_blank\">预售</a> <a href=\"#\" target=\"_blank\">场景</a> </li> -->\n                    \n\n[field:id runphp='yes']\nglobal \$cfg_cmspath;\n\$tags = GetTags(@me);\n\$revalue = '';\n\$tags = explode(',', \$tags);\nforeach(\$tags as \$key => \$value){\n  if(\$value){\n    //\$revalue .= '<a href=\"'.\$cfg_cmspath.'/tags.php?/'.\$value.'/\">'.\$value.'</a> ';\n    \$revalue .= '<a href=\"javascript:;\">'.\$value.'</a> ';\n  }\n}\n@me = \$revalue;\n[/field:id] \n\n\n                    \n                  </strong></div>\n\n\n                  <div class=\"action\"> <span><i class=\"fa fa-eye\" aria-hidden=\"true\"></i>[field:click /]</span><span><i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i> [field:id function='cnum(@me)'/]</span><span class=\"handok\"><i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i>[field:id function='zan(@me)'/]</span></div>\n                </div>\n              </div>\n        </div>\n      ",9008,10484);
+$z[19][4]['pagesize']="50";
+$z[20]=Array("pagelist","",10564,10635);
+$z[20][4]['listsize']="5";
+$z[20][4]['listitem']="info,index,end,pre,next,pageno";
+$z[21]=Array("global","",10814,10846);
+$z[21][4]['name']="cfg_templets_skin";
+=======
 $z[6]=Array("global","",1584,1616);
 $z[6][4]['name']="cfg_templets_skin";
 $z[7]=Array("channelartlist","\n  <li class=\"layui-nav-item\">\n    <!-- <a href=\"{dede:field name='typeurl'/}\" >{dede:field name='typename' /}</a> -->\n    <a href=\"{dede:field name='typeurl'/}\" >{dede:field name='typename' /}</a>\n    <dl class=\"layui-nav-child snav\">\n    <dd>\n    {dede:sql sql='select * from dede_arctype where reid =~id~ '}\n        <a href=\"[field:id runphp='yes'] \$id=@me; @me='/plus/list.php?tid='.\$id; [/field:id]\" class=\"btit\">[field:typename/]</a>\n        <div class=\"snavfl clearfix\">\n        [field:id runphp='yes']\n                global \$dsql;\n                \$id=@me;\n                \$sql='Select * from dede_arctype where reid='.\$id.' ORDER BY id limit 0,20';\n                \$dsql->SetQuery(\$sql);\n                \$dsql->Execute();\n                while(\$row = \$dsql->GetArray()){\n                    \$url = str_replace(\"{cmspath}\",\"\",\$row['typedir']);\n                    \$str .='<a href=\"/plus/list.php?tid='.\$row[id].'\">'.\$row['typename'].'</a>';\n                    @me = \$str;\n                }                      \n                if(@me == \$id){\n                  @me ='';\n                }\n         [/field:id]\n         </div>\n      {/dede:sql}\n    </dd>\n    </dl>\n  </li>\n  ",1743,3086);
@@ -39,5 +69,6 @@ $z[20][4]['pagesize']="50";
 $z[21]=Array("pagelist","",10629,10700);
 $z[21][4]['listsize']="5";
 $z[21][4]['listitem']="info,index,end,pre,next,pageno";
+>>>>>>> 5ceb28f28b0b10d17495513b7daa745273f74986
 
 ?>
