@@ -201,11 +201,18 @@ this.SendGet2 = function(purl) {
         if(purl.indexOf('?')==-1) purl = purl + '?' + gkey;
         else  purl = purl + '&' + gkey;
     }
-    DedeXHTTP.open("GET", purl, false);
-    this.SendHead();
-    DedeXHTTP.send(null);
-    //firefox中直接检测XHTTP状态
-    this.BarrageStat();
+    // DedeXHTTP.open("GET", purl, false);
+    // this.SendHead();
+    // DedeXHTTP.send(null);
+    // this.BarrageStat();
+    $.ajax({
+      type: "GET",
+      data: {
+      },
+      url: purl,
+      success: function() {
+      }
+    });
 };
 
 //用Post方式发送数据
