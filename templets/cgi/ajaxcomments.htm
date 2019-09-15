@@ -46,7 +46,7 @@ function LoadCommets(page)
       type: "GET",
       data: {
       },
-      url: "http://cgitool.local/comments/comments.php?dopost=getlist&aid={dede:field.id/}&page="+page,
+      url: "{dede:global.cfg_basehost/}/comments/comments.php?dopost=getlist&aid={dede:field.id/}&page="+page,
       success: function(e) {
       	$('#commetcontent').append(e);
       }

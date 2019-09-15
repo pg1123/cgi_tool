@@ -17,7 +17,9 @@ $z[7]=Array("global","",2381,2408);
 $z[7][4]['name']="cfg_basehost";
 $z[8]=Array("field","",2450,2466);
 $z[8][4]['name']="id";
-$z[9]=Array("field","",2634,2650);
-$z[9][4]['name']="id";
+$z[9]=Array("global","",2572,2599);
+$z[9][4]['name']="cfg_basehost";
+$z[10]=Array("field","",2641,2657);
+$z[10][4]['name']="id";
 
 ?>
