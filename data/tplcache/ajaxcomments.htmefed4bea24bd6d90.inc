@@ -13,9 +13,11 @@ $z[5]=Array("field","",1859,1875);
 $z[5][4]['name']="id";
 $z[6]=Array("global","",2207,2234);
 $z[6][4]['name']="cfg_basehost";
-$z[7]=Array("global","",2379,2406);
+$z[7]=Array("global","",2381,2408);
 $z[7][4]['name']="cfg_basehost";
-$z[8]=Array("field","",2448,2464);
+$z[8]=Array("field","",2450,2466);
 $z[8][4]['name']="id";
+$z[9]=Array("field","",2634,2650);
+$z[9][4]['name']="id";
 
 ?>
