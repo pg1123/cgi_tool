@@ -17,7 +17,9 @@ $z[6]=Array("arclist","\r\n            <div class=\"layui-col-xs3\">\r\n        
 $z[6][4]['row']="9999";
 $z[6][4]['titlelen']="42";
 $z[6][4]['orderby']="click";
-$z[7]=Array("global","",10152,10184);
-$z[7][4]['name']="cfg_templets_skin";
+$z[7]=Array("include","",10041,10076);
+$z[7][4]['filename']="foot.htm";
+$z[8]=Array("global","",10095,10127);
+$z[8][4]['name']="cfg_templets_skin";
 
 ?>

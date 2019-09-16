@@ -87,7 +87,9 @@ $z[39]=Array("include","",11830,11870);
 $z[39][4]['file']="ajaxcomments.htm";
 $z[40]=Array("global","",11921,11948);
 $z[40][4]['name']="cfg_basehost";
-$z[41]=Array("global","",12191,12223);
-$z[41][4]['name']="cfg_templets_skin";
+$z[41]=Array("include","",12085,12120);
+$z[41][4]['filename']="foot.htm";
+$z[42]=Array("global","",12134,12166);
+$z[42][4]['name']="cfg_templets_skin";
 
 ?>

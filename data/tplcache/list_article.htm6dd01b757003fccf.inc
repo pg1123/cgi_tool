@@ -31,7 +31,9 @@ $z[16][4]['pagesize']="50";
 $z[17]=Array("pagelist","",8337,8408);
 $z[17][4]['listsize']="5";
 $z[17][4]['listitem']="info,index,end,pre,next,pageno";
-$z[18]=Array("global","",8587,8619);
-$z[18][4]['name']="cfg_templets_skin";
+$z[18]=Array("include","",8460,8495);
+$z[18][4]['filename']="foot.htm";
+$z[19]=Array("global","",8532,8564);
+$z[19][4]['name']="cfg_templets_skin";
 
 ?>
