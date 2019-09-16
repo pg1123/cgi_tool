@@ -197,4 +197,137 @@ $(function(){
     });
 
 
+//滚动获取文章列表 ----start------------------------------
+    $(window).scroll(function(){ 
+        //获取当前文档的高度
+        var docHeight = $(document).height();
+        //获取当前滚动条的高度
+        var scrollTop = $(this).scrollTop();
+        //获取当前可视区的高度
+        var height = $(this).height();
+        if((docHeight-scrollTop-height)<=20){ 
+           loadMoreApply(); 
+        }
+    });
+
+    var loadConfig = {
+        //请求地址
+        url_api:'/plus/list.php',
+        //0就是首页调用数据  列表:typeid:{dede:field name="typeid"/}
+        typeid:0,  
+        page:1, //开始页码
+        pagesize:20, //需要渲染的数据条数
+        loading : 0,//加载状态,默认为未加载
+    }
+
+    function  loadMoreApply(){
+        if(loadConfig.loading == 0){
+            var typeid = loadConfig.typeid;
+            var page = loadConfig.page;
+            var pagesize = loadConfig.pagesize;
+            var url = loadConfig.url_api,data={
+                ajax:'pullload',
+                typeid:typeid,
+                page:page,
+                pagesize:pagesize
+            };
+            function ajax(url, data) {
+                $.ajax({
+                    url: url,
+                    data:data,
+                    async: false,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        //alert(data);
+                        addContent(data);
+                    }
+                });
+            }
+            ajax(url,data);
+        }
+    }
+
+    function addContent(rs) {
+      if(rs.statu== 1){
+          var data = rs.list;
+          var total = rs.total;
+          var arr=[];
+          var len = data.length;
+          alert(len);
+          var html = '';
+          for(var i=0;i<len;i++){
+             // html = '<div class="say_out animated bounceIn">'+
+             //   '<div class="left my_pic">'+
+             //    '<img src="'+data[i].picname+'" width="100" height="100" alt=""/>'+
+             //     '</div>'+
+             //     '<div class="right my_text">'+
+             //         '<p> '+data[i].info+'<span> '+data[i].stime+'</span> '+
+             //        ' </p>'+
+             //      '</div>'+
+             //     ' <div class="clear"></div>'+
+             // '</div>';
+             console.log(data[i]);
+                html = html + '<div class="layui-col-xs3">';
+                html = html + '<div class="grid-demo"> <a href="' + data[i].arcurl + '" class="show"> <img src="'+ data[i].litpic +'" /></a>';
+                html = html + '<div class="cgiarc">';
+                html = html + '<div class="cgiarc1">';
+                html = html + '<h3><a href="' + data[i].arcurl + '" title="' + data[i].title + '">' + data[i].title +  '</a></h3>';
+                html = html + '<div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong></div>';
+                html = html + '</div>';
+                html = html + '<div class="action"> <span><i class="fa fa-eye" aria-hidden="true"></i>' +111+ '</span><span><i class="fa fa-commenting-o" aria-hidden="true"></i>'+ 222 +'</span><span class="handok"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>'+333+'</span></div>';
+                html = html + '</div>';
+                html = html + '</div>';
+                html = html + '</div>';
+          }
+          arr.push(html);
+          alert(html);
+          $('#a_say').append(html);
+          loadConfig.load_num = rs.load_num;
+          // if(total == loadConfig.load_num){
+          //      console.log("没有数据了");
+          //      loadConfig.loading=1;
+          //      return false;
+          // }
+          loadConfig.page++;
+          loadConfig.loading = 0;
+      }
+    }
+
+    // function addContent (rs){
+    //         alert(234);
+    //     if(rs.statu== 1){
+    //         var data = rs.list;
+    //         var total = rs.total;
+    //         var arr=[];
+    //         var len = data.length;
+    //         var html = '';
+    //         for(var i=0;i<len;i++){
+    //          html = '<div class="say_out animated bounceIn">'+
+    //            '<div class="left my_pic">'+
+    //             '<img src="'+data[i].picname+'" width="100" height="100" alt=""/>'+
+    //              '</div>'+
+    //              '<div class="right my_text">'+
+    //                  '<p> '+data[i].info+'<span> '+data[i].stime+'</span> '+
+    //                 ' </p>'+
+    //               '</div>'+
+    //              ' <div class="clear"></div>'+
+    //          '</div>';
+    //         }
+    //         arr.push(html);
+    //         $('#a_say').append(html);
+    //         loadConfig.load_num = rs.load_num;
+    //         if(total loadConfig.load_num){
+    //              console.log("没有数据了");
+    //              loadConfig.loading=1;
+    //              return false;
+    //         }
+    //         loadConfig.page++;
+    //         loadConfig.loading = 0;
+    //     }
+    // }
+
+//滚动获取文章列表 ----end------------------------------
+
+
 });

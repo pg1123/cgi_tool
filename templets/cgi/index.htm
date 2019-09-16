@@ -149,17 +149,15 @@ foreach($tags as $key => $value){
       <div class="tit clearfix">
         <h2>CGI全部资源</h2>
     </div>
-      <div class="layui-row flow-default clearfix" id="LAY_demo1">
-        {dede:arclist row=9999 titlelen=42 orderby=click}
+      <div class="layui-row flow-default clearfix" id="a_say">
+        <!-- {dede:arclist row=9999 titlelen=42 orderby=click}
             <div class="layui-col-xs3">
               <div class="grid-demo"> <a href="[field:arcurl/]" class="show"> <img src="[field:picname function='thumb(@me,450,300)'/]" />
             <div class="shadow" style="display:none;"> [field:description /] </div></a>
                 <div class="cgiarc">
                   <div class="cgiarc1">
                   <h3><a href="#" title="[field:title /]">[field:title /]</a></h3>
-                  <div class="tag"><strong><!-- <a href="#">插画</a></strong><strong><a href="#">手绘</a></strong><strong><a href="#">绘画</a></strong><strong><a href="#">教程</a></strong><strong><a href="#">场景</a></strong><strong><a href="#">全景</a></strong></div>
-                  <div class="tag tag1"><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签</strong><strong>标签 -->
-                    
+                  <div class="tag"><strong>
 [field:id runphp='yes']
 global $cfg_cmspath;
 $tags = GetTags(@me);
@@ -182,7 +180,7 @@ foreach($tags as $key => $value){
                 </div>
               </div>
             </div>
-            {/dede:arclist}
+            {/dede:arclist} -->
     </div>
   </div>
 
@@ -295,7 +293,9 @@ Copyright ©2019 CGITool right reserved.京ICP备11081390号-1
 <script src="{dede:global.cfg_templets_skin/}/js/main.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+$(function(){ 
 
+});
 </script>
 </body>
 </html>
