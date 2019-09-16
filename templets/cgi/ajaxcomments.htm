@@ -39,9 +39,18 @@ function LoadCommets(page)
 {
 	var taget_obj = document.getElementById('commetcontent');
 	var waithtml = "<div style='line-height:50px'><img src='{dede:global.cfg_basehost/}/comments/loadinglit.gif' />评论加载中...</div>";
-	var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
+	/*var myajax = new DedeAjax(taget_obj, true, true, '', 'x', waithtml);
 	myajax.SendGet2("{dede:global.cfg_basehost/}/comments/comments.php?dopost=getlist&aid={dede:field.id/}&page="+page);
-	DedeXHTTP = null;
+	DedeXHTTP = null;*/
+	$.ajax({
+      type: "GET",
+      data: {
+      },
+      url: "{dede:global.cfg_basehost/}/comments/comments.php?dopost=getlist&aid={dede:field.id/}&page="+page,
+      success: function(e) {
+      	$('#commetcontent').append(e);
+      }
+    });
 }
 LoadCommets(1);
 </script>
