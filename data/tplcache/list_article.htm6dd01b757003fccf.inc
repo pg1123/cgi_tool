@@ -9,6 +9,7 @@ $z[3]=Array("global","",541,573);
 $z[3][4]['name']="cfg_templets_skin";
 $z[4]=Array("global","",668,700);
 $z[4][4]['name']="cfg_templets_skin";
+<<<<<<< HEAD
 $z[5]=Array("global","",1493,1525);
 $z[5][4]['name']="cfg_templets_skin";
 $z[6]=Array("channelartlist","\n  <li class=\"layui-nav-item\">\n    <!-- <a href=\"{dede:field name='typeurl'/}\" >{dede:field name='typename' /}</a> -->\n    <a href=\"{dede:field name='typeurl'/}\" >{dede:field name='typename' /}</a>\n    <dl class=\"layui-nav-child snav\">\n    <dd>\n    {dede:sql sql='select * from dede_arctype where reid =~id~ '}\n        <a href=\"[field:id runphp='yes'] \$id=@me; @me='/plus/list.php?tid='.\$id; [/field:id]\" class=\"btit\">[field:typename/]</a>\n        <div class=\"snavfl clearfix\">\n        [field:id runphp='yes']\n                global \$dsql;\n                \$id=@me;\n                \$sql='Select * from dede_arctype where reid='.\$id.' ORDER BY id limit 0,20';\n                \$dsql->SetQuery(\$sql);\n                \$dsql->Execute();\n                while(\$row = \$dsql->GetArray()){\n                    \$url = str_replace(\"{cmspath}\",\"\",\$row['typedir']);\n                    \$str .='<a href=\"/plus/list.php?tid='.\$row[id].'\">'.\$row['typename'].'</a>';\n                    @me = \$str;\n                }                      \n                if(@me == \$id){\n                  @me ='';\n                }\n         [/field:id]\n         </div>\n      {/dede:sql}\n    </dd>\n    </dl>\n  </li>\n  ",1656,2999);
@@ -39,5 +40,33 @@ $z[20][4]['listsize']="5";
 $z[20][4]['listitem']="info,index,end,pre,next,pageno";
 $z[21]=Array("global","",10900,10932);
 $z[21][4]['name']="cfg_templets_skin";
+=======
+$z[5]=Array("include","",1418,1453);
+$z[5][4]['filename']="head.htm";
+$z[6]=Array("php"," if(!\$_GET['orderby']) { echo 'class=\"this\"'; } ",5796,5865);
+$z[7]=Array("field","",5899,5919);
+$z[7][4]['name']="typeid";
+$z[8]=Array("php"," if(\$_GET['orderby']=='lastpost') { echo 'class=\"this\"'; } ",5952,6032);
+$z[9]=Array("field","",6066,6086);
+$z[9][4]['name']="typeid";
+$z[10]=Array("php"," if(\$_GET['orderby']=='zan') { echo 'class=\"this\"'; } ",6150,6225);
+$z[11]=Array("field","",6259,6279);
+$z[11][4]['name']="typeid";
+$z[12]=Array("php"," if(\$_GET['orderby']=='click') { echo 'class=\"this\"'; } ",6338,6415);
+$z[13]=Array("field","",6449,6469);
+$z[13][4]['name']="typeid";
+$z[14]=Array("php"," if(\$_GET['orderby']=='scores') { echo 'class=\"this\"'; } ",6530,6608);
+$z[15]=Array("field","",6642,6662);
+$z[15][4]['name']="typeid";
+$z[16]=Array("list","\n             <div class=\"border\">\n              <div class=\"grid-demo\"> <a href=\"[field:arcurl/]\" class=\"show\"> <img src=\"[field:picname function='thumb(@me,450,300)'/]\" /><!-- [field:picname/] -->\n                <div class=\"shadow\" style=\"display:none;\"> [field:title/] </div>\n                </a>\n                <div class=\"cgiarc\">\n                  <h3><a href=\"[field:arcurl/]\">[field:title/]</a></h3>\n                  <div class=\"tag\"><strong><!-- <a href=\"#\" target=\"_blank\">超写实</a> <a href=\"#\" target=\"_blank\">模型</a> <a href=\"#\" target=\"_blank\">预售</a> <a href=\"#\" target=\"_blank\">场景</a> </li> -->\n                    \n\n[field:id runphp='yes']\nglobal \$cfg_cmspath;\n\$tags = GetTags(@me);\n\$revalue = '';\n\$tags = explode(',', \$tags);\nforeach(\$tags as \$key => \$value){\n  if(\$value){\n    //\$revalue .= '<a href=\"'.\$cfg_cmspath.'/tags.php?/'.\$value.'/\">'.\$value.'</a> ';\n    \$revalue .= '<a href=\"javascript:;\">'.\$value.'</a> ';\n  }\n}\n@me = \$revalue;\n[/field:id] \n\n\n                    \n                  </strong></div>\n\n\n                  <div class=\"action\"> <span><i class=\"fa fa-eye\" aria-hidden=\"true\"></i>[field:click /]</span><span><i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i> [field:id function='cnum(@me)'/]</span><span class=\"handok\"><i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i>[field:id function='zan(@me)'/]</span></div>\n                </div>\n              </div>\n        </div>\n      ",6781,8257);
+$z[16][4]['pagesize']="50";
+$z[17]=Array("pagelist","",8337,8408);
+$z[17][4]['listsize']="5";
+$z[17][4]['listitem']="info,index,end,pre,next,pageno";
+$z[18]=Array("include","",8460,8495);
+$z[18][4]['filename']="foot.htm";
+$z[19]=Array("global","",8532,8564);
+$z[19][4]['name']="cfg_templets_skin";
+>>>>>>> 38a5a4dfd514e909cdccdce7aeab8b0b2d057f4d
 
 ?>

@@ -1,0 +1,57 @@
+<div class="header clearfix ctnt">
+    <div class="logo"><a href="/"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></a></div>
+
+
+<ul class="layui-nav">
+  <li class="layui-nav-item layui-this"> <a href="/">首页</a> </li>
+  {dede:channelartlist typeid='top' row='10' currentstyle="<li class='nactive'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>"}
+  <li class="layui-nav-item">
+    <!-- <a href="{dede:field name='typeurl'/}" >{dede:field name='typename' /}</a> -->
+    <a href="{dede:field name='typeurl'/}" >{dede:field name='typename' /}</a>
+    <dl class="layui-nav-child snav">
+    <dd>
+    {dede:sql sql='select * from dede_arctype where reid =~id~ '}
+        <a href="[field:id runphp='yes'] $id=@me; @me='/plus/list.php?tid='.$id; [/field:id]" class="btit">[field:typename/]</a>
+        <div class="snavfl clearfix">
+        [field:id runphp='yes']
+                global $dsql;
+                $id=@me;
+                $sql='Select * from dede_arctype where reid='.$id.' ORDER BY id limit 0,20';
+                $dsql->SetQuery($sql);
+                $dsql->Execute();
+                while($row = $dsql->GetArray()){
+                    $url = str_replace("{cmspath}","",$row['typedir']);
+                    $str .='<a href="/plus/list.php?tid='.$row[id].'">'.$row['typename'].'</a>';
+                    @me = $str;
+                }                      
+                if(@me == $id){
+                  @me ='';
+                }
+         [/field:id]
+         </div>
+      {/dede:sql}
+    </dd>
+    </dl>
+  </li>
+  {/dede:channelartlist}
+  {dede:php}
+  require_once(DEDEMEMBER."/config.php");
+  if(checkLogin()){
+    $src = !empty($cfg_ml->fields['face']) ? $cfg_ml->fields['face'] : '/templets/cgi/images/avatar1.gif';
+    echo '
+    <li class="layui-nav-item layui-nav-item1 usera" lay-unselect=""> <a href="javascript:;"><img src="'. $src .'" class="layui-nav-img">'.$uid.'</a><dl class="layui-nav-child"><dd><a href="/member/zh.php">个人中心</a></dd><dd><a id="login_out" href="/member/index_do.php?fmdo=login&dopost=exit">退出</a></dd></dl></li>';
+  }
+  {/dede:php}
+</ul>
+
+
+
+{dede:php}
+  require_once(DEDEMEMBER."/config.php");
+  if(!checkLogin()){
+    echo '
+    <div class="login"><a class="denglu" href="#">登录</a>|<a href="#" class="zhuce">注册</a></div>';
+  }
+{/dede:php}
+
+</div>
