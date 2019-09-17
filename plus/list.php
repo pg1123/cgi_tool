@@ -10,42 +10,43 @@
  * @link           http://www.dedecms.com
  */
 require_once(dirname(__FILE__)."/../include/common.inc.php");
+require_once(dirname(__FILE__)."/../include/helpers/archive.helper.php");
 
 //---------------------ajax滚动获取--------
 include_once DEDEINC.'/extend.func.php';  
 if(isset($_GET['ajax'])){
-  //传递过来的分类ID
-  $typeid = isset($_GET['typeid']) ? intval($_GET['typeid']): 0;
-  //页码
-  $page = isset($_GET['page']) ? intval($_GET['page']): 0;
-  //每页多少条,也就是一次加载多少条数据
-  $pagesize = isset($_GET['pagesize']) ? intval($_GET['pagesize']): 15;
-  //数据获取的起始位置。即limit条件的第一个参数。
-  $start = $page>0 ? ($page-1)*$pagesize : 0;
-  //这个是用于首页实现瀑布流加载,因为首页加载数据是无需分类的,所以要加以判断,如果无需
-  $typesql = $typeid ? " WHERE typeid=$typeid" : '';
-  $total_sql = "SELECT COUNT(id) as num FROM `dede_archives`  $typesql ";
-  $temp = $dsql->GetOne($total_sql);
+    //传递过来的分类ID
+    $typeid = isset($_GET['typeid']) ? intval($_GET['typeid']): 0;
+    //页码
+    $page = isset($_GET['page']) ? intval($_GET['page']): 0;
+    //每页多少条,也就是一次加载多少条数据
+    $pagesize = isset($_GET['pagesize']) ? intval($_GET['pagesize']): 15;
+    //数据获取的起始位置。即limit条件的第一个参数。
+    $start = $page>0 ? ($page-1)*$pagesize : 0;
+    //这个是用于首页实现瀑布流加载,因为首页加载数据是无需分类的,所以要加以判断,如果无需
+    $typesql = $typeid ? " WHERE typeid=$typeid" : '';
+    $total_sql = "SELECT COUNT(id) as num FROM `dede_archives`  $typesql ";
+    $temp = $dsql->GetOne($total_sql);
   $total = 0;//数据总数
   $load_num =0;
   //print_r($temp);exit;
   if(is_array($temp)){
-    //要加载的次数,因为默认已经加载了
-    $load_num= round(($temp['num']-0)/$pagesize);
-    $total = $temp['num'];
-  }
-  $sql = "SELECT a.*,t.typedir,t.typename,t.isdefault,t.defaultname,t.namerule,
+      //要加载的次数,因为默认已经加载了
+      $load_num= round(($temp['num']-0)/$pagesize);
+      $total = $temp['num'];
+    }
+    $sql = "SELECT a.*,t.typedir,t.typename,t.isdefault,t.defaultname,t.namerule,
         t.namerule2,t.ispart, t.moresite,t.siteurl,t.sitepath
         FROM `dede_archives` as a JOIN `dede_arctype` AS t ON a.typeid=t.id  
         $typesql ORDER BY id DESC LIMIT $start,$pagesize";
 //echo "$sql";
-   $dsql->SetQuery($sql);
-   $dsql->Execute('list');
-   $statu = 0;//是否有数据,默认没有数据
-   $data = array();
-     $index = 0;
+$dsql->SetQuery($sql);
+$dsql->Execute('list');
+$statu = 0;//是否有数据,默认没有数据
+$data = array();
+$index = 0;
 while($row = $dsql->GetArray("list")){
-     $row['info'] = $row['info'] = $row['infos'] = cn_substr($row['description'],160);
+    $row['info'] = $row['info'] = $row['infos'] = cn_substr($row['description'],160);
      $row['id'] =  $row['id'];
      $row['filename'] = $row['arcurl'] = GetFileUrl($row['id'],$row['typeid'],
      $row['senddate'],$row['title'],$row['ismake'],
@@ -55,23 +56,41 @@ while($row = $dsql->GetArray("list")){
      $row['isdefault'],$row['defaultname'],$row['ispart'],
      $row['namerule2'],$row['moresite'],$row['siteurl'],$row['sitepath']);
      if($row['litpic'] == '-' || $row['litpic'] == ''){
-        $row['litpic'] = $GLOBALS['cfg_cmspath'].'/images/defaultpic.gif';
-     }
-    if(!preg_match("#^http:\/\/#i", $row['litpic']) &&$GLOBALS['cfg_multi_site'] == 'Y'){
-       $row['litpic'] = $GLOBALS['cfg_mainsite'].$row['litpic'];
+         $row['litpic'] = $GLOBALS['cfg_cmspath'].'/images/defaultpic.gif';
+        }
+        if(!preg_match("#^http:\/\/#i", $row['litpic']) &&$GLOBALS['cfg_multi_site'] == 'Y'){
+            $row['litpic'] = $GLOBALS['cfg_mainsite'].$row['litpic'];
+        }
+        $row['picname'] = thumb($row['litpic'], 450, 300, $bg = true);//缩略图
+        $row['stime'] = GetDateMK($row['pubdate']);
+        $row['typelink'] = "".$row['typename']."";//分类链
+        $row['fulltitle'] = $row['title'];//完整的标题
+        $row['shorttitle'] = $row['shorttitle'];//副标题
+        $row['title'] = cn_substr($row['title'], 60);//截取后的标题
+        
+        //click ...
+        $row['click'] =  $row['click'];
+        $row['cnum'] =  cnum($row['id']);
+        $row['zan'] =  zan($row['id']);
+        //tag
+        global $cfg_cmspath;
+        $tags = GetTags($row['id']);
+        $revalue = '';
+        $tags = explode(',', $tags);
+        foreach($tags as $key => $value){
+            if($value){
+                //$revalue .= '<a href="'.$cfg_cmspath.'/tags.php?/'.$value.'/">'.$value.'</a> ';
+                $revalue .= '<a href="javascript:;">'.$value.'</a> ';
+            }
+        }
+        $row['tags'] = $revalue;
+        
+        $data[$index] = $row;
+        $index++;
     }
-  $row['picname'] = thumb($row['litpic'], 450, 300, $bg = true);//缩略图
-  $row['stime'] = GetDateMK($row['pubdate']);
-  $row['typelink'] = "".$row['typename']."";//分类链
-  $row['fulltitle'] = $row['title'];//完整的标题
-  $row['shorttitle'] = $row['shorttitle'];//副标题
-  $row['title'] = cn_substr($row['title'], 60);//截取后的标题
-  $data[$index] = $row;
-   $index++;
-}
-if(!empty($data)){
-   $statu = 1;//有数据
-}
+    if(!empty($data)){
+        $statu = 1;//有数据
+    }
 $result =array('statu'=>$statu,'list'=>$data,'total'=>$total,'load_num'=>$load_num);
 echo json_encode($result);//返回数据
 exit();
