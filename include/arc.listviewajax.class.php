@@ -1165,9 +1165,9 @@ class ListViewAjax
         //获得上一页和下一页的链接
         if($this->PageNo != 1)
         {
-        
-            $prepage.="<li><a href='javascript:ajax_url(\"".$purl."PageNo=$prepagenum\")'>上一页</a></li>\r\n";
-            $indexpage="<li><a href='javascript:ajax_url(\"".$purl."PageNo=1\")'>首页</a></li>\r\n";
+            //javascript:ajax_url(\"
+            $prepage.="<li><a href='".$purl."PageNo=$prepagenum\")'>上一页</a></li>\r\n";
+            $indexpage="<li><a href='".$purl."PageNo=1\")'>首页</a></li>\r\n";
         }
         else
         {
@@ -1176,8 +1176,8 @@ class ListViewAjax
         if($this->PageNo!=$totalpage && $totalpage>1)
         {
                 
-            $nextpage.="<li><a href='javascript:ajax_url(\"".$purl."PageNo=$nextpagenum\")'>下一页</a></li>\r\n";
-            $endpage="<li><a href='javascript:ajax_url(\"".$purl."PageNo=$totalpage\")'>末页</a></li>\r\n";
+            $nextpage.="<li><a href='".$purl."PageNo=$nextpagenum\")'>下一页</a></li>\r\n";
+            $endpage="<li><a href='".$purl."PageNo=$totalpage\")'>末页</a></li>\r\n";
         }
         else
         {
@@ -1213,7 +1213,7 @@ class ListViewAjax
             }
             else
             {
-                $listdd.="<li><a href='javascript:ajax_url(\"".$purl."PageNo=$j\")'>".$j."</a></li>\r\n";
+                $listdd.="<li><a href='".$purl."PageNo=$j\")'>".$j."</a></li>\r\n";
             }
         }
 
