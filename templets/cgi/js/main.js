@@ -1,9 +1,20 @@
 $(function(){
         
-    $(".show").hover(function() {
-      $(this).children(".shadow").show();
-    }, function() {
-      $(this).children(".shadow").hide();
+    // $(".show").hover(function() {
+    //   $(this).children(".shadow").show();
+    // }, function() {
+    //   $(this).children(".shadow").hide();
+    // });
+
+    // $(".show").on('', function(){
+    //     $(this).children(".shadow").show();
+    // });
+
+    $("body").on("mouseenter", ".show", function() {
+        $(this).children(".shadow").show();
+    });
+    $("body").on("mouseleave", ".show", function() {
+        $(this).children(".shadow").hide();
     });
 
 
@@ -195,6 +206,8 @@ $(function(){
             content: $('#getLink') //iframe的url
         });
     });
+
+
 
 
 });
