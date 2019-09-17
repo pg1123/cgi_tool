@@ -12,6 +12,7 @@
 require_once(dirname(__FILE__)."/../include/common.inc.php");
 
 //---------------------ajax滚动获取--------
+include_once DEDEINC.'/extend.func.php';  
 if(isset($_GET['ajax'])){
   //传递过来的分类ID
   $typeid = isset($_GET['typeid']) ? intval($_GET['typeid']): 0;
@@ -27,9 +28,10 @@ if(isset($_GET['ajax'])){
   $temp = $dsql->GetOne($total_sql);
   $total = 0;//数据总数
   $load_num =0;
+  //print_r($temp);exit;
   if(is_array($temp)){
     //要加载的次数,因为默认已经加载了
-    $load_num= round(($temp['num']-12)/$pagesize);
+    $load_num= round(($temp['num']-0)/$pagesize);
     $total = $temp['num'];
   }
   $sql = "SELECT a.*,t.typedir,t.typename,t.isdefault,t.defaultname,t.namerule,
@@ -58,7 +60,7 @@ while($row = $dsql->GetArray("list")){
     if(!preg_match("#^http:\/\/#i", $row['litpic']) &&$GLOBALS['cfg_multi_site'] == 'Y'){
        $row['litpic'] = $GLOBALS['cfg_mainsite'].$row['litpic'];
     }
-  $row['picname'] = $row['litpic'];//缩略图
+  $row['picname'] = thumb($row['litpic'], 450, 300, $bg = true);//缩略图
   $row['stime'] = GetDateMK($row['pubdate']);
   $row['typelink'] = "".$row['typename']."";//分类链
   $row['fulltitle'] = $row['title'];//完整的标题
