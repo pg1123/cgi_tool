@@ -1655,3 +1655,24 @@ Error: You have an error in your SQL syntax; check the manual that corresponds t
 Time2019-09-28 17:41:12
 */
 ?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=202
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-28 17:58:33
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=563
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-28 18:55:19
+*/
+?>
+<?php  exit();
+/*
+Page: /plus/view.php?aid=362
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-28 19:20:42
+*/
+?>
