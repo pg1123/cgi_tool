@@ -45,6 +45,14 @@
 </ul>
 
 
+<div class="search_cgi">
+  <form action="/plus/search.php" name="formsearch">
+    <input type="hidden" name="kwtype" value="0" />
+    <input type="text" name="q" placeholder ="请输入关键词" class="s_w" οnblur="if (this.value ==''){this.value=this.defaultValue}" οnclick="if(this.value=='请输入关键词')this.value=''"/>
+    <button>搜索</button>
+  </form>
+</div>
+
 
 {dede:php}
   require_once(DEDEMEMBER."/config.php");

@@ -6,6 +6,6 @@ $z[1][4]['typeid']="top";
 $z[1][4]['row']="10";
 $z[1][4]['currentstyle']="<li class='nactive'><a href='~typelink~' ~rel~><span>~typename~</span></a></li>";
 $z[2]=Array("php","\n  require_once(DEDEMEMBER.\"/config.php\");\n  if(checkLogin()){\n    \$src = !empty(\$cfg_ml->fields['face']) ? \$cfg_ml->fields['face'] : '/templets/cgi/images/avatar1.gif';\n    echo '\n    <li class=\"layui-nav-item layui-nav-item1 usera\" lay-unselect=\"\"> <a href=\"javascript:;\"><img src=\"'. \$src .'\" class=\"layui-nav-img\">'.\$uid.'</a><dl class=\"layui-nav-child\"><dd><a href=\"/member/zh.php\">个人中心</a></dd><dd><a id=\"login_out\" href=\"/member/index_do.php?fmdo=login&dopost=exit\">退出</a></dd></dl></li>';\n  }\n  ",1585,2121);
-$z[3]=Array("php","\n  require_once(DEDEMEMBER.\"/config.php\");\n  if(!checkLogin()){\n    echo '\n    <div class=\"login\"><a class=\"denglu\" href=\"#\">登录</a>|<a href=\"#\" class=\"zhuce\">注册</a></div>';\n  }\n",2131,2337);
+$z[3]=Array("php","\n  require_once(DEDEMEMBER.\"/config.php\");\n  if(!checkLogin()){\n    echo '\n    <div class=\"login\"><a class=\"denglu\" href=\"#\">登录</a>|<a href=\"#\" class=\"zhuce\">注册</a></div>';\n  }\n",2509,2715);
 
 ?>

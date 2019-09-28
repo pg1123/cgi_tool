@@ -1,0 +1,40 @@
+<?php
+$z[0]=Array("global","",377,403);
+$z[0][4]['name']="cfg_webname";
+$z[1]=Array("field","",404,423);
+$z[1][4]['name']="title";
+$z[2]=Array("global","",444,476);
+$z[2][4]['name']="cfg_templets_skin";
+$z[3]=Array("global","",541,573);
+$z[3][4]['name']="cfg_templets_skin";
+$z[4]=Array("global","",668,700);
+$z[4][4]['name']="cfg_templets_skin";
+$z[5]=Array("include","",1418,1453);
+$z[5][4]['filename']="head.htm";
+$z[6]=Array("php"," if(!\$_GET['orderby']) { echo 'class=\"this\"'; } ",5670,5739);
+$z[7]=Array("php"," if(!\$_GET['orderby']) { echo 'class=\"this\"'; } ",5806,5875);
+$z[8]=Array("field","",5909,5929);
+$z[8][4]['name']="typeid";
+$z[9]=Array("php"," if(\$_GET['orderby']=='lastpost') { echo 'class=\"this\"'; } ",5962,6042);
+$z[10]=Array("field","",6076,6096);
+$z[10][4]['name']="typeid";
+$z[11]=Array("php"," if(\$_GET['orderby']=='zan') { echo 'class=\"this\"'; } ",6160,6235);
+$z[12]=Array("field","",6269,6289);
+$z[12][4]['name']="typeid";
+$z[13]=Array("php"," if(\$_GET['orderby']=='click') { echo 'class=\"this\"'; } ",6348,6425);
+$z[14]=Array("field","",6459,6479);
+$z[14][4]['name']="typeid";
+$z[15]=Array("php"," if(\$_GET['orderby']=='scores') { echo 'class=\"this\"'; } ",6540,6618);
+$z[16]=Array("field","",6652,6672);
+$z[16][4]['name']="typeid";
+$z[17]=Array("list","\n             <div class=\"border\">\n              <div class=\"grid-demo\"> <a href=\"[field:arcurl/]\" class=\"show\"> <img src=\"[field:picname function='thumb(@me,450,300)'/]\" /><!-- [field:picname/] -->\n                <div class=\"shadow\" style=\"display:none;\"> [field:title/] </div>\n                </a>\n                <div class=\"cgiarc\">\n                  <h3><a href=\"[field:arcurl/]\">[field:title/]</a></h3>\n                  <div class=\"tag\"><strong><!-- <a href=\"#\" target=\"_blank\">超写实</a> <a href=\"#\" target=\"_blank\">模型</a> <a href=\"#\" target=\"_blank\">预售</a> <a href=\"#\" target=\"_blank\">场景</a> </li> -->\n                    \n\n[field:id runphp='yes']\nglobal \$cfg_cmspath;\n\$tags = GetTags(@me);\n\$revalue = '';\n\$tags = explode(',', \$tags);\nforeach(\$tags as \$key => \$value){\n  if(\$value){\n    //\$revalue .= '<a href=\"'.\$cfg_cmspath.'/tags.php?/'.\$value.'/\">'.\$value.'</a> ';\n    \$revalue .= '<a href=\"javascript:;\">'.\$value.'</a> ';\n  }\n}\n@me = \$revalue;\n[/field:id] \n\n\n                    \n                  </strong></div>\n\n\n                  <div class=\"action\"> <span><i class=\"fa fa-eye\" aria-hidden=\"true\"></i>[field:click /]</span><span><i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i> [field:id function='cnum(@me)'/]</span><span class=\"handok\"><i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i>[field:id function='zan(@me)'/]</span></div>\n                </div>\n              </div>\n        </div>\n      ",6795,8271);
+$z[17][4]['pagesize']="50";
+$z[18]=Array("pagelist","",8354,8425);
+$z[18][4]['listsize']="5";
+$z[18][4]['listitem']="info,index,end,pre,next,pageno";
+$z[19]=Array("include","",8477,8512);
+$z[19][4]['filename']="foot.htm";
+$z[20]=Array("global","",8549,8581);
+$z[20][4]['name']="cfg_templets_skin";
+
+?>
