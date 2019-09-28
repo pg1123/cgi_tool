@@ -1540,13 +1540,24 @@ Time2019-09-17 17:06:40
 ?>
 <?php  exit();
 /*
+<<<<<<< HEAD
+Page: /plus/view.php?aid=13
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-28 14:20:01
+=======
 Page: /plus/view.php?aid=140
 Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
 Time2019-09-28 12:20:29
+>>>>>>> 68758d67ba38c13db59b506c257320b3a3cd9707
 */
 ?>
 <?php  exit();
 /*
+<<<<<<< HEAD
+Page: /plus/view.php?aid=20
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
+Time2019-09-28 14:27:14
+=======
 Page: /plus/view.php?aid=123
 Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
 Time2019-09-28 12:20:35
@@ -1564,6 +1575,7 @@ Time2019-09-28 13:18:50
 Page: /plus/view.php?aid=446
 Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 <br />Error sql: <font color='red'>SELECT baidu_link FROM dede_addonarticle where aid =</font>
 Time2019-09-28 13:33:41
+>>>>>>> 68758d67ba38c13db59b506c257320b3a3cd9707
 */
 ?>
 <?php  exit();

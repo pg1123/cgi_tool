@@ -186,6 +186,10 @@ body{ background-color:#f7f7f7;}
     color: #ddd;
 }
 
+.search_cgi { position:absolute; right: 130px; top: 10px;
+}
+.search_cgi input{ height: 38px; line-height: 38px; border: none; border-radius: 2px 0 0 2px; padding: 0 10px; width: 250px; float: left;;}
+.search_cgi button{height: 38px; line-height: 38px; border: none; color: #fff;background-color: #0158ff; padding: 0 20px; cursor: pointer;; font-size: 16px;}
 
 
 

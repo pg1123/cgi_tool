@@ -1,5 +1,5 @@
 <?php
-$typeArr[20] = '3d-2';
+$typeArr[20] = 'jc-2';
 $typeArr[2] = '教程';
 $typeArr[14] = '3D软件';
 $typeArr[5] = '3D教程';

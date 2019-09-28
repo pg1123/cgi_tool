@@ -12,7 +12,7 @@
 require_once(dirname(__FILE__)."/../include/common.inc.php");
 require_once(DEDEINC."/arc.searchview.class.php");
 
-$pagesize = (isset($pagesize) && is_numeric($pagesize)) ? $pagesize : 10;
+$pagesize = (isset($pagesize) && is_numeric($pagesize)) ? $pagesize : 100;
 $typeid = (isset($typeid) && is_numeric($typeid)) ? $typeid : 0;
 $channeltype = (isset($channeltype) && is_numeric($channeltype)) ? $channeltype : 0;
 $kwtype = (isset($kwtype) && is_numeric($kwtype)) ? $kwtype : 0;
