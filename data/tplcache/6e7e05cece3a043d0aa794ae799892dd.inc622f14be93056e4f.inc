@@ -1,0 +1,10 @@
+<?php
+$z[0]=Array("field","",78,107);
+$z[0][4]['name']="typename";
+$z[1]=Array("field","",135,163);
+$z[1][4]['name']="typeurl";
+$z[2]=Array("arclist","\r\n              <div class=\"border\">\r\n              <div class=\"grid-demo\"> <a href=\"[field:arcurl/]\" class=\"show\"> <img src=\"[field:picname function='thumb(@me,366,284)'/]\" /><span class=\"new\">最新</span>\r\n                <div class=\"shadow\" style=\"display:none;\"> [field:description /] </div>\r\n                </a>\r\n                <div class=\"cgiarc\">\r\n                  <h3><a href=\"[field:arcurl/]\">[field:title /]</a></h3>\r\n                  <div class=\"tag\"><strong><!-- <a href=\"#\">插画</a></strong><strong><a href=\"#\">手绘</a></strong><strong><a href=\"#\">绘画</a></strong><strong><a href=\"#\">教程</a></strong><strong><a href=\"#\">场景</a></strong><strong><a href=\"#\">全景</a> -->\r\n[field:id runphp='yes']\r\nglobal \$cfg_cmspath;\r\n\$tags = GetTags(@me);\r\n\$revalue = '';\r\n\$tags = explode(',', \$tags);\r\nforeach(\$tags as \$key => \$value){\r\n  if(\$value){\r\n    //\$revalue .= '<a href=\"'.\$cfg_cmspath.'/tags.php?/'.\$value.'/\">'.\$value.'</a> ';\r\n    \$revalue .= '<a href=\"javascript:;\">'.\$value.'</a> ';\r\n  }\r\n}\r\n@me = \$revalue;\r\n[/field:id] \r\n\r\n                  </strong></div>\r\n                  <div class=\"action\"> <span><i class=\"fa fa-eye\" aria-hidden=\"true\"></i>[field:click /]</span><span><i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i> [field:id function='cnum(@me)'/]</span><span class=\"handok\"><i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i>[field:id function='zan(@me)'/]</span></div>\r\n                </div>\r\n              </div>\r\n              </div>\r\n        ",286,1833);
+$z[2][4]['titlelen']="60";
+$z[2][4]['row']="5";
+
+?>

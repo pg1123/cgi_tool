@@ -1,0 +1,10 @@
+<?php
+$z[0]=Array("field","",78,107);
+$z[0][4]['name']="typename";
+$z[1]=Array("field","",135,163);
+$z[1][4]['name']="typeurl";
+$z[2]=Array("arclist","\r\n              <div class=\"border\">\r\n              <div class=\"grid-demo\"> <a href=\"[field:arcurl/]\" class=\"show\"> <img src=\"[field:litpic/]\" /><span class=\"new\">最新</span>\r\n                <div class=\"shadow\" style=\"display:none;\"> [field:description /] </div>\r\n                </a>\r\n                <div class=\"cgiarc\">\r\n                  <h3><a href=\"[field:arcurl/]\">[field:title /]</a></h3>\r\n                  <div class=\"tag\"><strong><!-- <a href=\"#\">插画</a></strong><strong><a href=\"#\">手绘</a></strong><strong><a href=\"#\">绘画</a></strong><strong><a href=\"#\">教程</a></strong><strong><a href=\"#\">场景</a></strong><strong><a href=\"#\">全景</a> -->\r\n                    \r\n                    {dede:sql sql=\"select * from dede_archives a left join dede_taglist t on a.id=t.aid where a.typeid=3 limit  10 \"}\r\n<a href='/tags.php?[field:tag /]'>[field:tag /]</a> | {/dede:sql}\r\n\r\n                  </strong></div>\r\n                  <div class=\"action\"> <span><i class=\"fa fa-eye\" aria-hidden=\"true\"></i>[field:click /]</span><span><i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i> [field:id function='cnum(@me)'/]</span><span class=\"handok\"><i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i>[field:id function='zan(@me)'/]</span></div>\r\n                </div>\r\n              </div>\r\n              </div>\r\n        ",286,1675);
+$z[2][4]['titlelen']="60";
+$z[2][4]['row']="5";
+
+?>
