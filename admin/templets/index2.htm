@@ -92,10 +92,10 @@ $addset .="<dd><a target='main' href='{$row->mancon}?channelid={$row->id}'><i cl
 }       
 echo $addset;
 ?>
-					<dd><a target="main" href="content_s_list.php"><i class="iconfont icon-menu"></i><cite>专题管理</cite></a><span class="label"><a href="spec_add.php" target="main"><i class="layui-icon">&#xe654;</i></a></span></dd>
+					<!-- <dd><a target="main" href="content_s_list.php"><i class="iconfont icon-menu"></i><cite>专题管理</cite></a><span class="label"><a href="spec_add.php" target="main"><i class="layui-icon">&#xe654;</i></a></span></dd> -->
 				</dl>
 				</li>
-				<li class="layui-nav-item"><a href="javascript:;"><i class="iconfont icon-browser"></i><cite>模型表单</cite><span class="layui-nav-more"></span></a>
+				<!-- <li class="layui-nav-item"><a href="javascript:;"><i class="iconfont icon-browser"></i><cite>模型表单</cite><span class="layui-nav-more"></span></a>
 				<dl class="layui-nav-child">
 					<dd><a target="main" href="mychannel_main.php"><i class="iconfont icon-menu"></i><cite>内容模型管理</cite></a></dd>
 					<dd><a target="main" href="templets_one.php"><i class="iconfont icon-menu"></i><cite>单页文档管理</cite></a></dd>
@@ -103,7 +103,7 @@ echo $addset;
 					<dd><a target="main" href="freelist_main.php"><i class="iconfont icon-menu"></i><cite>自由列表管理</cite></a></dd>
 					<dd><a target="main" href="diy_main.php"><i class="iconfont icon-menu"></i><cite>自定义表单</cite></a></dd>
 				</dl>
-				</li>
+				</li> -->
 				<li class="layui-nav-item"><a href="javascript:;"><i class="iconfont icon-refresh"></i><cite>生成更新</cite><span class="layui-nav-more"></span></a>
 				<dl class="layui-nav-child">
 					<dd><a target="main" href="makehtml_all.php"><i class="iconfont icon-menu"></i><cite>生成整站</cite></a></dd>
@@ -153,21 +153,18 @@ echo $addset;
 				</dl>
 				</li>
 <?php
-GetMenus($cuserLogin->getUserRank(),'module');
+//GetMenus($cuserLogin->getUserRank(),'module');
 ?>
 				<li class="layui-nav-item"><a href="javascript:;"><i class="iconfont icon-my"></i><cite>会员管理</cite><span class="layui-nav-more"></span></a>
 				<dl class="layui-nav-child">
 					<dd><a target="main" href="member_main.php"><i class="iconfont icon-menu"></i><cite>注册会员列表</cite></a></dd>
 					<dd><a target="main" href="member_rank.php"><i class="iconfont icon-menu"></i><cite>会员级别设置</cite></a></dd>
-					<dd><a target="main" href="member_scores.php"><i class="iconfont icon-menu"></i><cite>积分头衔设置</cite></a></dd>
-					<dd><a target="main" href="member_model_main.php"><i class="iconfont icon-menu"></i><cite>会员模型管理</cite></a></dd>
-					<dd><a target="main" href="member_pm.php"><i class="iconfont icon-menu"></i><cite>会员短信管理</cite></a></dd>
+				
 					<dd><a target="main" href="member_guestbook.php"><i class="iconfont icon-menu"></i><cite>会员留言管理</cite></a></dd>
-					<dd><a target="main" href="member_info_main.php?type=feed"><i class="iconfont icon-menu"></i><cite>会员动态管理</cite></a></dd>
-					<dd><a target="main" href="member_info_main.php?type=mood"><i class="iconfont icon-menu"></i><cite>会员心情管理</cite></a></dd>
+					
 				</dl>
 				</li>
-				<li class="layui-nav-item"><a href="javascript:;"><i class="iconfont icon-cart"></i><cite>支付工具</cite><span class="layui-nav-more"></span></a>
+				<!-- <li class="layui-nav-item"><a href="javascript:;"><i class="iconfont icon-cart"></i><cite>支付工具</cite><span class="layui-nav-more"></span></a>
 				<dl class="layui-nav-child">
 					<dd><a target="main" href="cards_type.php"><i class="iconfont icon-menu"></i><cite>点卡产品分类</cite></a></dd>
 					<dd><a target="main" href="cards_manage.php"><i class="iconfont icon-menu"></i><cite>点卡产品管理</cite></a></dd>
@@ -177,7 +174,7 @@ GetMenus($cuserLogin->getUserRank(),'module');
 					<dd><a target="main" href="sys_payment.php"><i class="iconfont icon-menu"></i><cite>支付接口设置</cite></a></dd>
 					<dd><a target="main" href="shops_delivery.php"><i class="iconfont icon-menu"></i><cite>配货方式设置</cite></a></dd>
 				</dl>
-				</li>
+				</li> -->
 				<li class="layui-nav-item"><a href="javascript:;"><i class="iconfont icon-mail"></i><cite>批量维护</cite><span class="layui-nav-more"></span></a>
 				<dl class="layui-nav-child">
 					<dd><a target="main" href="content_batch_up.php"><i class="iconfont icon-menu"></i><cite>文档批量维护</cite></a></dd>
@@ -189,7 +186,7 @@ GetMenus($cuserLogin->getUserRank(),'module');
 					<dd><a target="main" href="sys_data_replace.php"><i class="iconfont icon-menu"></i><cite>数据库内容替换</cite></a></dd>
 				</dl>
 				</li>
-				<li class="layui-nav-item"><a href="javascript:;"><i class="iconfont icon-download"></i><cite>采集管理</cite><span class="layui-nav-more"></span></a>
+				<!-- <li class="layui-nav-item"><a href="javascript:;"><i class="iconfont icon-download"></i><cite>采集管理</cite><span class="layui-nav-more"></span></a>
 				<dl class="layui-nav-child">
 					<dd><a target="main" href="co_main.php"><i class="iconfont icon-menu"></i><cite>采集节点管理</cite></a></dd>
 					<dd><a target="main" href="co_url.php"><i class="iconfont icon-menu"></i><cite>临时内容管理</cite></a></dd>
@@ -197,7 +194,7 @@ GetMenus($cuserLogin->getUserRank(),'module');
 					<dd><a target="main" href="co_gather_start.php"><i class="iconfont icon-menu"></i><cite>监控采集模式</cite></a></dd>
 					<dd><a target="main" href="co_do.php?dopost=coall"><i class="iconfont icon-menu"></i><cite>采集未下载内容</cite></a></dd>
 				</dl>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</div>
