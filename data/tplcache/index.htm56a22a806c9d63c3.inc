@@ -21,7 +21,7 @@ $z[7]=Array("include","",9639,9674);
 $z[7][4]['filename']="foot.htm";
 $z[8]=Array("global","",9693,9725);
 $z[8][4]['name']="cfg_templets_skin";
-$z[9]=Array("field","",10420,10447);
+$z[9]=Array("field","",10508,10535);
 $z[9][4]['name']="typeid";
 
 ?>
