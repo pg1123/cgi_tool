@@ -231,14 +231,17 @@ foreach($tags as $key => $value){
 <script type="text/javascript">
 $(function(){ 
     //滚动获取文章列表 ----start------------------------------
+    var isGetData = false;
     $(window).scroll(function(){ 
+        if (isGetData) return;
         //获取当前文档的高度
         var docHeight = $(document).height();
         //获取当前滚动条的高度
         var scrollTop = $(this).scrollTop();
         //获取当前可视区的高度
         var height = $(this).height();
-        if((docHeight-scrollTop-height)<=20){ 
+        if((docHeight-scrollTop-height)<=20){
+          isGetData = true;
            loadMoreApply(); 
         }
     });
@@ -274,6 +277,7 @@ $(function(){
                     success: function(data) {
                         //alert(data);
                         addContent(data);
+                        isGetData = false;
                     }
                 });
             }
