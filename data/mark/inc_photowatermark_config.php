@@ -9,6 +9,6 @@ $photo_watertext = 'www.cg3dd.com';
 $photo_fontsize = '30';
 $photo_fontcolor = '0,0,0';
 $photo_marktrans = '100';
-$photo_diaphaneity = '30';
+$photo_diaphaneity = '10';
 $photo_markimg = 'mark.png';
 ?>
