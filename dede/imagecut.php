@@ -65,7 +65,7 @@ elseif($action == 'cut')
             break;
     }
 
-    imagecopyresized($thumb, $source, 0, 0, 0, 0 , $newwidth, $newheight, $imgw, $imgh);
+    imagecopyresampled($thumb, $source, 0, 0, 0, 0 , $newwidth, $newheight, $imgw, $imgh);
     imagecopy($thumba, $thumb, 0, 0, $left, $top, $newwidth, $newheight);
 
     $ddn = substr($srcFile, -3);
